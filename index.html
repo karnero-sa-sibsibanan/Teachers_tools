@@ -3,54 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your App Name - Secure Download Store</title>
+    <title>Download App Store</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body class="bg-gray-900 text-gray-100 font-sans antialiased">
+<body class="bg-gray-950 text-gray-100 font-sans antialiased min-h-screen flex flex-col justify-between">
 
-    <main class="max-w-4xl mx-auto px-6 py-20 text-center flex flex-col items-center justify-center min-h-screen">
-        
-        <div class="w-24 h-24 bg-blue-600 rounded-3xl flex items-center justify-center shadow-lg shadow-blue-500/20 mb-8">
-            <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+    <header class="max-w-5xl w-full mx-auto px-6 py-6 flex justify-between items-center border-b border-gray-800">
+        <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center font-bold text-white text-sm">A</div>
+            <span class="text-lg font-bold tracking-tight text-white">AppStudio</span>
         </div>
+        <span class="text-xs bg-gray-800 text-gray-400 px-3 py-1 rounded-full border border-gray-700">Verified Secure</span>
+    </header>
 
-        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-4">
-            Your App Name <span class="text-blue-500">v1.0</span>
-        </h1>
+    <main class="max-w-4xl mx-auto px-6 py-16 text-center flex flex-col items-center justify-center flex-grow">
         
-        <p class="text-xl text-gray-400 max-w-2xl mb-12">
-            Add a powerful, one-sentence description of what your application does here. Make it compelling so people want to download it immediately.
+        <h1 class="text-4xl md:text-5xl font-black tracking-tight text-white mb-4">
+            Unlock the Full Power of <span class="text-blue-500">Your App</span>
+        </h1>
+        <p class="text-lg text-gray-400 max-w-xl mb-12">
+            Get instant access to the official executable setup. Fully packaged, secure, and ready to install on your machine.
         </p>
 
         <div class="grid md:grid-cols-2 gap-6 w-full max-w-2xl text-left">
             
-            <div class="bg-gray-800 p-6 rounded-2xl border border-gray-700 flex flex-col justify-between">
+            <div class="bg-gray-900 p-6 rounded-2xl border border-gray-800 hover:border-blue-500/50 transition duration-300 flex flex-col justify-between shadow-xl">
                 <div>
-                    <h3 class="text-lg font-bold text-white mb-2">Get Full Version</h3>
-                    <p class="text-sm text-gray-400 mb-6">Unlock all premium features. Instant manual delivery after e-wallet verification.</p>
+                    <span class="text-xs font-bold text-blue-500 tracking-wider uppercase">Best Value</span>
+                    <h3 class="text-xl font-bold text-white mt-1 mb-2">Lifetime Premium License</h3>
+                    <p class="text-sm text-gray-400 mb-6">Unlock all premium software capabilities. Manual email verification processing.</p>
                 </div>
-                <a href="YOUR_GOOGLE_FORM_URL_HERE" target="_blank" class="w-full text-center bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 px-4 rounded-xl transition duration-200 block shadow-lg shadow-blue-600/20">
-                    Buy Now ($5.00)
-                </a>
+                <div>
+                    <div class="text-2xl font-extrabold text-white mb-4">$5.00 <span class="text-xs font-normal text-gray-500">one-time</span></div>
+                    <a href="YOUR_GOOGLE_FORM_URL_HERE" target="_blank" class="w-full text-center bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 px-4 rounded-xl transition duration-200 block shadow-lg shadow-blue-600/30">
+                        Order & Pay Safely
+                    </a>
+                </div>
             </div>
 
-            <div class="bg-gray-800/50 p-6 rounded-2xl border border-gray-700/60 flex flex-col justify-between">
+            <div class="bg-gray-900/40 p-6 rounded-2xl border border-gray-800/80 flex flex-col justify-between">
                 <div>
-                    <h3 class="text-lg font-bold text-gray-300 mb-2">Try Free Demo</h3>
-                    <p class="text-sm text-gray-400 mb-6">Test basic features completely free before buying. Packaged installer format.</p>
+                    <span class="text-xs font-bold text-gray-500 tracking-wider uppercase">Evaluation</span>
+                    <h3 class="text-xl font-bold text-gray-300 mt-1 mb-2">Free Trial / Demo</h3>
+                    <p class="text-sm text-gray-400 mb-6">Test drive standard features completely free. Direct installer package download.</p>
                 </div>
-                <a href="YOUR_GOOGLE_DRIVE_DEMO_URL_HERE" target="_blank" class="w-full text-center bg-gray-700 hover:bg-gray-600 text-gray-200 font-semibold py-3 px-4 rounded-xl transition duration-200 block">
-                    Download Demo
-                </a>
+                <div>
+                    <div class="text-2xl font-extrabold text-gray-400 mb-4">Free <span class="text-xs font-normal text-gray-600">limited version</span></div>
+                    <a href="YOUR_GOOGLE_DRIVE_DEMO_URL_HERE" target="_blank" class="w-full text-center bg-gray-800 hover:bg-gray-700 text-gray-300 font-semibold py-3 px-4 rounded-xl transition duration-200 block">
+                        Download Demo (.exe)
+                    </a>
+                </div>
             </div>
 
         </div>
 
-        <footer class="mt-24 text-xs text-gray-500">
-            <p>&copy; 2026 Your Name / Studio. Secured and hosted natively on GitHub.</p>
-        </footer>
-
     </main>
+
+    <footer class="max-w-5xl w-full mx-auto px-6 py-8 text-center border-t border-gray-900 text-xs text-gray-600">
+        <p>&copy; 2026 AppStudio. Deliveries processed securely. Hosted via GitHub Pages with SSL Encryption.</p>
+    </footer>
 
 </body>
 </html>
