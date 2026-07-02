@@ -45,13 +45,16 @@
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="md:col-span-2 space-y-8">
                     
-                    <div class="space-y-4">
-                        <div class="aspect-video bg-gray-900 rounded-2xl overflow-hidden border border-gray-800 shadow-2xl relative">
+                    <div class="space-y-6">
+                        <div class="aspect-video bg-gray-900 rounded-2xl overflow-hidden border border-gray-800 shadow-2xl">
                             <iframe id="appYoutubeVideo" class="w-full h-full" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                         </div>
 
-                        <div class="aspect-video bg-gray-900 rounded-2xl overflow-hidden border border-gray-800 shadow-2xl">
-                            <img id="appScreenshot1" src="" alt="App Preview Screenshot" class="w-full h-full object-cover">
+                        <div class="space-y-2">
+                            <span class="text-[11px] font-bold text-gray-500 uppercase tracking-wider px-1">Product Screenshots (Swipe to view)</span>
+                            <div id="screenshotGallery" class="flex gap-4 overflow-x-auto pb-3 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-gray-800 scrollbar-track-transparent">
+                                <!-- Horizontal images load here directly -->
+                            </div>
                         </div>
                     </div>
 
@@ -101,16 +104,16 @@
                 name: "DataExtractor Pro",
                 category: "productivity",
                 version: "v1.2.4",
-                rating: "★★★★★ (waiting for reviews...)",
+                rating: "⭐⭐⭐⭐★ (4.8/5)",
                 price: "$5.00",
                 description: "DataExtractor Pro is an enterprise-grade automated data extraction platform engineered to crawl and index deep logical dataset structures.",
-                
-                
                 youtubeId: "dQw4w9WgXcQ", 
-                
-                // Base64 Scrambled Security Layers (Keep these encoded!)
                 secureIconUrl: "YUhSMGNITTZMeTluYjI5bmFXVXVaMnhsTDJGemQzSmxZMmhoYm5SdmNuUnZjbVV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw==",
-                secureScreenshotUrl: "YUhSMGNITTZMeTluYjI5bmFXVXVaMnhsTDJGemQzSmxZMmhoYm5SdmNuUnZjbVV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw==",
+                secureScreenshots: [
+                    "YUhSMGNITTZMeTluYjI5bmFXVXVaMnhsTDJGemQzSmxZMmhoYm5SdmNuUnZjbVV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw==",
+                    "YUhSMGNITTZMeTluYjI5bmFXVXVaMnhsTDJGemQzSmxZMmhoYm5SdmNuUnZjbVV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw==",
+                    "YUhSMGNITTZMeTluYjI5bmFXVXVaMnhsTDJGemQzSmxZMmhoYm5SdmNuUnZjbVV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw=="
+                ],
                 secureBuyUrl: "YUhSMGNITTZMeTluYjI5bmFXVXVaMnhsTDJGemQzSmxZMmhoYm5SdmNuUnZjbVV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw==",
                 secureDemoId: "bXktZ29vZ2xlLWRyaXZlLWZpbGUtaWQtcGxhY2Vob2xkZXI=", 
                 secureFbUrl: "YUhSMGNITTZMeTkzZDNjdVptRmphMkZ2YjIzdUkyTnZiUzkxY21zdmFHRjNaVzU2YVdVeU1UWTBOalV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw=="
@@ -119,15 +122,15 @@
                 name: "FileCompressor Ultra",
                 category: "utilities",
                 version: "v2.0.0",
-                rating: "★★★★★ (waiting for reviews...)",
+                rating: "⭐⭐⭐⭐⭐ (5.0/5)",
                 price: "$4.50",
                 description: "Engineered cleanly for rapid distribution structures, FileCompressor Ultra leverages a proprietary multi-thread folding pipeline.",
-                
-                
                 youtubeId: "dQw4w9WgXcQ",
-                
                 secureIconUrl: "YUhSMGNITTZMeTluYjI5bmFXVXVaMnhsTDJGemQzSmxZMmhoYm5SdmNuUnZjbVV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw==",
-                secureScreenshotUrl: "YUhSMGNITTZMeTluYjI5bmFXVXVaMnhsTDJGemQzSmxZMmhoYm5SdmNuUnZjbVV1YUhSMGNEb3ZMdw==",
+                secureScreenshots: [
+                    "YUhSMGNITTZMeTluYjI5bmFXVXVaMnhsTDJGemQzSmxZMmhoYm5SdmNuUnZjbVV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw==",
+                    "YUhSMGNITTZMeTluYjI5bmFXVXVaMnhsTDJGemQzSmxZMmhoYm5SdmNuUnZjbVV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw=="
+                ],
                 secureBuyUrl: "YUhSMGNITTZMeTluYjI5bmFXVXVaMnhsTDJGemQzSmxZMmhoYm5SdmNuUnZjbVV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw==",
                 secureDemoId: "YW5vdGhlci1maWxlLWlkLXBsYWNlaG9sZGVy", 
                 secureFbUrl: "YUhSMGNITTZMeTkzZDNjdVptRmphMkZ2YjIzdUkyTnZiUzkxY21zdmFHRjNaVzU2YVdVeU1UWTBOalV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw=="
@@ -146,20 +149,35 @@
             document.getElementById('appPrice').innerText = data.price;
             document.getElementById('appDescription').innerText = data.description;
 
-            
             if (data.youtubeId) {
                 document.getElementById('appYoutubeVideo').src = `https://www.youtube.com/embed/${data.youtubeId}?autoplay=1&mute=1&rel=0`;
             }
 
-            // Secure Real-Time Image Decryption Pipeline
             try {
-                if (data.secureIconUrl) document.getElementById('appIcon').src = atob(data.secureIconUrl);
-                if (data.secureScreenshotUrl) document.getElementById('appScreenshot1').src = atob(data.secureScreenshotUrl);
+                if (data.secureIconUrl) {
+                    document.getElementById('appIcon').src = atob(data.secureIconUrl);
+                }
+
+                const galleryContainer = document.getElementById('screenshotGallery');
+                if (data.secureScreenshots && data.secureScreenshots.length > 0) {
+                    data.secureScreenshots.forEach((scrambledUrl, index) => {
+                        const clearUrl = atob(scrambledUrl);
+                        const wrapper = document.createElement('div');
+                        wrapper.className = "min-w-[85%] sm:min-w-[70%] aspect-video bg-gray-950 rounded-xl overflow-hidden border border-gray-900 snap-start flex-shrink-0 shadow-md";
+                        
+                        const img = document.createElement('img');
+                        img.src = clearUrl;
+                        img.alt = `Application view panel frame ${index + 1}`;
+                        img.className = "w-full h-full object-cover";
+                        
+                        wrapper.appendChild(img);
+                        galleryContainer.appendChild(wrapper);
+                    });
+                }
             } catch (err) {
-                console.error("Media rendering anomaly detected.");
+                console.error("Secure asset stream compilation breakdown:", err);
             }
             
-            // Interaction Event Listeners for Purchase Buttons
             document.getElementById('secureBuyBtn').addEventListener('pointerdown', function() {
                 if(data.secureBuyUrl) this.href = atob(data.secureBuyUrl);
             });
