@@ -100,7 +100,8 @@
                 buyLink: "YOUR_GOOGLE_FORM_FOR_DATA_EXTRACTOR",
                 demoLink: "https://drive.google.com/uc?export=download&id=YOUR_ZIP_FILE_ID_FOR_EXTRACTOR",
                 iconLink: "https://drive.google.com/thumbnail?id=YOUR_ICON_ID_1&sz=w200",
-                screenshot1: "https://drive.google.com/thumbnail?id=YOUR_SCREENSHOT_ID_1&sz=w1200"
+                screenshot1: "https://drive.google.com/thumbnail?id=YOUR_SCREENSHOT_ID_1&sz=w1200",
+                fbPost: "https://www.facebook.com/YourPageName/posts/YOUR_SPECIFIC_POST_ID"
             },
             "file-compressor": {
                 name: "FileCompressor Ultra",
@@ -111,7 +112,8 @@
                 buyLink: "YOUR_GOOGLE_FORM_FOR_COMPRESSOR",
                 demoLink: "https://drive.google.com/uc?export=download&id=YOUR_ZIP_FILE_ID_FOR_COMPRESSOR",
                 iconLink: "https://drive.google.com/thumbnail?id=YOUR_ICON_ID_2&sz=w200",
-                screenshot1: "https://drive.google.com/thumbnail?id=YOUR_SCREENSHOT_ID_2&sz=w1200"
+                screenshot1: "https://drive.google.com/thumbnail?id=YOUR_SCREENSHOT_ID_2&sz=w1200",
+                fbPost: "https://www.facebook.com/YourPageName/posts/YOUR_SPECIFIC_POST_ID"
             }
         };
 
@@ -130,6 +132,8 @@
             document.getElementById('demoBtn').href = data.demoLink;
             document.getElementById('appIcon').src = data.iconLink;
             document.getElementById('appScreenshot1').src = data.screenshot1;
+            document.getElementById('productContent').classList.remove('hidden');
+            document.getElementById('fbReviewBtn').href = data.fbPost; // Maps the Facebook button dynamically
             document.getElementById('productContent').classList.remove('hidden');
         } else {
             document.getElementById('errorContent').classList.remove('hidden');
