@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AppStudio Hub - Official Store</title>
+    <title>Karnero Sa Sibsibanan - Official Hub</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body class="bg-gray-950 text-gray-100 font-sans antialiased min-h-screen flex flex-col justify-between">
@@ -11,8 +11,8 @@
     <nav class="border-b border-gray-900 bg-gray-950/80 backdrop-blur sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="flex items-center space-x-3 group">
-                <img src="logo.png" alt="AppStudio Logo" class="h-9 w-auto rounded-lg">
-                <span class="text-xl font-black tracking-tight text-white group-hover:text-gray-200 transition">AppStudio</span>
+                <img src="logo.png" alt="Karnero Sa Sibsibanan Logo" class="h-9 w-auto rounded-lg">
+                <span class="text-xl font-black tracking-tight text-white group-hover:text-gray-200 transition">Karnero Sa Sibsibanan</span>
             </a>
             <div class="flex items-center space-x-6 text-sm font-medium text-gray-400">
                 <a href="index.html" class="text-blue-500 font-semibold">Catalog</a>
@@ -24,13 +24,19 @@
     <main class="max-w-6xl w-full mx-auto px-6 py-12 flex-grow">
         <div class="flex flex-col md:flex-row md:items-center justify-between mb-12 gap-6">
             <div>
-                <h1 class="text-3xl font-black tracking-tight text-white mb-2">Explore Applications</h1>
-                <p class="text-sm text-gray-400">Find, test, and purchase production-ready tools instantly.</p>
+                <h1 class="text-3xl font-black tracking-tight text-white mb-2">Application Ecosystem</h1>
+                <p class="text-sm text-gray-400">Explore premium, secure, and production-ready local environments.</p>
             </div>
             
             <div class="relative w-full md:w-80">
-                <input type="text" id="catalogSearch" onkeyup="filterCatalog()" placeholder="Search apps, utilities, versions..." class="w-full bg-gray-900/50 text-sm text-white px-4 py-3 rounded-xl border border-gray-800 focus:outline-none focus:border-blue-500 transition shadow-inner">
+                <input type="text" id="catalogSearch" onkeyup="filterCatalog()" placeholder="Search apps or versions..." class="w-full bg-gray-900/50 text-sm text-white px-4 py-3 rounded-xl border border-gray-800 focus:outline-none focus:border-blue-500 transition shadow-inner">
             </div>
+        </div>
+
+        <div class="flex items-center space-x-2 mb-8 overflow-x-auto pb-2 border-b border-gray-950">
+            <button onclick="setCategory('All')" id="catBtn-All" class="px-4 py-2 text-xs font-semibold rounded-lg bg-blue-600 text-white transition cursor-pointer">All Apps</button>
+            <button onclick="setCategory('Automation')" id="catBtn-Automation" class="px-4 py-2 text-xs font-semibold rounded-lg bg-gray-900 text-gray-400 hover:bg-gray-800 transition cursor-pointer">Automation</button>
+            <button onclick="setCategory('Utilities')" id="catBtn-Utilities" class="px-4 py-2 text-xs font-semibold rounded-lg bg-gray-900 text-gray-400 hover:bg-gray-800 transition cursor-pointer">Utilities</button>
         </div>
 
         <div id="catalogGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
@@ -38,7 +44,7 @@
 
     <footer class="border-t border-gray-900 bg-gray-950 text-xs text-gray-500 py-8">
         <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p>&copy; 2026 AppStudio. Fully authenticated executable distribution node.</p>
+            <p>&copy; 2026 Karnero Sa Sibsibanan. Secured application distribution asset nodes.</p>
             <div class="flex space-x-4">
                 <a href="privacy.html" class="hover:underline text-gray-400">Privacy Policy</a>
             </div>
@@ -46,39 +52,78 @@
     </footer>
 
     <script>
+        // Current Category State
+        let currentCategory = "All";
+
+        // APP DATABASE WITH CATEGORY PROPERTY Added
         const appStore = [
             {
                 id: "data-extractor",
                 name: "DataExtractor Pro",
+                category: "Automation",
                 version: "v1.2.4",
                 summary: "Automate complex background web scraping routines and bulk operations safely.",
                 price: "$5.00",
-                rating: "⭐⭐⭐⭐★ (4.8)"
+                rating: "⭐⭐⭐⭐★ (4.8)",
+                iconLink: "https://drive.google.com/thumbnail?id=YOUR_ICON_ID_1&sz=w100"
             },
             {
                 id: "file-compressor",
                 name: "FileCompressor Ultra",
+                category: "Utilities",
                 version: "v2.0.0",
                 summary: "High-tier file asset compression system built directly for software distribution frameworks.",
                 price: "$4.50",
-                rating: "⭐⭐⭐⭐⭐ (5.0)"
+                rating: "⭐⭐⭐⭐⭐ (5.0)",
+                iconLink: "https://drive.google.com/thumbnail?id=YOUR_ICON_ID_2&sz=w100"
             }
         ];
+
+        function setCategory(category) {
+            currentCategory = category;
+            
+            // Reset active button styling
+            ["All", "Automation", "Utilities"].forEach(cat => {
+                const btn = document.getElementById(`catBtn-${cat}`);
+                if (cat === category) {
+                    btn.className = "px-4 py-2 text-xs font-semibold rounded-lg bg-blue-600 text-white transition cursor-pointer";
+                } else {
+                    btn.className = "px-4 py-2 text-xs font-semibold rounded-lg bg-gray-900 text-gray-400 hover:bg-gray-800 transition cursor-pointer";
+                }
+            });
+
+            filterCatalog();
+        }
+
+        function filterCatalog() {
+            const searchVal = document.getElementById('catalogSearch').value.toLowerCase();
+            
+            const filtered = appStore.filter(app => {
+                const matchesSearch = app.name.toLowerCase().includes(searchVal) || app.summary.toLowerCase().includes(searchVal);
+                const matchesCategory = (currentCategory === "All" || app.category === currentCategory);
+                return matchesSearch && matchesCategory;
+            });
+
+            drawCatalog(filtered);
+        }
 
         function drawCatalog(apps) {
             const container = document.getElementById('catalogGrid');
             container.innerHTML = "";
             if (apps.length === 0) {
-                container.innerHTML = `<p class="text-gray-500 col-span-full py-12 text-center text-sm">No software matching that description was found.</p>`;
+                container.innerHTML = `<p class="text-gray-500 col-span-full py-12 text-center text-sm">No applications found in this category.</p>`;
                 return;
             }
             apps.forEach(app => {
                 container.innerHTML += `
                     <div class="bg-gray-900/30 border border-gray-900 rounded-2xl p-6 flex flex-col justify-between hover:border-gray-800/80 transition group shadow-xl">
                         <div>
-                            <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-lg font-bold text-white group-hover:text-blue-400 transition">${app.name}</h3>
-                                <span class="text-[10px] font-mono tracking-wider px-2 py-0.5 bg-gray-900 border border-gray-800 rounded text-gray-400">${app.version}</span>
+                            <div class="flex items-center gap-4 mb-4 pb-4 border-b border-gray-900/50">
+                                <img src="${app.iconLink}" alt="${app.name}" class="w-12 h-12 rounded-xl bg-gray-900 object-cover error-fallback" onerror="this.style.display='none'">
+                                <div>
+                                    <h3 class="text-base font-bold text-white group-hover:text-blue-400 transition">${app.name}</h3>
+                                    <span class="text-[10px] font-mono tracking-wider px-1.5 py-0.5 bg-gray-900 border border-gray-800 rounded text-gray-400">${app.version}</span>
+                                </div>
                             </div>
                             <p class="text-xs text-yellow-500/80 font-medium mb-3">${app.rating}</p>
                             <p class="text-sm text-gray-400 line-clamp-3 mb-6">${app.summary}</p>
@@ -94,12 +139,7 @@
             });
         }
 
-        function filterCatalog() {
-            const val = document.getElementById('catalogSearch').value.toLowerCase();
-            const filtered = appStore.filter(a => a.name.toLowerCase().includes(val) || a.summary.toLowerCase().includes(val));
-            drawCatalog(filtered);
-        }
-
+        // Initialize view
         drawCatalog(appStore);
     </script>
 </body>
