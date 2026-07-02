@@ -34,7 +34,11 @@
                     <!-- SECURE DYNAMIC ICON ELEMENT -->
                     <img id="appIcon" src="" alt="App Icon" class="w-16 h-16 rounded-2xl bg-gray-900 border border-gray-800 object-cover">
                     <div>
-                        <h1 id="appName" class="text-2xl md:text-4xl font-black text-white tracking-tight mb-2">App Name</h1>
+                        <div class="flex items-center gap-2 mb-1">
+                            <h1 id="appName" class="text-2xl md:text-4xl font-black text-white tracking-tight">App Name</h1>
+                            <!-- DYNAMIC CATEGORY BADGE -->
+                            <span id="appCategoryBadge" class="text-[9px] uppercase font-bold tracking-wider bg-blue-950 border border-blue-900 text-blue-400 px-2 py-0.5 rounded-md h-fit mt-1">Category</span>
+                        </div>
                         <div class="flex items-center space-x-4">
                             <span id="appVersion" class="text-xs font-mono bg-gray-900 border border-gray-800 text-gray-400 px-2.5 py-1 rounded">v1.0.0</span>
                             <span id="appRating" class="text-xs text-yellow-500 font-medium">⭐⭐⭐⭐⭐</span>
@@ -101,38 +105,32 @@
 
     <!-- SECURITY MANAGEMENT PIPELINE -->
     <script>
-        // MASTER LOCKED VALUE DATABASE MAPPINGS
-        // ALL endpoint fields have been completely scrambled into Base64 formats.
+        // CENTRAL SECURE DATA DEPLOYMENT NODE
         const productsDatabase = {
             "data-extractor": {
                 name: "DataExtractor Pro",
+                category: "productivity",
                 version: "v1.2.4",
                 rating: "⭐⭐⭐⭐★ (4.8/5)",
                 price: "$5.00",
                 description: "DataExtractor Pro is an enterprise-grade automated data extraction platform engineered to crawl and index deep logical dataset structures.",
                 
-                // 1. SCRAMBLED ICON SOURCE LINK (Plain format: "https://drive.google.com/thumbnail?id=YOUR_ID&sz=w200")
+                // Base64 Scrambled Assets Matrix
                 secureIconUrl: "YUhSMGNITTZMeTluYjI5bmFXVXVaMnhsTDJGemQzSmxZMmhoYm5SdmNuUnZjbVV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw==",
-                
-                // 2. SCRAMBLED HIGH-RES SCREENSHOT LINK (Plain format: "https://drive.google.com/thumbnail?id=YOUR_ID&sz=w1200")
                 secureScreenshotUrl: "YUhSMGNITTZMeTluYjI5bmFXVXVaMnhsTDJGemQzSmxZMmhoYm5SdmNuUnZjbVV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw==",
-                
-                // 3. SCRAMBLED GOOGLE FORM PURCHASE LINK (Plain format: "https://forms.gle/XYZ...")
                 secureBuyUrl: "YUhSMGNITTZMeTluYjI5bmFXVXVaMnhsTDJGemQzSmxZMmhoYm5SdmNuUnZjbVV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw==",
-                
-                // 4. SCRAMBLED GOOGLE DRIVE ZIP FILE ID (Plain format: "1zXyWv...")
                 secureDemoId: "bXktZ29vZ2xlLWRyaXZlLWZpbGUtaWQtcGxhY2Vob2xkZXI=", 
-                
-                // 5. SCRAMBLED FACEBOOK FEEDBACK LINK (Plain format: "https://facebook.com/...")
                 secureFbUrl: "YUhSMGNITTZMeTkzZDNjdVptRmphMkZ2YjIzdUkyTnZiUzkxY21zdmFHRjNaVzU2YVdVeU1UWTBOalV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw=="
             },
             "file-compressor": {
                 name: "FileCompressor Ultra",
+                category: "utilities",
                 version: "v2.0.0",
                 rating: "⭐⭐⭐⭐⭐ (5.0/5)",
                 price: "$4.50",
                 description: "Engineered cleanly for rapid distribution structures, FileCompressor Ultra leverages a proprietary multi-thread folding pipeline.",
                 
+                // Base64 Scrambled Assets Matrix
                 secureIconUrl: "YUhSMGNITTZMeTluYjI5bmFXVXVaMnhsTDJGemQzSmxZMmhoYm5SdmNuUnZjbVV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw==",
                 secureScreenshotUrl: "YUhSMGNITTZMeTluYjI5bmFXVXVaMnhsTDJGemQzSmxZMmhoYm5SdmNuUnZjbVV1YUhSMGNEb3ZMdw==",
                 secureBuyUrl: "YUhSMGNITTZMeTluYjI5bmFXVXVaMnhsTDJGemQzSmxZMmhoYm5SdmNuUnZjbVV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw==",
@@ -141,14 +139,15 @@
             }
         };
 
-        // RUN PARAMETER MAPS ROUTER
+        // PARSE URL SEARCH STRINGS
         const params = new URLSearchParams(window.location.search);
         const appId = params.get('app');
         const data = productsDatabase[appId];
 
         if (data) {
-            // Map standard plain metadata text
+            // Apply text nodes safely to layout
             document.getElementById('appName').innerText = data.name;
+            document.getElementById('appCategoryBadge').innerText = data.category;
             document.getElementById('appVersion').innerText = data.version;
             document.getElementById('appRating').innerText = data.rating;
             document.getElementById('appPrice').innerText = data.price;
@@ -158,7 +157,7 @@
             // SECURE REAL-TIME DECRYPTION PIPELINE
             // -----------------------------------------------------------------
             try {
-                // Instant Decryption for Visual Interface Elements
+                // Immediate Decryption on layout parsing for structural media
                 if (data.secureIconUrl) {
                     document.getElementById('appIcon').src = atob(data.secureIconUrl);
                 }
@@ -166,37 +165,37 @@
                     document.getElementById('appScreenshot1').src = atob(data.secureScreenshotUrl);
                 }
             } catch (err) {
-                console.error("Visual resource compilation failure.");
+                console.error("Visual data streaming trace intercept error.");
             }
             
-            // Decrypt Purchase Form on User Pointer Down
+            // Decrypt purchase system entry points via real-time click triggers
             const buyButton = document.getElementById('secureBuyBtn');
             buyButton.addEventListener('pointerdown', function() {
                 if(data.secureBuyUrl) {
-                    try { this.href = atob(data.secureBuyUrl); } catch(err) { console.error("Link translation fail."); }
+                    try { this.href = atob(data.secureBuyUrl); } catch(err) { console.error("Asset link resolving error."); }
                 }
             });
 
-            // Decrypt Drive Download File ID on User Pointer Down
+            // Decrypt binary direct downstreams
             const demoButton = document.getElementById('secureDemoBtn');
             demoButton.addEventListener('pointerdown', function() {
                 if(data.secureDemoId) {
                     try {
                         const clearId = atob(data.secureDemoId);
                         this.href = `https://drive.google.com/uc?export=download&id=${clearId}`;
-                    } catch(err) { console.error("Link translation fail."); }
+                    } catch(err) { console.error("Asset link resolving error."); }
                 }
             });
 
-            // Decrypt Facebook Target Link on User Pointer Down
+            // Decrypt social validation routing matrices
             const fbButton = document.getElementById('secureFbReviewBtn');
             fbButton.addEventListener('pointerdown', function() {
                 if(data.secureFbUrl) {
-                    try { this.href = atob(data.secureFbUrl); } catch(err) { console.error("Link translation fail."); }
+                    try { this.href = atob(data.secureFbUrl); } catch(err) { console.error("Asset link resolving error."); }
                 }
             });
 
-            // Unlock Layout Window visibility
+            // Bring layout into sight
             document.getElementById('productContent').classList.remove('hidden');
         } else {
             document.getElementById('errorContent').classList.remove('hidden');
