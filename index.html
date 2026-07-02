@@ -3,144 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karnero Sa Sibsibanan - Official Hub</title>
+    <title>Software Repository Catalog</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body class="bg-gray-950 text-gray-100 font-sans antialiased min-h-screen flex flex-col justify-between">
 
+    <!-- NAVIGATION HEADER -->
     <nav class="border-b border-gray-900 bg-gray-950/80 backdrop-blur sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="flex items-center space-x-3 group">
+            <div class="flex items-center space-x-3">
                 <img src="logo.png" alt="Karnero Sa Sibsibanan Logo" class="h-9 w-auto rounded-lg">
-                <span class="text-xl font-black tracking-tight text-white group-hover:text-gray-200 transition">Karnero Sa Sibsibanan</span>
-            </a>
+                <span class="text-xl font-black tracking-tight text-white">Karnero Sa Sibsibanan</span>
+            </div>
             <div class="flex items-center space-x-6 text-sm font-medium text-gray-400">
-                <a href="index.html" class="text-blue-500 font-semibold">Catalog</a>
+                <a href="index.html" class="text-white transition">Catalog</a>
                 <a href="privacy.html" class="hover:text-white transition">Privacy</a>
             </div>
         </div>
     </nav>
 
-    <main class="max-w-6xl w-full mx-auto px-6 py-12 flex-grow">
-        <div class="flex flex-col md:flex-row md:items-center justify-between mb-12 gap-6">
-            <div>
-                <h1 class="text-3xl font-black tracking-tight text-white mb-2">Application Ecosystem</h1>
-                <p class="text-sm text-gray-400">Explore premium, secure, and production-ready local environments.</p>
-            </div>
+    <!-- MAIN MARKETPLACE INTERFACE -->
+    <main class="max-w-6xl mx-auto px-6 py-16 flex-grow w-full">
+        
+        <div class="mb-12">
+            <h1 class="text-3xl md:text-5xl font-black tracking-tight text-white mb-4">Application Catalog</h1>
+            <p class="text-gray-400 max-w-xl text-sm leading-relaxed">Select a software profile group to view secure operational deployment parameters, user telemetry reviews, and build files.</p>
+        </div>
+
+        <!-- FUTURE-PROOF CATEGORY CONTROLLERS -->
+        <div class="flex flex-wrap gap-2.5 mb-10">
+            <button onclick="filterCategory('all', event)" class="category-btn bg-blue-600 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition cursor-pointer">
+                All Systems
+            </button>
+            <button onclick="filterCategory('productivity', event)" class="category-btn bg-gray-900 hover:bg-gray-800 text-gray-300 text-xs font-bold px-4 py-2.5 rounded-xl transition cursor-pointer">
+                Productivity
+            </button>
+            <button onclick="filterCategory('utilities', event)" class="category-btn bg-gray-900 hover:bg-gray-800 text-gray-300 text-xs font-bold px-4 py-2.5 rounded-xl transition cursor-pointer">
+                Utilities
+            </button>
+        </div>
+
+        <!-- APPLICATION DEPLOYMENT GRID -->
+        <div id="catalogGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             
-            <div class="relative w-full md:w-80">
-                <input type="text" id="catalogSearch" onkeyup="filterCatalog()" placeholder="Search apps or versions..." class="w-full bg-gray-900/50 text-sm text-white px-4 py-3 rounded-xl border border-gray-800 focus:outline-none focus:border-blue-500 transition shadow-inner">
+            <!-- APPLICATION CARD 1: DATA EXTRACTOR -->
+            <div class="product-card bg-gray-900/40 border border-gray-900 rounded-2xl p-6 flex flex-col justify-between hover:border-gray-800 transition shadow-xl" data-category="productivity">
+                <div>
+                    <div class="flex items-center gap-4 mb-4">
+                        <!-- ICON DECRYPTS DYNAMICALLY -->
+                        <img id="cardIcon_extractor" src="" alt="App Icon" class="w-12 h-12 rounded-xl bg-gray-900 border border-gray-800 object-cover">
+                        <div>
+                            <h3 class="font-bold text-white tracking-tight">DataExtractor Pro</h3>
+                            <span class="text-[10px] font-mono bg-gray-900 text-gray-400 px-2 py-0.5 border border-gray-800 rounded">v1.2.4</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-gray-400 leading-relaxed mb-6">Automated asset index crawling node built to securely strip unstructured data from backend database environments.</p>
+                </div>
+                <a href="product.html?app=data-extractor" class="w-full text-center bg-gray-900 hover:bg-gray-800 border border-gray-800 text-white text-xs font-bold py-3 px-4 rounded-xl transition block">
+                    Access Profile
+                </a>
             </div>
-        </div>
 
-        <div class="flex items-center space-x-2 mb-8 overflow-x-auto pb-2 border-b border-gray-950">
-            <button onclick="setCategory('All')" id="catBtn-All" class="px-4 py-2 text-xs font-semibold rounded-lg bg-blue-600 text-white transition cursor-pointer">All Apps</button>
-            <button onclick="setCategory('Automation')" id="catBtn-Automation" class="px-4 py-2 text-xs font-semibold rounded-lg bg-gray-900 text-gray-400 hover:bg-gray-800 transition cursor-pointer">Automation</button>
-            <button onclick="setCategory('Utilities')" id="catBtn-Utilities" class="px-4 py-2 text-xs font-semibold rounded-lg bg-gray-900 text-gray-400 hover:bg-gray-800 transition cursor-pointer">Utilities</button>
-        </div>
+            <!-- APPLICATION CARD 2: FILE COMPRESSOR -->
+            <div class="product-card bg-gray-900/40 border border-gray-900 rounded-2xl p-6 flex flex-col justify-between hover:border-gray-800 transition shadow-xl" data-category="utilities">
+                <div>
+                    <div class="flex items-center gap-4 mb-4">
+                        <!-- ICON DECRYPTS DYNAMICALLY -->
+                        <img id="cardIcon_compressor" src="" alt="App Icon" class="w-12 h-12 rounded-xl bg-gray-900 border border-gray-800 object-cover">
+                        <div>
+                            <h3 class="font-bold text-white tracking-tight">FileCompressor Ultra</h3>
+                            <span class="text-[10px] font-mono bg-gray-900 text-gray-400 px-2 py-0.5 border border-gray-800 rounded">v2.0.0</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-gray-400 leading-relaxed mb-6">High-performance packing architecture engineered with adaptive variable dictionary engines for flat archival operations.</p>
+                </div>
+                <a href="product.html?app=file-compressor" class="w-full text-center bg-gray-900 hover:bg-gray-800 border border-gray-800 text-white text-xs font-bold py-3 px-4 rounded-xl transition block">
+                    Access Profile
+                </a>
+            </div>
 
-        <div id="catalogGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        </div>
     </main>
 
+    <!-- FOOTER -->
     <footer class="border-t border-gray-900 bg-gray-950 text-xs text-gray-500 py-8">
         <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p>&copy; 2026 Karnero Sa Sibsibanan. Secured application distribution asset nodes.</p>
-            <div class="flex space-x-4">
-                <a href="privacy.html" class="hover:underline text-gray-400">Privacy Policy</a>
-            </div>
+            <p>&copy; 2026 Karnero Sa Sibsibanan. Automated decryption layout engines configured.</p>
         </div>
     </footer>
 
+    <!-- CENTRAL ENCRYPTION & RENDERING CONTROLLER -->
     <script>
-        // Current Category State
-        let currentCategory = "All";
+        // MASTER SCRAMBLED ICON RESOURCE MATRIX
+        const secureIconManifest = {
+            "cardIcon_extractor": "YUhSMGNITTZMeTluYjI5bmFXVXVaMnhsTDJGemQzSmxZMmhoYm5SdmNuUnZjbVV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw==",
+            "cardIcon_compressor": "YUhSMGNITTZMeTluYjI5bmFXVXVaMnhsTDJGemQzSmxZMmhoYm5SdmNuUnZjbVV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw=="
+        };
 
-        // APP DATABASE WITH CATEGORY PROPERTY Added
-        const appStore = [
-            {
-                id: "data-extractor",
-                name: "DataExtractor Pro",
-                category: "Automation",
-                version: "v1.2.4",
-                summary: "Automate complex background web scraping routines and bulk operations safely.",
-                price: "$5.00",
-                rating: "⭐⭐⭐⭐★ (4.8)",
-                iconLink: "https://drive.google.com/thumbnail?id=YOUR_ICON_ID_1&sz=w100"
-            },
-            {
-                id: "file-compressor",
-                name: "FileCompressor Ultra",
-                category: "Utilities",
-                version: "v2.0.0",
-                summary: "High-tier file asset compression system built directly for software distribution frameworks.",
-                price: "$4.50",
-                rating: "⭐⭐⭐⭐⭐ (5.0)",
-                iconLink: "https://drive.google.com/thumbnail?id=YOUR_ICON_ID_2&sz=w100"
-            }
-        ];
+        // Instant background resolution of media string layers
+        document.addEventListener("DOMContentLoaded", () => {
+            Object.keys(secureIconManifest).forEach(elementId => {
+                const targetNode = document.getElementById(elementId);
+                if (targetNode) {
+                    try {
+                        targetNode.src = atob(secureIconManifest[elementId]);
+                    } catch (error) {
+                        console.error("Resource pipeline trace anomaly occurred for ID:", elementId);
+                    }
+                }
+            });
+        });
 
-        function setCategory(category) {
-            currentCategory = category;
+        // LIVE FLUID CATEGORY ENGINE FILTER
+        function filterCategory(categoryName, event) {
+            const cards = document.querySelectorAll('.product-card');
             
-            // Reset active button styling
-            ["All", "Automation", "Utilities"].forEach(cat => {
-                const btn = document.getElementById(`catBtn-${cat}`);
-                if (cat === category) {
-                    btn.className = "px-4 py-2 text-xs font-semibold rounded-lg bg-blue-600 text-white transition cursor-pointer";
+            cards.forEach(card => {
+                if (categoryName === 'all' || card.getAttribute('data-category') === categoryName) {
+                    card.classList.remove('hidden');
                 } else {
-                    btn.className = "px-4 py-2 text-xs font-semibold rounded-lg bg-gray-900 text-gray-400 hover:bg-gray-800 transition cursor-pointer";
+                    card.classList.add('hidden');
                 }
             });
 
-            filterCatalog();
-        }
-
-        function filterCatalog() {
-            const searchVal = document.getElementById('catalogSearch').value.toLowerCase();
+            // Resynchronize Control Button Active Classes
+            const buttons = document.querySelectorAll('.category-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-blue-600', 'text-white');
+                btn.classList.add('bg-gray-900', 'text-gray-300');
+            });
             
-            const filtered = appStore.filter(app => {
-                const matchesSearch = app.name.toLowerCase().includes(searchVal) || app.summary.toLowerCase().includes(searchVal);
-                const matchesCategory = (currentCategory === "All" || app.category === currentCategory);
-                return matchesSearch && matchesCategory;
-            });
-
-            drawCatalog(filtered);
+            event.currentTarget.classList.remove('bg-gray-900', 'text-gray-300');
+            event.currentTarget.classList.add('bg-blue-600', 'text-white');
         }
-
-        function drawCatalog(apps) {
-            const container = document.getElementById('catalogGrid');
-            container.innerHTML = "";
-            if (apps.length === 0) {
-                container.innerHTML = `<p class="text-gray-500 col-span-full py-12 text-center text-sm">No applications found in this category.</p>`;
-                return;
-            }
-            apps.forEach(app => {
-                container.innerHTML += `
-                    <div class="bg-gray-900/30 border border-gray-900 rounded-2xl p-6 flex flex-col justify-between hover:border-gray-800/80 transition group shadow-xl">
-                        <div>
-                            <div class="flex items-center gap-4 mb-4 pb-4 border-b border-gray-900/50">
-                                <img src="${app.iconLink}" alt="${app.name}" class="w-12 h-12 rounded-xl bg-gray-900 object-cover error-fallback" onerror="this.style.display='none'">
-                                <div>
-                                    <h3 class="text-base font-bold text-white group-hover:text-blue-400 transition">${app.name}</h3>
-                                    <span class="text-[10px] font-mono tracking-wider px-1.5 py-0.5 bg-gray-900 border border-gray-800 rounded text-gray-400">${app.version}</span>
-                                </div>
-                            </div>
-                            <p class="text-xs text-yellow-500/80 font-medium mb-3">${app.rating}</p>
-                            <p class="text-sm text-gray-400 line-clamp-3 mb-6">${app.summary}</p>
-                        </div>
-                        <div>
-                            <div class="text-xl font-black text-white mb-4">${app.price}</div>
-                            <a href="product.html?app=${app.id}" class="w-full text-center bg-gray-900 hover:bg-gray-800 border border-gray-800 text-white font-semibold py-3 px-4 rounded-xl text-xs transition block shadow-sm">
-                                View Details & Download
-                            </a>
-                        </div>
-                    </div>
-                `;
-            });
-        }
-
-        // Initialize view
-        drawCatalog(appStore);
     </script>
 </body>
 </html>
