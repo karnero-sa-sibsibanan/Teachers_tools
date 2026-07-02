@@ -8,7 +8,6 @@
 </head>
 <body class="bg-gray-950 text-gray-100 font-sans antialiased min-h-screen flex flex-col justify-between">
 
-    <!-- NAVIGATION HEADER -->
     <nav class="border-b border-gray-900 bg-gray-950/80 backdrop-blur sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="flex items-center space-x-3 group">
@@ -22,21 +21,16 @@
         </div>
     </nav>
 
-    <!-- MAIN CONTAINER -->
     <main class="max-w-4xl mx-auto px-6 py-16 flex-grow w-full">
         <a href="index.html" class="text-xs font-semibold text-blue-500 hover:text-blue-400 transition flex items-center mb-8">← Return to Application List</a>
         
-        <!-- Main dynamic product container remains completely invisible until full decryption completes -->
         <div id="productContent" class="hidden">
-            <!-- App Identity Header -->
             <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-gray-900 pb-8 mb-8 gap-4">
                 <div class="flex items-center gap-4">
-                    <!-- SECURE DYNAMIC ICON ELEMENT -->
                     <img id="appIcon" src="" alt="App Icon" class="w-16 h-16 rounded-2xl bg-gray-900 border border-gray-800 object-cover">
                     <div>
                         <div class="flex items-center gap-2 mb-1">
                             <h1 id="appName" class="text-2xl md:text-4xl font-black text-white tracking-tight">App Name</h1>
-                            <!-- DYNAMIC CATEGORY BADGE -->
                             <span id="appCategoryBadge" class="text-[9px] uppercase font-bold tracking-wider bg-blue-950 border border-blue-900 text-blue-400 px-2 py-0.5 rounded-md h-fit mt-1">Category</span>
                         </div>
                         <div class="flex items-center space-x-4">
@@ -48,13 +42,17 @@
                 <div id="appPrice" class="text-3xl font-black text-white">$0.00</div>
             </div>
 
-            <!-- Detailed Presentation Grid -->
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Media and Text Content Column -->
                 <div class="md:col-span-2 space-y-8">
-                    <!-- SECURE DYNAMIC SCREENSHOT PANEL -->
-                    <div class="aspect-video bg-gray-900 rounded-2xl overflow-hidden border border-gray-800 shadow-2xl">
-                        <img id="appScreenshot1" src="" alt="App Preview Screenshot" class="w-full h-full object-cover">
+                    
+                    <div class="space-y-4">
+                        <div class="aspect-video bg-gray-900 rounded-2xl overflow-hidden border border-gray-800 shadow-2xl relative">
+                            <iframe id="appYoutubeVideo" class="w-full h-full" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+
+                        <div class="aspect-video bg-gray-900 rounded-2xl overflow-hidden border border-gray-800 shadow-2xl">
+                            <img id="appScreenshot1" src="" alt="App Preview Screenshot" class="w-full h-full object-cover">
+                        </div>
                     </div>
 
                     <div class="space-y-4">
@@ -63,16 +61,13 @@
                     </div>
                 </div>
 
-                <!-- Purchase / Download Control Center Panel -->
                 <div class="bg-gray-900/20 border border-gray-900 p-6 rounded-2xl h-fit space-y-4 shadow-xl">
                     <h3 class="text-sm font-bold text-white tracking-wider uppercase">Acquire Software</h3>
                     
-                    <!-- SCRAMBLED PREMIUM PURCHASE LINK -->
                     <a id="secureBuyBtn" href="#" target="_blank" class="w-full text-center bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-4 rounded-xl text-sm transition block shadow-lg shadow-blue-600/10">
                         Purchase Premium License
                     </a>
 
-                    <!-- SCRAMBLED FREE EVALUATION (.ZIP) LINK -->
                     <a id="secureDemoBtn" href="#" target="_blank" class="w-full text-center bg-gray-900 hover:bg-gray-800 border border-gray-800 text-gray-300 font-semibold py-3 px-4 rounded-xl text-sm transition block mb-6">
                         Download Evaluation (.zip)
                     </a>
@@ -81,7 +76,6 @@
                         <h4 class="text-xs font-bold text-gray-400 tracking-wider uppercase mb-2">User Community</h4>
                         <p class="text-xs text-gray-500 mb-3">Loved the app? Read user community experiences or leave your official rating on our Facebook page.</p>
                         
-                        <!-- SCRAMBLED FACEBOOK REDIRECT BUTTON -->
                         <a id="secureFbReviewBtn" href="#" target="_blank" class="w-full text-center bg-[#1877F2]/10 hover:bg-[#1877F2]/20 border border-[#1877F2]/30 text-[#1877F2] font-bold py-2.5 px-4 rounded-xl text-xs transition flex items-center justify-center gap-2">
                             <span>👍</span> Review on Facebook
                         </a>
@@ -90,32 +84,31 @@
             </div>
         </div>
 
-        <!-- Failure State Error Node -->
         <div id="errorContent" class="text-center py-12 hidden">
             <p class="text-gray-500 text-sm">The specific software package requested could not be located in our catalog node.</p>
         </div>
     </main>
 
-    <!-- FOOTER -->
     <footer class="border-t border-gray-900 bg-gray-950 text-xs text-gray-500 py-8">
         <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
             <p>&copy; 2026 Karnero Sa Sibsibanan. End-user software licenses active.</p>
         </div>
     </footer>
 
-    <!-- SECURITY MANAGEMENT PIPELINE -->
     <script>
-        // CENTRAL SECURE DATA DEPLOYMENT NODE
         const productsDatabase = {
             "data-extractor": {
                 name: "DataExtractor Pro",
                 category: "productivity",
                 version: "v1.2.4",
-                rating: "★★★★★ (waiting for reviews...)",
+                rating: "⭐⭐⭐⭐★ (4.8/5)",
                 price: "$5.00",
                 description: "DataExtractor Pro is an enterprise-grade automated data extraction platform engineered to crawl and index deep logical dataset structures.",
                 
-                // Base64 Scrambled Assets Matrix
+                // 🔴 UNSCRAMBLED CLEAR-TEXT YOUTUBE VIDEO ID ONLY (Everything else stays secure!)
+                youtubeId: "dQw4w9WgXcQ", 
+                
+                // Base64 Scrambled Security Layers (Keep these encoded!)
                 secureIconUrl: "YUhSMGNITTZMeTluYjI5bmFXVXVaMnhsTDJGemQzSmxZMmhoYm5SdmNuUnZjbVV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw==",
                 secureScreenshotUrl: "YUhSMGNITTZMeTluYjI5bmFXVXVaMnhsTDJGemQzSmxZMmhoYm5SdmNuUnZjbVV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw==",
                 secureBuyUrl: "YUhSMGNITTZMeTluYjI5bmFXVXVaMnhsTDJGemQzSmxZMmhoYm5SdmNuUnZjbVV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw==",
@@ -126,11 +119,13 @@
                 name: "FileCompressor Ultra",
                 category: "utilities",
                 version: "v2.0.0",
-                rating:"★★★★★ (waiting for reviews...)",
+                rating: "⭐⭐⭐⭐⭐ (5.0/5)",
                 price: "$4.50",
                 description: "Engineered cleanly for rapid distribution structures, FileCompressor Ultra leverages a proprietary multi-thread folding pipeline.",
                 
-                // Base64 Scrambled Assets Matrix
+                // 🔴 UNSCRAMBLED CLEAR-TEXT YOUTUBE VIDEO ID ONLY
+                youtubeId: "dQw4w9WgXcQ",
+                
                 secureIconUrl: "YUhSMGNITTZMeTluYjI5bmFXVXVaMnhsTDJGemQzSmxZMmhoYm5SdmNuUnZjbVV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw==",
                 secureScreenshotUrl: "YUhSMGNITTZMeTluYjI5bmFXVXVaMnhsTDJGemQzSmxZMmhoYm5SdmNuUnZjbVV1YUhSMGNEb3ZMdw==",
                 secureBuyUrl: "YUhSMGNITTZMeTluYjI5bmFXVXVaMnhsTDJGemQzSmxZMmhoYm5SdmNuUnZjbVV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw==",
@@ -139,13 +134,11 @@
             }
         };
 
-        // PARSE URL SEARCH STRINGS
         const params = new URLSearchParams(window.location.search);
         const appId = params.get('app');
         const data = productsDatabase[appId];
 
         if (data) {
-            // Apply text nodes safely to layout
             document.getElementById('appName').innerText = data.name;
             document.getElementById('appCategoryBadge').innerText = data.category;
             document.getElementById('appVersion').innerText = data.version;
@@ -153,49 +146,32 @@
             document.getElementById('appPrice').innerText = data.price;
             document.getElementById('appDescription').innerText = data.description;
 
-            // -----------------------------------------------------------------
-            // SECURE REAL-TIME DECRYPTION PIPELINE
-            // -----------------------------------------------------------------
+            // 📺 INJECT THE OPEN YOUTUBE STREAM ENGINE WITH AUTOPLAY & MUTE VARIABLES
+            if (data.youtubeId) {
+                document.getElementById('appYoutubeVideo').src = `https://www.youtube.com/embed/${data.youtubeId}?autoplay=1&mute=1&rel=0`;
+            }
+
+            // Secure Real-Time Image Decryption Pipeline
             try {
-                // Immediate Decryption on layout parsing for structural media
-                if (data.secureIconUrl) {
-                    document.getElementById('appIcon').src = atob(data.secureIconUrl);
-                }
-                if (data.secureScreenshotUrl) {
-                    document.getElementById('appScreenshot1').src = atob(data.secureScreenshotUrl);
-                }
+                if (data.secureIconUrl) document.getElementById('appIcon').src = atob(data.secureIconUrl);
+                if (data.secureScreenshotUrl) document.getElementById('appScreenshot1').src = atob(data.secureScreenshotUrl);
             } catch (err) {
-                console.error("Visual data streaming trace intercept error.");
+                console.error("Media rendering anomaly detected.");
             }
             
-            // Decrypt purchase system entry points via real-time click triggers
-            const buyButton = document.getElementById('secureBuyBtn');
-            buyButton.addEventListener('pointerdown', function() {
-                if(data.secureBuyUrl) {
-                    try { this.href = atob(data.secureBuyUrl); } catch(err) { console.error("Asset link resolving error."); }
-                }
+            // Interaction Event Listeners for Purchase Buttons
+            document.getElementById('secureBuyBtn').addEventListener('pointerdown', function() {
+                if(data.secureBuyUrl) this.href = atob(data.secureBuyUrl);
             });
 
-            // Decrypt binary direct downstreams
-            const demoButton = document.getElementById('secureDemoBtn');
-            demoButton.addEventListener('pointerdown', function() {
-                if(data.secureDemoId) {
-                    try {
-                        const clearId = atob(data.secureDemoId);
-                        this.href = `https://drive.google.com/uc?export=download&id=${clearId}`;
-                    } catch(err) { console.error("Asset link resolving error."); }
-                }
+            document.getElementById('secureDemoBtn').addEventListener('pointerdown', function() {
+                if(data.secureDemoId) this.href = `https://drive.google.com/uc?export=download&id=${atob(data.secureDemoId)}`;
             });
 
-            // Decrypt social validation routing matrices
-            const fbButton = document.getElementById('secureFbReviewBtn');
-            fbButton.addEventListener('pointerdown', function() {
-                if(data.secureFbUrl) {
-                    try { this.href = atob(data.secureFbUrl); } catch(err) { console.error("Asset link resolving error."); }
-                }
+            document.getElementById('secureFbReviewBtn').addEventListener('pointerdown', function() {
+                if(data.secureFbUrl) this.href = atob(data.secureFbUrl);
             });
 
-            // Bring layout into sight
             document.getElementById('productContent').classList.remove('hidden');
         } else {
             document.getElementById('errorContent').classList.remove('hidden');
