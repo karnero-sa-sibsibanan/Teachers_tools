@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Profile</title>
+    <title>Application Details Profile</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body class="bg-gray-950 text-gray-100 font-sans antialiased min-h-screen flex flex-col justify-between">
@@ -11,8 +11,8 @@
     <nav class="border-b border-gray-900 bg-gray-950/80 backdrop-blur sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="flex items-center space-x-3 group">
-                <img src="logo.png" alt="AppStudio Logo" class="h-9 w-auto rounded-lg">
-                <span class="text-xl font-black tracking-tight text-white">AppStudio</span>
+                <img src="logo.png" alt="Karnero Sa Sibsibanan Logo" class="h-9 w-auto rounded-lg">
+                <span class="text-xl font-black tracking-tight text-white">Karnero Sa Sibsibanan</span>
             </a>
             <div class="flex items-center space-x-6 text-sm font-medium text-gray-400">
                 <a href="index.html" class="hover:text-white transition">Catalog</a>
@@ -24,73 +24,86 @@
     <main class="max-w-4xl mx-auto px-6 py-16 flex-grow w-full">
         <a href="index.html" class="text-xs font-semibold text-blue-500 hover:text-blue-400 transition flex items-center mb-8">← Return to Application List</a>
         
-        <div id="productContent" class="hidden">
+        <div id="productContent" class="hidden animate-fadeIn">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-gray-900 pb-8 mb-8 gap-4">
-                <div>
-                    <h1 id="appName" class="text-3xl md:text-5xl font-black text-white tracking-tight mb-2">App Name</h1>
-                    <div class="flex items-center space-x-4">
-                        <span id="appVersion" class="text-xs font-mono bg-gray-900 border border-gray-800 text-gray-400 px-2.5 py-1 rounded">v1.0.0</span>
-                        <span id="appRating" class="text-xs text-yellow-500 font-medium">⭐⭐⭐⭐⭐</span>
+                <div class="flex items-center gap-4">
+                    <img id="appIcon" src="" alt="App Icon" class="w-16 h-16 rounded-2xl bg-gray-900 border border-gray-800 object-cover">
+                    <div>
+                        <h1 id="appName" class="text-2xl md:text-4xl font-black text-white tracking-tight mb-2">App Name</h1>
+                        <div class="flex items-center space-x-4">
+                            <span id="appVersion" class="text-xs font-mono bg-gray-900 border border-gray-800 text-gray-400 px-2.5 py-1 rounded">v1.0.0</span>
+                            <span id="appRating" class="text-xs text-yellow-500 font-medium">⭐⭐⭐⭐⭐</span>
+                        </div>
                     </div>
                 </div>
                 <div id="appPrice" class="text-3xl font-black text-white">$0.00</div>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="md:col-span-2 space-y-6">
-                    <h2 class="text-lg font-bold text-white tracking-tight">Product Overview</h2>
-                    <p id="appDescription" class="text-gray-400 leading-relaxed text-sm">Detailed overview goes here.</p>
+                <div class="md:col-span-2 space-y-8">
+                    <div class="aspect-video bg-gray-900 rounded-2xl overflow-hidden border border-gray-800 shadow-2xl">
+                        <img id="appScreenshot1" src="" alt="App Preview Screenshot" class="w-full h-full object-cover">
+                    </div>
+
+                    <div class="space-y-4">
+                        <h2 class="text-lg font-bold text-white tracking-tight">Product Overview</h2>
+                        <p id="appDescription" class="text-gray-400 leading-relaxed text-sm">Detailed overview container.</p>
+                    </div>
                 </div>
 
-                <div class="bg-gray-900/20 border border-gray-900 p-6 rounded-2xl h-fit space-y-4">
+                <div class="bg-gray-900/20 border border-gray-900 p-6 rounded-2xl h-fit space-y-4 shadow-xl">
                     <h3 class="text-sm font-bold text-white tracking-wider uppercase">Acquire Software</h3>
                     
                     <a id="buyBtn" href="#" target="_blank" class="w-full text-center bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-4 rounded-xl text-sm transition block shadow-lg shadow-blue-600/10">
-                        Purchase License Key
+                        Purchase Premium License
                     </a>
 
                     <a id="demoBtn" href="#" target="_blank" class="w-full text-center bg-gray-900 hover:bg-gray-800 border border-gray-800 text-gray-300 font-semibold py-3 px-4 rounded-xl text-sm transition block">
-                        Download Free Trial
+                        Download Evaluation (.zip)
                     </a>
                 </div>
             </div>
         </div>
 
         <div id="errorContent" class="text-center py-12 hidden">
-            <p class="text-gray-500 text-sm">The specific software package requested could not be located.</p>
+            <p class="text-gray-500 text-sm">The specific software package requested could not be located in our catalog node.</p>
         </div>
     </main>
 
     <footer class="border-t border-gray-900 bg-gray-950 text-xs text-gray-500 py-8">
         <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p>&copy; 2026 AppStudio. End-user licensing rules apply.</p>
+            <p>&copy; 2026 Karnero Sa Sibsibanan. End-user software licenses active.</p>
         </div>
     </footer>
 
     <script>
-        // EXPANDED DETAILS DATABASE: Change descriptions, prices, and Google Drive links here!
+        // MASTER VALUE DATABASE MAPPINGS
         const productsDatabase = {
             "data-extractor": {
                 name: "DataExtractor Pro",
                 version: "v1.2.4",
                 rating: "⭐⭐⭐⭐★ (4.8/5)",
                 price: "$5.00",
-                description: "DataExtractor Pro is an enterprise-grade web compiling package optimized to safely gather front-end data structures. Built natively to run multi-threaded processes without leaking memory allocations.",
+                description: "DataExtractor Pro is an enterprise-grade automated data extraction platform engineered to crawl and index deep logical dataset structures. It manages background processes without memory leaks or process crashes.",
                 buyLink: "YOUR_GOOGLE_FORM_FOR_DATA_EXTRACTOR",
-                demoLink: "YOUR_GDRIVE_FOR_DATA_EXTRACTOR"
+                demoLink: "https://drive.google.com/uc?export=download&id=YOUR_ZIP_FILE_ID_FOR_EXTRACTOR",
+                iconLink: "https://drive.google.com/thumbnail?id=YOUR_ICON_ID_1&sz=w200",
+                screenshot1: "https://drive.google.com/thumbnail?id=YOUR_SCREENSHOT_ID_1&sz=w1200"
             },
             "file-compressor": {
                 name: "FileCompressor Ultra",
                 version: "v2.0.0",
                 rating: "⭐⭐⭐⭐⭐ (5.0/5)",
                 price: "$4.50",
-                description: "Engineered specifically for bulk digital distribution networks, FileCompressor Ultra utilizes advanced compression logic structures to fold data down cleanly while fully preserving critical internal binary metadata maps.",
+                description: "Engineered cleanly for rapid distribution structures, FileCompressor Ultra leverages a proprietary multi-thread folding pipeline that achieves deep file size reductions without risking local operational binary damage.",
                 buyLink: "YOUR_GOOGLE_FORM_FOR_COMPRESSOR",
-                demoLink: "YOUR_GDRIVE_FOR_COMPRESSOR"
+                demoLink: "https://drive.google.com/uc?export=download&id=YOUR_ZIP_FILE_ID_FOR_COMPRESSOR",
+                iconLink: "https://drive.google.com/thumbnail?id=YOUR_ICON_ID_2&sz=w200",
+                screenshot1: "https://drive.google.com/thumbnail?id=YOUR_SCREENSHOT_ID_2&sz=w1200"
             }
         };
 
-        // PARSE SYSTEM SPECIFICS
+        // RUN PARAMETER MAPS ROUTER
         const params = new URLSearchParams(window.location.search);
         const appId = params.get('app');
         const data = productsDatabase[appId];
@@ -103,6 +116,8 @@
             document.getElementById('appDescription').innerText = data.description;
             document.getElementById('buyBtn').href = data.buyLink;
             document.getElementById('demoBtn').href = data.demoLink;
+            document.getElementById('appIcon').src = data.iconLink;
+            document.getElementById('appScreenshot1').src = data.screenshot1;
             document.getElementById('productContent').classList.remove('hidden');
         } else {
             document.getElementById('errorContent').classList.remove('hidden');
