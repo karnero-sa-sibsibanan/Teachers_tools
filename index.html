@@ -3,115 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AppStore Catalog</title>
+    <title>AppStudio Hub - Official Store</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body class="bg-gray-950 text-gray-100 font-sans antialiased min-h-screen flex flex-col justify-between">
 
-    <header class="max-w-6xl w-full mx-auto px-6 py-6 flex flex-col sm:flex-row justify-between items-center border-b border-gray-800 gap-4">
-        <div class="flex items-center space-x-3">
-            <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center font-bold text-white text-sm">A</div>
-            <span class="text-lg font-bold tracking-tight text-white">AppStudio Digital Hub</span>
+    <nav class="border-b border-gray-900 bg-gray-950/80 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-3 group">
+                <div class="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center font-black text-white group-hover:bg-blue-500 transition shadow-lg shadow-blue-600/20">A</div>
+                <span class="text-xl font-black tracking-tight text-white group-hover:text-gray-200 transition">AppStudio</span>
+            </a>
+            <div class="flex items-center space-x-6 text-sm font-medium text-gray-400">
+                <a href="index.html" class="text-blue-500 font-semibold">Catalog</a>
+                <a href="privacy.html" class="hover:text-white transition">Privacy</a>
+            </div>
         </div>
-        
-        <div class="relative w-full sm:w-64">
-            <input type="text" id="searchBar" onkeyup="searchApps()" placeholder="Search apps or versions..." class="w-full bg-gray-900 text-sm text-white pl-4 pr-10 py-2 rounded-xl border border-gray-800 focus:outline-none focus:border-blue-500 transition">
-        </div>
-    </header>
+    </nav>
 
     <main class="max-w-6xl w-full mx-auto px-6 py-12 flex-grow">
-        <h2 class="text-2xl font-extrabold text-white mb-8 tracking-tight">Available Applications</h2>
-        
+        <div class="flex flex-col md:flex-row md:items-center justify-between mb-12 gap-6">
+            <div>
+                <h1 class="text-3xl font-black tracking-tight text-white mb-2">Explore Applications</h1>
+                <p class="text-sm text-gray-400">Find, test, and purchase production-ready tools instantly.</p>
+            </div>
+            
+            <div class="relative w-full md:w-80">
+                <input type="text" id="catalogSearch" onkeyup="filterCatalog()" placeholder="Search apps, utilities, versions..." class="w-full bg-gray-900/50 text-sm text-white px-4 py-3 rounded-xl border border-gray-800 focus:outline-none focus:border-blue-500 transition shadow-inner">
+            </div>
+        </div>
+
         <div id="catalogGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
     </main>
 
-    <footer class="max-w-6xl w-full mx-auto px-6 py-8 flex flex-col sm:flex-row justify-between items-center border-t border-gray-900 text-xs text-gray-600 gap-4">
-        <p>&copy; 2026 AppStudio. All download nodes encrypted via SSL.</p>
-        <div class="flex space-x-4">
-            <a href="privacy.html" class="hover:underline">Privacy Policy</a>
-            <a href="YOUR_GENERAL_FEEDBACK_FORM_URL" target="_blank" class="hover:underline text-blue-500">Submit Feedback</a>
+    <footer class="border-t border-gray-900 bg-gray-950 text-xs text-gray-500 py-8">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p>&copy; 2026 AppStudio. Fully authenticated executable distribution node.</p>
+            <div class="flex space-x-4">
+                <a href="privacy.html" class="hover:underline text-gray-400">Privacy Policy</a>
+            </div>
         </div>
     </footer>
 
     <script>
-        // 1. YOUR APP DATABASE: Whenever you make a new app, just add a new item {} to this list!
-        const appsDatabase = [
+        const appStore = [
             {
+                id: "data-extractor",
                 name: "DataExtractor Pro",
                 version: "v1.2.4",
-                description: "Automate web scraping and file compiling tasks instantly.",
+                summary: "Automate complex background web scraping routines and bulk operations safely.",
                 price: "$5.00",
-                demoLink: "YOUR_GDRIVE_DEMO_LINK_1",
-                buyLink: "YOUR_ORDER_FORM_LINK_1",
                 rating: "⭐⭐⭐⭐★ (4.8)"
             },
             {
+                id: "file-compressor",
                 name: "FileCompressor Ultra",
                 version: "v2.0.0",
-                description: "Lossless compression tool built for heavy distribution tasks.",
+                summary: "High-tier file asset compression system built directly for software distribution frameworks.",
                 price: "$4.50",
-                demoLink: "YOUR_GDRIVE_DEMO_LINK_2",
-                buyLink: "YOUR_ORDER_FORM_LINK_2",
                 rating: "⭐⭐⭐⭐⭐ (5.0)"
-            },
-            {
-                name: "ImgResizer Mini",
-                version: "v1.0.1",
-                description: "Batch image scaling utility optimized for bulk workflows.",
-                price: "Free",
-                demoLink: "YOUR_GDRIVE_DEMO_LINK_3",
-                buyLink: "#",
-                rating: "⭐⭐⭐⭐★ (4.2)"
             }
         ];
 
-        // 2. RENDER ENGINE: Automatically builds the UI elements from the database array
-        function renderCatalog(apps) {
-            const grid = document.getElementById('catalogGrid');
-            grid.innerHTML = ""; // Clear existing elements
-            
-            if(apps.length === 0) {
-                grid.innerHTML = `<p class="text-gray-500 text-sm col-span-full py-8 text-center">No apps match your search criteria.</p>`;
+        function drawCatalog(apps) {
+            const container = document.getElementById('catalogGrid');
+            container.innerHTML = "";
+            if (apps.length === 0) {
+                container.innerHTML = `<p class="text-gray-500 col-span-full py-12 text-center text-sm">No software matching that description was found.</p>`;
                 return;
             }
-
             apps.forEach(app => {
-                const card = `
-                    <div class="bg-gray-950 p-6 rounded-2xl border border-gray-900 flex flex-col justify-between shadow-lg hover:border-gray-800 transition duration-200">
+                container.innerHTML += `
+                    <div class="bg-gray-900/30 border border-gray-900 rounded-2xl p-6 flex flex-col justify-between hover:border-gray-800/80 transition group shadow-xl">
                         <div>
                             <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-lg font-bold text-white tracking-tight">${app.name}</h3>
-                                <span class="text-xs font-mono px-2 py-0.5 bg-gray-900 text-gray-400 border border-gray-800 rounded">${app.version}</span>
+                                <h3 class="text-lg font-bold text-white group-hover:text-blue-400 transition">${app.name}</h3>
+                                <span class="text-[10px] font-mono tracking-wider px-2 py-0.5 bg-gray-900 border border-gray-800 rounded text-gray-400">${app.version}</span>
                             </div>
-                            <p class="text-xs text-gray-500 mb-3">${app.rating}</p>
-                            <p class="text-sm text-gray-400 line-clamp-3 mb-6">${app.description}</p>
+                            <p class="text-xs text-yellow-500/80 font-medium mb-3">${app.rating}</p>
+                            <p class="text-sm text-gray-400 line-clamp-3 mb-6">${app.summary}</p>
                         </div>
                         <div>
                             <div class="text-xl font-black text-white mb-4">${app.price}</div>
-                            <div class="grid grid-cols-2 gap-3">
-                                <a href="${app.demoLink}" target="_blank" class="text-center text-xs font-medium bg-gray-900 hover:bg-gray-800 text-gray-300 py-2.5 px-3 rounded-xl border border-gray-800 transition">Try Demo</a>
-                                ${app.price === 'Free' ? '' : `<a href="${app.buyLink}" target="_blank" class="text-center text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white py-2.5 px-3 rounded-xl transition shadow-md shadow-blue-600/10">Buy Now</a>`}
-                            </div>
+                            <a href="product.html?app=${app.id}" class="w-full text-center bg-gray-900 hover:bg-gray-800 border border-gray-800 text-white font-semibold py-3 px-4 rounded-xl text-xs transition block shadow-sm">
+                                View Details & Download
+                            </a>
                         </div>
                     </div>
                 `;
-                grid.innerHTML += card;
             });
         }
 
-        // 3. LIVE FILTER SEARCH ENGINE
-        function searchApps() {
-            const query = document.getElementById('searchBar').value.toLowerCase();
-            const filteredApps = appsDatabase.filter(app => 
-                app.name.toLowerCase().includes(query) || 
-                app.version.toLowerCase().includes(query) ||
-                app.description.toLowerCase().includes(query)
-            );
-            renderCatalog(filteredApps);
+        function filterCatalog() {
+            const val = document.getElementById('catalogSearch').value.toLowerCase();
+            const filtered = appStore.filter(a => a.name.toLowerCase().includes(val) || a.summary.toLowerCase().includes(val));
+            drawCatalog(filtered);
         }
 
-        // Initial launch load
-        renderCatalog(appsDatabase);
+        drawCatalog(appStore);
     </script>
 </body>
 </html>
