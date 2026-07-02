@@ -8,7 +8,7 @@
 </head>
 <body class="bg-gray-950 text-gray-100 font-sans antialiased min-h-screen flex flex-col justify-between">
 
-    <!-- NAVIGATION HEADER -->
+    
     <nav class="border-b border-gray-900 bg-gray-950/80 backdrop-blur sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-3">
@@ -22,7 +22,7 @@
         </div>
     </nav>
 
-    <!-- MAIN MARKETPLACE INTERFACE -->
+    
     <main class="max-w-6xl mx-auto px-6 py-16 flex-grow w-full">
         
         <div class="mb-12">
@@ -43,7 +43,7 @@
             </button>
         </div>
 
-        <!-- APPLICATION DEPLOYMENT GRID -->
+        
         <div id="catalogGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             
             <!-- APPLICATION CARD 1: DATA EXTRACTOR -->
@@ -64,11 +64,11 @@
                 </a>
             </div>
 
-            <!-- APPLICATION CARD 2: FILE COMPRESSOR -->
+            
             <div class="product-card bg-gray-900/40 border border-gray-900 rounded-2xl p-6 flex flex-col justify-between hover:border-gray-800 transition shadow-xl" data-category="utilities">
                 <div>
                     <div class="flex items-center gap-4 mb-4">
-                        <!-- ICON DECRYPTS DYNAMICALLY -->
+                        
                         <img id="cardIcon_compressor" src="" alt="App Icon" class="w-12 h-12 rounded-xl bg-gray-900 border border-gray-800 object-cover">
                         <div>
                             <h3 class="font-bold text-white tracking-tight">FileCompressor Ultra</h3>
@@ -85,16 +85,16 @@
         </div>
     </main>
 
-    <!-- FOOTER -->
+    
     <footer class="border-t border-gray-900 bg-gray-950 text-xs text-gray-500 py-8">
         <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
             <p>&copy; 2026 Karnero Sa Sibsibanan. Automated decryption layout engines configured.</p>
         </div>
     </footer>
 
-    <!-- CENTRAL ENCRYPTION & RENDERING CONTROLLER -->
+    
     <script>
-        // MASTER SCRAMBLED ICON RESOURCE MATRIX
+        
         const secureIconManifest = {
             "cardIcon_extractor": "YUhSMGNITTZMeTluYjI5bmFXVXVaMnhsTDJGemQzSmxZMmhoYm5SdmNuUnZjbVV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw==",
             "cardIcon_compressor": "YUhSMGNITTZMeTluYjI5bmFXVXVaMnhsTDJGemQzSmxZMmhoYm5SdmNuUnZjbVV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw=="
@@ -114,7 +114,7 @@
             });
         });
 
-        // LIVE FLUID CATEGORY ENGINE FILTER
+        
         function filterCategory(categoryName, event) {
             const cards = document.querySelectorAll('.product-card');
             
@@ -126,7 +126,7 @@
                 }
             });
 
-            // Resynchronize Control Button Active Classes
+            
             const buttons = document.querySelectorAll('.category-btn');
             buttons.forEach(btn => {
                 btn.classList.remove('bg-blue-600', 'text-white');
