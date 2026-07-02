@@ -3,65 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download App Store</title>
+    <title>AppStore Catalog</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body class="bg-gray-950 text-gray-100 font-sans antialiased min-h-screen flex flex-col justify-between">
 
-    <header class="max-w-5xl w-full mx-auto px-6 py-6 flex justify-between items-center border-b border-gray-800">
+    <header class="max-w-6xl w-full mx-auto px-6 py-6 flex flex-col sm:flex-row justify-between items-center border-b border-gray-800 gap-4">
         <div class="flex items-center space-x-3">
             <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center font-bold text-white text-sm">A</div>
-            <span class="text-lg font-bold tracking-tight text-white">AppStudio</span>
+            <span class="text-lg font-bold tracking-tight text-white">AppStudio Digital Hub</span>
         </div>
-        <span class="text-xs bg-gray-800 text-gray-400 px-3 py-1 rounded-full border border-gray-700">Verified Secure</span>
+        
+        <div class="relative w-full sm:w-64">
+            <input type="text" id="searchBar" onkeyup="searchApps()" placeholder="Search apps or versions..." class="w-full bg-gray-900 text-sm text-white pl-4 pr-10 py-2 rounded-xl border border-gray-800 focus:outline-none focus:border-blue-500 transition">
+        </div>
     </header>
 
-    <main class="max-w-4xl mx-auto px-6 py-16 text-center flex flex-col items-center justify-center flex-grow">
+    <main class="max-w-6xl w-full mx-auto px-6 py-12 flex-grow">
+        <h2 class="text-2xl font-extrabold text-white mb-8 tracking-tight">Available Applications</h2>
         
-        <h1 class="text-4xl md:text-5xl font-black tracking-tight text-white mb-4">
-            Unlock the Full Power of <span class="text-blue-500">Your App</span>
-        </h1>
-        <p class="text-lg text-gray-400 max-w-xl mb-12">
-            Get instant access to the official executable setup. Fully packaged, secure, and ready to install on your machine.
-        </p>
-
-        <div class="grid md:grid-cols-2 gap-6 w-full max-w-2xl text-left">
-            
-            <div class="bg-gray-900 p-6 rounded-2xl border border-gray-800 hover:border-blue-500/50 transition duration-300 flex flex-col justify-between shadow-xl">
-                <div>
-                    <span class="text-xs font-bold text-blue-500 tracking-wider uppercase">Best Value</span>
-                    <h3 class="text-xl font-bold text-white mt-1 mb-2">Lifetime Premium License</h3>
-                    <p class="text-sm text-gray-400 mb-6">Unlock all premium software capabilities. Manual email verification processing.</p>
-                </div>
-                <div>
-                    <div class="text-2xl font-extrabold text-white mb-4">$5.00 <span class="text-xs font-normal text-gray-500">one-time</span></div>
-                    <a href="YOUR_GOOGLE_FORM_URL_HERE" target="_blank" class="w-full text-center bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 px-4 rounded-xl transition duration-200 block shadow-lg shadow-blue-600/30">
-                        Order & Pay Safely
-                    </a>
-                </div>
-            </div>
-
-            <div class="bg-gray-900/40 p-6 rounded-2xl border border-gray-800/80 flex flex-col justify-between">
-                <div>
-                    <span class="text-xs font-bold text-gray-500 tracking-wider uppercase">Evaluation</span>
-                    <h3 class="text-xl font-bold text-gray-300 mt-1 mb-2">Free Trial / Demo</h3>
-                    <p class="text-sm text-gray-400 mb-6">Test drive standard features completely free. Direct installer package download.</p>
-                </div>
-                <div>
-                    <div class="text-2xl font-extrabold text-gray-400 mb-4">Free <span class="text-xs font-normal text-gray-600">limited version</span></div>
-                    <a href="YOUR_GOOGLE_DRIVE_DEMO_URL_HERE" target="_blank" class="w-full text-center bg-gray-800 hover:bg-gray-700 text-gray-300 font-semibold py-3 px-4 rounded-xl transition duration-200 block">
-                        Download Demo (.exe)
-                    </a>
-                </div>
-            </div>
-
-        </div>
-
+        <div id="catalogGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
     </main>
 
-    <footer class="max-w-5xl w-full mx-auto px-6 py-8 text-center border-t border-gray-900 text-xs text-gray-600">
-        <p>&copy; 2026 AppStudio. Deliveries processed securely. Hosted via GitHub Pages with SSL Encryption.</p>
+    <footer class="max-w-6xl w-full mx-auto px-6 py-8 flex flex-col sm:flex-row justify-between items-center border-t border-gray-900 text-xs text-gray-600 gap-4">
+        <p>&copy; 2026 AppStudio. All download nodes encrypted via SSL.</p>
+        <div class="flex space-x-4">
+            <a href="privacy.html" class="hover:underline">Privacy Policy</a>
+            <a href="YOUR_GENERAL_FEEDBACK_FORM_URL" target="_blank" class="hover:underline text-blue-500">Submit Feedback</a>
+        </div>
     </footer>
 
+    <script>
+        // 1. YOUR APP DATABASE: Whenever you make a new app, just add a new item {} to this list!
+        const appsDatabase = [
+            {
+                name: "DataExtractor Pro",
+                version: "v1.2.4",
+                description: "Automate web scraping and file compiling tasks instantly.",
+                price: "$5.00",
+                demoLink: "YOUR_GDRIVE_DEMO_LINK_1",
+                buyLink: "YOUR_ORDER_FORM_LINK_1",
+                rating: "⭐⭐⭐⭐★ (4.8)"
+            },
+            {
+                name: "FileCompressor Ultra",
+                version: "v2.0.0",
+                description: "Lossless compression tool built for heavy distribution tasks.",
+                price: "$4.50",
+                demoLink: "YOUR_GDRIVE_DEMO_LINK_2",
+                buyLink: "YOUR_ORDER_FORM_LINK_2",
+                rating: "⭐⭐⭐⭐⭐ (5.0)"
+            },
+            {
+                name: "ImgResizer Mini",
+                version: "v1.0.1",
+                description: "Batch image scaling utility optimized for bulk workflows.",
+                price: "Free",
+                demoLink: "YOUR_GDRIVE_DEMO_LINK_3",
+                buyLink: "#",
+                rating: "⭐⭐⭐⭐★ (4.2)"
+            }
+        ];
+
+        // 2. RENDER ENGINE: Automatically builds the UI elements from the database array
+        function renderCatalog(apps) {
+            const grid = document.getElementById('catalogGrid');
+            grid.innerHTML = ""; // Clear existing elements
+            
+            if(apps.length === 0) {
+                grid.innerHTML = `<p class="text-gray-500 text-sm col-span-full py-8 text-center">No apps match your search criteria.</p>`;
+                return;
+            }
+
+            apps.forEach(app => {
+                const card = `
+                    <div class="bg-gray-950 p-6 rounded-2xl border border-gray-900 flex flex-col justify-between shadow-lg hover:border-gray-800 transition duration-200">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-lg font-bold text-white tracking-tight">${app.name}</h3>
+                                <span class="text-xs font-mono px-2 py-0.5 bg-gray-900 text-gray-400 border border-gray-800 rounded">${app.version}</span>
+                            </div>
+                            <p class="text-xs text-gray-500 mb-3">${app.rating}</p>
+                            <p class="text-sm text-gray-400 line-clamp-3 mb-6">${app.description}</p>
+                        </div>
+                        <div>
+                            <div class="text-xl font-black text-white mb-4">${app.price}</div>
+                            <div class="grid grid-cols-2 gap-3">
+                                <a href="${app.demoLink}" target="_blank" class="text-center text-xs font-medium bg-gray-900 hover:bg-gray-800 text-gray-300 py-2.5 px-3 rounded-xl border border-gray-800 transition">Try Demo</a>
+                                ${app.price === 'Free' ? '' : `<a href="${app.buyLink}" target="_blank" class="text-center text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white py-2.5 px-3 rounded-xl transition shadow-md shadow-blue-600/10">Buy Now</a>`}
+                            </div>
+                        </div>
+                    </div>
+                `;
+                grid.innerHTML += card;
+            });
+        }
+
+        // 3. LIVE FILTER SEARCH ENGINE
+        function searchApps() {
+            const query = document.getElementById('searchBar').value.toLowerCase();
+            const filteredApps = appsDatabase.filter(app => 
+                app.name.toLowerCase().includes(query) || 
+                app.version.toLowerCase().includes(query) ||
+                app.description.toLowerCase().includes(query)
+            );
+            renderCatalog(filteredApps);
+        }
+
+        // Initial launch load
+        renderCatalog(appsDatabase);
+    </script>
 </body>
 </html>
