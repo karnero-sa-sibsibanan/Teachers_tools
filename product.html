@@ -26,10 +26,12 @@
     <main class="max-w-4xl mx-auto px-6 py-16 flex-grow w-full">
         <a href="index.html" class="text-xs font-semibold text-blue-500 hover:text-blue-400 transition flex items-center mb-8">← Return to Application List</a>
         
+        <!-- Main dynamic product container remains completely invisible until full decryption completes -->
         <div id="productContent" class="hidden">
             <!-- App Identity Header -->
             <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-gray-900 pb-8 mb-8 gap-4">
                 <div class="flex items-center gap-4">
+                    <!-- SECURE DYNAMIC ICON ELEMENT -->
                     <img id="appIcon" src="" alt="App Icon" class="w-16 h-16 rounded-2xl bg-gray-900 border border-gray-800 object-cover">
                     <div>
                         <h1 id="appName" class="text-2xl md:text-4xl font-black text-white tracking-tight mb-2">App Name</h1>
@@ -46,7 +48,7 @@
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Media and Text Content Column -->
                 <div class="md:col-span-2 space-y-8">
-                    <!-- High-Res App Screenshot Area -->
+                    <!-- SECURE DYNAMIC SCREENSHOT PANEL -->
                     <div class="aspect-video bg-gray-900 rounded-2xl overflow-hidden border border-gray-800 shadow-2xl">
                         <img id="appScreenshot1" src="" alt="App Preview Screenshot" class="w-full h-full object-cover">
                     </div>
@@ -61,12 +63,12 @@
                 <div class="bg-gray-900/20 border border-gray-900 p-6 rounded-2xl h-fit space-y-4 shadow-xl">
                     <h3 class="text-sm font-bold text-white tracking-wider uppercase">Acquire Software</h3>
                     
-                    <!-- LICENSED COMPLIANCE ACQUISITION LINK -->
-                    <a id="buyBtn" href="#" target="_blank" class="w-full text-center bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-4 rounded-xl text-sm transition block shadow-lg shadow-blue-600/10">
+                    <!-- SCRAMBLED PREMIUM PURCHASE LINK -->
+                    <a id="secureBuyBtn" href="#" target="_blank" class="w-full text-center bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-4 rounded-xl text-sm transition block shadow-lg shadow-blue-600/10">
                         Purchase Premium License
                     </a>
 
-                    <!-- SCRAMBLED DOWNLOAD LINK WITH HOVER TRIGGER -->
+                    <!-- SCRAMBLED FREE EVALUATION (.ZIP) LINK -->
                     <a id="secureDemoBtn" href="#" target="_blank" class="w-full text-center bg-gray-900 hover:bg-gray-800 border border-gray-800 text-gray-300 font-semibold py-3 px-4 rounded-xl text-sm transition block mb-6">
                         Download Evaluation (.zip)
                     </a>
@@ -75,8 +77,8 @@
                         <h4 class="text-xs font-bold text-gray-400 tracking-wider uppercase mb-2">User Community</h4>
                         <p class="text-xs text-gray-500 mb-3">Loved the app? Read user community experiences or leave your official rating on our Facebook page.</p>
                         
-                        <!-- FACEBOOK REDIRECT BUTTON -->
-                        <a id="fbReviewBtn" href="#" target="_blank" class="w-full text-center bg-[#1877F2]/10 hover:bg-[#1877F2]/20 border border-[#1877F2]/30 text-[#1877F2] font-bold py-2.5 px-4 rounded-xl text-xs transition flex items-center justify-center gap-2">
+                        <!-- SCRAMBLED FACEBOOK REDIRECT BUTTON -->
+                        <a id="secureFbReviewBtn" href="#" target="_blank" class="w-full text-center bg-[#1877F2]/10 hover:bg-[#1877F2]/20 border border-[#1877F2]/30 text-[#1877F2] font-bold py-2.5 px-4 rounded-xl text-xs transition flex items-center justify-center gap-2">
                             <span>👍</span> Review on Facebook
                         </a>
                     </div>
@@ -99,8 +101,8 @@
 
     <!-- SECURITY MANAGEMENT PIPELINE -->
     <script>
-        // MASTER VALUE DATABASE MAPPINGS
-        // Note: The 'secureId' field holds your Google Drive file ID converted to Base64.
+        // MASTER LOCKED VALUE DATABASE MAPPINGS
+        // ALL endpoint fields have been completely scrambled into Base64 formats.
         const productsDatabase = {
             "data-extractor": {
                 name: "DataExtractor Pro",
@@ -108,13 +110,21 @@
                 rating: "⭐⭐⭐⭐★ (4.8/5)",
                 price: "$5.00",
                 description: "DataExtractor Pro is an enterprise-grade automated data extraction platform engineered to crawl and index deep logical dataset structures.",
-                buyLink: "YOUR_GOOGLE_FORM_FOR_DATA_EXTRACTOR",
-                fbPost: "YOUR_FACEBOOK_POST_LINK_FOR_DATA_EXTRACTOR",
-                iconLink: "https://drive.google.com/thumbnail?id=YOUR_ICON_ID_1&sz=w200",
-                screenshot1: "https://drive.google.com/thumbnail?id=YOUR_SCREENSHOT_ID_1&sz=w1200",
                 
-                // PLACE YOUR SCRAMBLED GOOGLE DRIVE FILE ID HERE (Follow instructions below to generate)
-                secureId: "bXktZ29vZ2xlLWRyaXZlLWZpbGUtaWQtcGxhY2Vob2xkZXI=" 
+                // 1. SCRAMBLED ICON SOURCE LINK (Plain format: "https://drive.google.com/thumbnail?id=YOUR_ID&sz=w200")
+                secureIconUrl: "YUhSMGNITTZMeTluYjI5bmFXVXVaMnhsTDJGemQzSmxZMmhoYm5SdmNuUnZjbVV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw==",
+                
+                // 2. SCRAMBLED HIGH-RES SCREENSHOT LINK (Plain format: "https://drive.google.com/thumbnail?id=YOUR_ID&sz=w1200")
+                secureScreenshotUrl: "YUhSMGNITTZMeTluYjI5bmFXVXVaMnhsTDJGemQzSmxZMmhoYm5SdmNuUnZjbVV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw==",
+                
+                // 3. SCRAMBLED GOOGLE FORM PURCHASE LINK (Plain format: "https://forms.gle/XYZ...")
+                secureBuyUrl: "YUhSMGNITTZMeTluYjI5bmFXVXVaMnhsTDJGemQzSmxZMmhoYm5SdmNuUnZjbVV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw==",
+                
+                // 4. SCRAMBLED GOOGLE DRIVE ZIP FILE ID (Plain format: "1zXyWv...")
+                secureDemoId: "bXktZ29vZ2xlLWRyaXZlLWZpbGUtaWQtcGxhY2Vob2xkZXI=", 
+                
+                // 5. SCRAMBLED FACEBOOK FEEDBACK LINK (Plain format: "https://facebook.com/...")
+                secureFbUrl: "YUhSMGNITTZMeTkzZDNjdVptRmphMkZ2YjIzdUkyTnZiUzkxY21zdmFHRjNaVzU2YVdVeU1UWTBOalV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw=="
             },
             "file-compressor": {
                 name: "FileCompressor Ultra",
@@ -122,13 +132,12 @@
                 rating: "⭐⭐⭐⭐⭐ (5.0/5)",
                 price: "$4.50",
                 description: "Engineered cleanly for rapid distribution structures, FileCompressor Ultra leverages a proprietary multi-thread folding pipeline.",
-                buyLink: "YOUR_GOOGLE_FORM_FOR_COMPRESSOR",
-                fbPost: "YOUR_FACEBOOK_POST_LINK_FOR_COMPRESSOR",
-                iconLink: "https://drive.google.com/thumbnail?id=YOUR_ICON_ID_2&sz=w200",
-                screenshot1: "https://drive.google.com/thumbnail?id=YOUR_SCREENSHOT_ID_2&sz=w1200",
                 
-                // PLACE YOUR SCRAMBLED GOOGLE DRIVE FILE ID HERE
-                secureId: "YW5vdGhlci1maWxlLWlkLXBsYWNlaG9sZGVy" 
+                secureIconUrl: "YUhSMGNITTZMeTluYjI5bmFXVXVaMnhsTDJGemQzSmxZMmhoYm5SdmNuUnZjbVV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw==",
+                secureScreenshotUrl: "YUhSMGNITTZMeTluYjI5bmFXVXVaMnhsTDJGemQzSmxZMmhoYm5SdmNuUnZjbVV1YUhSMGNEb3ZMdw==",
+                secureBuyUrl: "YUhSMGNITTZMeTluYjI5bmFXVXVaMnhsTDJGemQzSmxZMmhoYm5SdmNuUnZjbVV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw==",
+                secureDemoId: "YW5vdGhlci1maWxlLWlkLXBsYWNlaG9sZGVy", 
+                secureFbUrl: "YUhSMGNITTZMeTkzZDNjdVptRmphMkZ2YjIzdUkyTnZiUzkxY21zdmFHRjNaVzU2YVdVeU1UWTBOalV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw=="
             }
         };
 
@@ -138,32 +147,56 @@
         const data = productsDatabase[appId];
 
         if (data) {
+            // Map standard plain metadata text
             document.getElementById('appName').innerText = data.name;
             document.getElementById('appVersion').innerText = data.version;
             document.getElementById('appRating').innerText = data.rating;
             document.getElementById('appPrice').innerText = data.price;
             document.getElementById('appDescription').innerText = data.description;
-            document.getElementById('buyBtn').href = data.buyLink;
-            document.getElementById('fbReviewBtn').href = data.fbPost;
-            document.getElementById('appIcon').src = data.iconLink;
-            document.getElementById('appScreenshot1').src = data.screenshot1;
 
-            // REAL-TIME DECRYPTION HOOK
-            // This reads the scrambled code and creates the download link only when the user interacts with the button
-            const downloadButton = document.getElementById('secureDemoBtn');
+            // -----------------------------------------------------------------
+            // SECURE REAL-TIME DECRYPTION PIPELINE
+            // -----------------------------------------------------------------
+            try {
+                // Instant Decryption for Visual Interface Elements
+                if (data.secureIconUrl) {
+                    document.getElementById('appIcon').src = atob(data.secureIconUrl);
+                }
+                if (data.secureScreenshotUrl) {
+                    document.getElementById('appScreenshot1').src = atob(data.secureScreenshotUrl);
+                }
+            } catch (err) {
+                console.error("Visual resource compilation failure.");
+            }
             
-            downloadButton.addEventListener('pointerdown', function() {
-                if(data.secureId) {
-                    try {
-                        // atob decodes the Base64 string back into the plain-text file ID
-                        const clearId = atob(data.secureId);
-                        this.href = `https://drive.google.com/uc?export=download&id=${clearId}`;
-                    } catch(err) {
-                        console.error("Secure link resolution error.");
-                    }
+            // Decrypt Purchase Form on User Pointer Down
+            const buyButton = document.getElementById('secureBuyBtn');
+            buyButton.addEventListener('pointerdown', function() {
+                if(data.secureBuyUrl) {
+                    try { this.href = atob(data.secureBuyUrl); } catch(err) { console.error("Link translation fail."); }
                 }
             });
 
+            // Decrypt Drive Download File ID on User Pointer Down
+            const demoButton = document.getElementById('secureDemoBtn');
+            demoButton.addEventListener('pointerdown', function() {
+                if(data.secureDemoId) {
+                    try {
+                        const clearId = atob(data.secureDemoId);
+                        this.href = `https://drive.google.com/uc?export=download&id=${clearId}`;
+                    } catch(err) { console.error("Link translation fail."); }
+                }
+            });
+
+            // Decrypt Facebook Target Link on User Pointer Down
+            const fbButton = document.getElementById('secureFbReviewBtn');
+            fbButton.addEventListener('pointerdown', function() {
+                if(data.secureFbUrl) {
+                    try { this.href = atob(data.secureFbUrl); } catch(err) { console.error("Link translation fail."); }
+                }
+            });
+
+            // Unlock Layout Window visibility
             document.getElementById('productContent').classList.remove('hidden');
         } else {
             document.getElementById('errorContent').classList.remove('hidden');
