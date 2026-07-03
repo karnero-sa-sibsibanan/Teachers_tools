@@ -62,6 +62,37 @@
                         <h2 class="text-lg font-bold text-white tracking-tight">Product Overview</h2>
                         <p id="appDescription" class="text-gray-400 leading-relaxed text-sm">Detailed overview container.</p>
                     </div>
+
+                    <!-- System Requirements Section (Moved out of grid column to span completely underneath) -->
+                    <div class="mt-8 border-t border-gray-900 pt-6">
+                        <h3 class="text-sm font-semibold tracking-wider text-gray-400 uppercase">System Requirements</h3>
+                        
+                        <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 bg-gray-900/40 rounded-xl p-4 border border-gray-900">
+                            <!-- OS Requirement -->
+                            <div class="flex flex-col">
+                                <span class="text-xs text-gray-500 font-medium">Operating System</span>
+                                <span id="reqOS" class="text-sm text-gray-200 mt-1 font-semibold">-</span>
+                            </div>
+                            
+                            <!-- RAM Requirement -->
+                            <div class="flex flex-col">
+                                <span class="text-xs text-gray-500 font-medium">System Memory</span>
+                                <span id="reqRAM" class="text-sm text-gray-200 mt-1 font-semibold">-</span>
+                            </div>
+                            
+                            <!-- Storage Requirement -->
+                            <div class="flex flex-col">
+                                <span class="text-xs text-gray-500 font-medium">Disk Space</span>
+                                <span id="reqStorage" class="text-sm text-gray-200 mt-1 font-semibold">-</span>
+                            </div>
+                        
+                            <!-- Verification / Network Requirement -->
+                            <div class="flex flex-col">
+                                <span class="text-xs text-gray-500 font-medium">Operation Mode</span>
+                                <span id="reqMode" class="text-sm text-gray-200 mt-1 font-semibold">-</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="bg-gray-900/20 border border-gray-900 p-6 rounded-2xl h-fit space-y-4 shadow-xl">
@@ -84,39 +115,6 @@
                         </a>
                     </div>
                 </div>
-
-                <!-- System Requirements Section -->
-                <div class="mt-8 border-t border-slate-700/50 pt-6">
-                  <h3 class="text-sm font-semibold tracking-wider text-slate-400 uppercase">System Requirements</h3>
-                  
-                  <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 bg-slate-800/40 rounded-xl p-4 border border-slate-700/30">
-                    <!-- OS Requirement -->
-                    <div class="flex flex-col">
-                      <span class="text-xs text-slate-400 font-medium">Operating System</span>
-                      <span id="reqOS" class="text-sm text-slate-200 mt-1 font-semibold">-</span>
-                    </div>
-                    
-                    <!-- RAM Requirement -->
-                    <div class="flex flex-col">
-                      <span class="text-xs text-slate-400 font-medium">System Memory</span>
-                      <span id="reqRAM" class="text-sm text-slate-200 mt-1 font-semibold">-</span>
-                    </div>
-                    
-                    <!-- Storage Requirement -->
-                    <div class="flex flex-col">
-                      <span class="text-xs text-slate-400 font-medium">Disk Space</span>
-                      <span id="reqStorage" class="text-sm text-slate-200 mt-1 font-semibold">-</span>
-                    </div>
-                
-                    <!-- Verification / Network Requirement -->
-                    <div class="flex flex-col">
-                      <span class="text-xs text-slate-400 font-medium">Operation Mode</span>
-                      <span id="reqMode" class="text-sm text-slate-200 mt-1 font-semibold">-</span>
-                    </div>
-                  </div>
-                </div>
-
-                
             </div>
         </div>
 
@@ -143,6 +141,7 @@
                 minOS: "Windows 10 / Android 9.0+",
                 minRAM: "2 GB Memory Baseline",
                 storage: "50 MB available space",
+                mode: "Standalone Engine",
                 youtubeId: "dQw4w9WgXcQ", 
                 secureIconUrl: "YUhSMGNITTZMeTluYjI5bmFXVXVaMnhsTDJGemQzSmxZMmhoYm5SdmNuUnZjbVV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw==",
                 secureScreenshots: [
@@ -164,6 +163,7 @@
                 minOS: "Windows 10 / Android 9.0+",
                 minRAM: "2 GB Memory Baseline",
                 storage: "50 MB available space",
+                mode: "Standalone Engine",
                 youtubeId: "dQw4w9WgXcQ",
                 secureIconUrl: "YUhSMGNITTZMeTluYjI5bmFXVXVaMnhsTDJGemQzSmxZMmhoYm5SdmNuUnZjbVV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw==",
                 secureScreenshots: [
@@ -190,6 +190,7 @@
             document.getElementById('reqOS').textContent = data.minOS || "Any Modern OS";
             document.getElementById('reqRAM').textContent = data.minRAM || "Standard Baseline";
             document.getElementById('reqStorage').textContent = data.storage || "Lightweight Installation";
+            document.getElementById('reqMode').textContent = data.mode || "Client-Side Engine";
 
             if (data.youtubeId) {
                 document.getElementById('appYoutubeVideo').src = `https://www.youtube.com/embed/${data.youtubeId}?rel=0`; 
