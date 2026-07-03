@@ -84,6 +84,39 @@
                         </a>
                     </div>
                 </div>
+
+                <!-- System Requirements Section -->
+                <div class="mt-8 border-t border-slate-700/50 pt-6">
+                  <h3 class="text-sm font-semibold tracking-wider text-slate-400 uppercase">System Requirements</h3>
+                  
+                  <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 bg-slate-800/40 rounded-xl p-4 border border-slate-700/30">
+                    <!-- OS Requirement -->
+                    <div class="flex flex-col">
+                      <span class="text-xs text-slate-400 font-medium">Operating System</span>
+                      <span id="reqOS" class="text-sm text-slate-200 mt-1 font-semibold">-</span>
+                    </div>
+                    
+                    <!-- RAM Requirement -->
+                    <div class="flex flex-col">
+                      <span class="text-xs text-slate-400 font-medium">System Memory</span>
+                      <span id="reqRAM" class="text-sm text-slate-200 mt-1 font-semibold">-</span>
+                    </div>
+                    
+                    <!-- Storage Requirement -->
+                    <div class="flex flex-col">
+                      <span class="text-xs text-slate-400 font-medium">Disk Space</span>
+                      <span id="reqStorage" class="text-sm text-slate-200 mt-1 font-semibold">-</span>
+                    </div>
+                
+                    <!-- Verification / Network Requirement -->
+                    <div class="flex flex-col">
+                      <span class="text-xs text-slate-400 font-medium">Operation Mode</span>
+                      <span id="reqMode" class="text-sm text-slate-200 mt-1 font-semibold">-</span>
+                    </div>
+                  </div>
+                </div>
+
+                
             </div>
         </div>
 
@@ -107,6 +140,9 @@
                 rating: "★★★★★ (review feature is not yet implemented)",
                 price: "$5.00",
                 description: "DataExtractor Pro is an enterprise-grade automated data extraction platform engineered to crawl and index deep logical dataset structures.",
+                minOS: "Windows 10 / Android 9.0+",
+                minRAM: "2 GB Memory Baseline",
+                storage: "50 MB available space"
                 youtubeId: "dQw4w9WgXcQ", 
                 secureIconUrl: "YUhSMGNITTZMeTluYjI5bmFXVXVaMnhsTDJGemQzSmxZMmhoYm5SdmNuUnZjbVV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw==",
                 secureScreenshots: [
@@ -125,6 +161,9 @@
                 rating: "★★★★★ (review feature is not yet implemented)",
                 price: "$4.50",
                 description: "Engineered cleanly for rapid distribution structures, FileCompressor Ultra leverages a proprietary multi-thread folding pipeline.",
+                minOS: "Windows 10 / Android 9.0+",
+                minRAM: "2 GB Memory Baseline",
+                storage: "50 MB available space"
                 youtubeId: "dQw4w9WgXcQ",
                 secureIconUrl: "YUhSMGNITTZMeTluYjI5bmFXVXVaMnhsTDJGemQzSmxZMmhoYm5SdmNuUnZjbVV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw==",
                 secureScreenshots: [
@@ -148,6 +187,9 @@
             document.getElementById('appRating').innerText = data.rating;
             document.getElementById('appPrice').innerText = data.price;
             document.getElementById('appDescription').innerText = data.description;
+            document.getElementById('reqOS').textContent = data.minOS || "Any Modern OS";
+            document.getElementById('reqRAM').textContent = data.minRAM || "Standard Baseline";
+            document.getElementById('reqStorage').textContent = data.storage || "Lightweight Installation";
 
             if (data.youtubeId) {
                 document.getElementById('appYoutubeVideo').src = `https://www.youtube.com/embed/${data.youtubeId}?rel=0`; 
