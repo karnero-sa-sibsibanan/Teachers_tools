@@ -6,113 +6,118 @@
     <title>Application Details</title>
     <script src="https://cdn.tailwindcss.com/3.4.15"></script>
     <style>
-        /* Custom scrollbar utility to keep horizontal screenshot bars flat and elegant */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
-<body class="bg-black text-gray-100 min-h-screen font-sans antialiased flex flex-col justify-between selection:bg-blue-500/30 selection:text-blue-200">
+<body class="bg-[#020617] text-slate-200 min-h-screen font-sans antialiased flex flex-col justify-between selection:bg-cyan-500/30 selection:text-cyan-200">
+
+    <!-- Top Accent Glow Line -->
+    <div class="h-1 bg-gradient-to-r from-cyan-500 via-indigo-500 to-purple-600"></div>
 
     <!-- Top Navigation Bar -->
-    <nav class="border-b border-gray-950 bg-black/60 backdrop-blur-md sticky top-0 z-50">
+    <nav class="border-b border-slate-900 bg-[#020617]/80 backdrop-blur-md sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-4 h-14 flex items-center">
-            <a href="index.html" class="inline-flex items-center gap-2 text-xs font-semibold text-gray-400 hover:text-white transition-colors">
+            <a href="index.html" class="inline-flex items-center gap-2 text-xs font-semibold text-slate-400 hover:text-cyan-400 transition-colors">
                 <span>←</span> Back to Catalog Database
             </a>
         </div>
     </nav>
 
-    <!-- Main Content Grid Space Area Frame -->
-    <main class="max-w-6xl w-full mx-auto px-4 py-12 flex-grow">
+    <!-- Main Content Container -->
+    <main class="max-w-6xl w-full mx-auto px-4 py-8 md:py-12 flex-grow">
         
-        <!-- Target Product Data Layout Block -->
-        <div id="productContent" class="hidden space-y-12">
-            <!-- Header Identity Section Box -->
-            <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6 pb-8 border-b border-gray-950">
-                <div class="w-24 h-24 bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden flex-shrink-0 shadow-inner p-1">
-                    <img id="appIcon" src="" alt="Application interface logo graphics" class="w-full h-full object-cover rounded-xl bg-black">
+        <div id="productContent" class="hidden space-y-10 md:space-y-12">
+            <!-- Header Identity Block -->
+            <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6 pb-8 border-b border-slate-900">
+                <div class="w-24 h-24 bg-[#070d19] border border-slate-800 rounded-2xl overflow-hidden flex-shrink-0 shadow-inner p-1">
+                    <img id="appIcon" src="" alt="Application logo" class="w-full h-full object-cover rounded-xl bg-slate-950">
                 </div>
                 <div class="space-y-2 flex-grow">
                     <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2">
-                        <span id="appCategoryBadge" class="text-[10px] font-bold uppercase tracking-wider bg-blue-950/40 text-blue-400 px-2.5 py-0.5 rounded-md border border-blue-900/30"></span>
-                        <span id="appVersion" class="text-xs font-mono text-gray-500"></span>
+                        <span id="appCategoryBadge" class="text-[10px] font-bold uppercase tracking-wider bg-cyan-950/50 text-cyan-400 px-2.5 py-0.5 rounded-md border border-cyan-900/30"></span>
+                        <span id="appVersion" class="text-xs font-mono text-slate-500"></span>
                     </div>
-                    <h1 id="appName" class="text-3xl font-extrabold text-white tracking-tight sm:text-4xl"></h1>
+                    <h1 id="appName" class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight md:text-4xl"></h1>
                     <div class="flex items-center justify-center sm:justify-start gap-4 text-xs">
                         <span id="appRating" class="text-yellow-500 font-medium"></span>
-                        <span class="text-gray-800">|</span>
+                        <span class="text-slate-800">|</span>
                         <div class="flex items-center gap-1.5">
-                            <span class="text-gray-500">Cost:</span>
+                            <span class="text-slate-500">Cost:</span>
                             <span id="appPrice" class="text-white font-bold"></span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Content Split Screen Grid -->
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
+            <!-- Main Layout Split Grid (Stacked on mobile, 3-columns on desktop) -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10 items-start">
                 
-                <!-- Left Running Column Block Content: Description & Media Elements -->
-                <div class="lg:col-span-2 space-y-10">
+                <!-- Left Details Area -->
+                <div class="lg:col-span-2 space-y-10 order-2 lg:order-1">
                     <section class="space-y-4">
-                        <h2 class="text-xs uppercase tracking-wider font-extrabold text-gray-500">Overview Profile</h2>
-                        <div id="appDescription" class="text-sm text-gray-400 leading-relaxed space-y-4">
-                            <!-- Content parses via innerHTML safely -->
+                        <h2 class="text-xs uppercase tracking-wider font-extrabold text-slate-500">Overview Profile</h2>
+                        <!-- Overriding some text element displays dynamically to fit the new theme setup seamlessly -->
+                        <div id="appDescription" class="text-sm text-slate-300 leading-relaxed space-y-4 prose-invert">
+                            <!-- Injected HTML -->
                         </div>
                     </section>
 
-                    <!-- Image Carousel Display Gallery (FIXED SIZE CONTAINER) -->
+                    <!-- Image Carousel Display Gallery (Fully Flexible & Responsive) -->
                     <section id="gallerySection" class="space-y-4 hidden">
-                        <h2 class="text-xs uppercase tracking-wider font-extrabold text-gray-500">Interface Panel Previews</h2>
-                        <div id="screenshotGallery" class="flex gap-4 overflow-x-auto pb-4 pt-1 snap-x no-scrollbar w-full">
-                            <!-- Screenshots populate dynamically with fixed structural sizing -->
+                        <div class="flex items-center justify-between">
+                            <h2 class="text-xs uppercase tracking-wider font-extrabold text-slate-500">Interface Panel Previews</h2>
+                            <span class="text-[10px] text-slate-500 hidden sm:inline">💡 Click any view frame to launch full screen fullscreen modes</span>
+                        </div>
+                        <div id="screenshotGallery" class="flex gap-4 overflow-x-auto pb-4 pt-1 snap-x no-scrollbar w-full cursor-zoom-in">
+                            <!-- Screenshots populate dynamically -->
                         </div>
                     </section>
 
-                    <!-- Embedded Video Module Engine Frame View -->
+                    <!-- Embedded Video Module -->
                     <section id="videoSection" class="space-y-4 hidden">
-                        <h2 class="text-xs uppercase tracking-wider font-extrabold text-gray-500">Video Walkthrough Demonstration</h2>
-                        <div class="aspect-video w-full bg-gray-950 rounded-2xl overflow-hidden border border-gray-900 shadow-md">
+                        <h2 class="text-xs uppercase tracking-wider font-extrabold text-slate-500">Video Walkthrough Demonstration</h2>
+                        <div class="aspect-video w-full bg-slate-950 rounded-2xl overflow-hidden border border-slate-900 shadow-md">
                             <iframe id="appYoutubeVideo" class="w-full h-full" src="" title="Video Guide Frame Overview" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                         </div>
                     </section>
                 </div>
 
-                <!-- Right Running Column Sidebar Utility Panel Configuration Layouts Block -->
-                <div class="space-y-6 lg:sticky lg:top-20">
-                    <div class="bg-gray-950/40 border border-gray-900 rounded-2xl p-6 space-y-6 shadow-sm">
-                        <h3 class="text-xs uppercase tracking-wider font-extrabold text-gray-500">Execution Hub</h3>
+                <!-- Right Sidebar Action Center Layout (Shows on TOP on Mobile for better UX) -->
+                <div class="space-y-6 lg:sticky lg:top-20 order-1 lg:order-2">
+                    <div class="bg-[#070d19]/40 border border-slate-900 rounded-2xl p-6 space-y-6 shadow-xl">
+                        <h3 class="text-xs uppercase tracking-wider font-extrabold text-slate-500">Execution Hub</h3>
                         
                         <div class="space-y-3">
-                            <a id="secureBuyBtn" href="#" target="_blank" class="w-full text-center block text-xs font-bold bg-white text-black hover:bg-gray-200 py-3.5 px-4 rounded-xl transition-colors shadow-md">
+                            <a id="secureBuyBtn" href="#" target="_blank" class="w-full text-center block text-xs font-bold bg-cyan-500 text-slate-950 hover:bg-cyan-400 py-3.5 px-4 rounded-xl transition-all font-semibold shadow-lg shadow-cyan-900/20">
                                 Order Full System License
                             </a>
-                            <a id="secureDemoBtn" href="#" target="_blank" class="w-full text-center block text-xs font-semibold bg-gray-900 text-gray-200 border border-gray-800 hover:border-gray-700 py-3.5 px-4 rounded-xl transition-colors shadow-inner">
+                            <a id="secureDemoBtn" href="#" target="_blank" class="w-full text-center block text-xs font-semibold bg-[#0b1329] text-slate-200 border border-slate-800 hover:border-slate-700 py-3.5 px-4 rounded-xl transition-colors">
                                 Download Evaluator Demo Tool
                             </a>
-                            <a id="secureFbReviewBtn" href="#" target="_blank" class="w-full text-center block text-[11px] font-medium text-gray-500 hover:text-gray-300 transition-colors pt-2">
+                            <a id="secureFbReviewBtn" href="#" target="_blank" class="w-full text-center block text-[11px] font-medium text-slate-500 hover:text-cyan-400 transition-colors pt-2">
                                 Query User Reviews & Feedback Community
                             </a>
                         </div>
 
-                        <!-- Technical Specification Blueprint Data Matrix Layout Info -->
-                        <div class="border-t border-gray-950 pt-4 space-y-3.5">
-                            <h4 class="text-[11px] font-bold text-gray-400 uppercase tracking-wide mb-1">System Profile Benchmarks</h4>
+                        <!-- Technical Specification Blueprint Layout Info -->
+                        <div class="border-t border-slate-900 pt-4 space-y-3.5">
+                            <h4 class="text-[11px] font-bold text-slate-400 uppercase tracking-wide mb-1">System Profile Benchmarks</h4>
                             <div class="flex items-center justify-between text-xs">
-                                <span class="text-gray-500">Host OS Environment</span>
-                                <span id="reqOS" class="text-gray-300 font-medium"></span>
+                                <span class="text-slate-500">Host OS Environment</span>
+                                <span id="reqOS" class="text-slate-300 font-medium"></span>
                             </div>
                             <div class="flex items-center justify-between text-xs">
-                                <span class="text-gray-500">System RAM Allocation</span>
-                                <span id="reqRAM" class="text-gray-300 font-medium"></span>
+                                <span class="text-slate-500">System RAM Allocation</span>
+                                <span id="reqRAM" class="text-slate-300 font-medium"></span>
                             </div>
                             <div class="flex items-center justify-between text-xs">
-                                <span class="text-gray-500">Disk Footprint</span>
-                                <span id="reqStorage" class="text-gray-300 font-medium"></span>
+                                <span class="text-slate-500">Disk Footprint</span>
+                                <span id="reqStorage" class="text-slate-300 font-medium"></span>
                             </div>
                             <div class="flex items-center justify-between text-xs">
-                                <span class="text-gray-500">Network Condition</span>
-                                <span id="reqMode" class="text-gray-300 font-medium"></span>
+                                <span class="text-slate-500">Network Condition</span>
+                                <span id="reqMode" class="text-slate-300 font-medium"></span>
                             </div>
                         </div>
                     </div>
@@ -120,30 +125,39 @@
             </div>
         </div>
 
-        <!-- System Error Exception Fallback Layout -->
+        <!-- System Error Layout -->
         <div id="errorContent" class="hidden py-24 text-center max-w-md mx-auto space-y-4">
             <div class="text-red-500 text-4xl font-mono">⚠️</div>
             <h2 class="text-xl font-bold text-white tracking-tight">Application Record Not Located</h2>
-            <p class="text-gray-500 text-sm leading-relaxed">The target registry key parameters supplied in the URL query payload cannot be identified by the engine directory index profile listings.</p>
+            <p class="text-slate-500 text-sm leading-relaxed">The target registry key parameters supplied in the URL query payload cannot be identified by the engine directory.</p>
             <div class="pt-4">
-                <a href="index.html" class="inline-flex text-xs font-semibold bg-gray-900 text-gray-300 border border-gray-800 px-4 py-2 rounded-xl hover:border-gray-700 transition-colors">
+                <a href="index.html" class="inline-flex text-xs font-semibold bg-[#0b1329] text-slate-300 border border-slate-800 px-4 py-2 rounded-xl hover:border-slate-700 transition-colors">
                     Return to Catalog List
                 </a>
             </div>
         </div>
-
     </main>
 
+    <!-- NATIVE FULL SCREEN LIGHTBOX CONTAINER -->
+    <div id="lightboxOverlay" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-[100] hidden flex items-center justify-center p-4 md:p-8 animate-fade-in cursor-zoom-out">
+        <!-- Close Button Component Element UI -->
+        <button id="closeLightbox" class="absolute top-4 right-4 md:top-6 md:right-6 bg-slate-900/80 border border-slate-800 text-white rounded-full p-3 hover:bg-slate-800 transition-colors z-[110] text-sm font-bold flex items-center justify-center focus:outline-none">
+            ✕ Close
+        </button>
+        <!-- Injected Active Clear Scale Image Display Layout -->
+        <img id="lightboxActiveImg" src="" alt="Fullscreen asset presentation panel view" class="max-w-full max-h-[85vh] md:max-h-[90vh] object-contain rounded-xl border border-slate-800 shadow-2xl select-none">
+    </div>
+
     <!-- Footer Segment Container -->
-    <footer class="border-t border-gray-950 bg-black/40 py-8">
-        <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-600">
+    <footer class="border-t border-slate-900 bg-[#010409]/60 py-8">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
             <div>
                 &copy; 2026 karnero-sa-sibsibanan. All rights reserved.
             </div>
             <div class="flex items-center gap-4">
-                <a href="privacy.html" class="hover:text-gray-400 transition-colors underline decoration-gray-800 underline-offset-4">Privacy Policy</a>
+                <a href="privacy.html" class="hover:text-cyan-400 transition-colors underline decoration-slate-800 underline-offset-4">Privacy Policy</a>
                 <span>•</span>
-                <span class="font-mono">v1.0.0</span>
+                <span class="font-mono text-[10px] bg-slate-900 px-2 py-0.5 rounded text-slate-400">v1.0.0</span>
             </div>
         </div>
     </footer>
@@ -155,6 +169,36 @@
         const params = new URLSearchParams(window.location.search);
         const appId = params.get('app');
         const data = productsDatabase[appId];
+
+        // Lightbox element references
+        const lightboxOverlay = document.getElementById('lightboxOverlay');
+        const lightboxActiveImg = document.getElementById('lightboxActiveImg');
+        const closeLightbox = document.getElementById('closeLightbox');
+
+        // Functions to drive fullscreen modes
+        function openFullscreenImage(srcUrl) {
+            lightboxActiveImg.src = srcUrl;
+            lightboxOverlay.classList.remove('hidden');
+            lightboxOverlay.classList.add('flex');
+            document.body.style.overflow = 'hidden'; // Stop background scrolling
+        }
+
+        function closeFullscreenImage() {
+            lightboxOverlay.classList.add('hidden');
+            lightboxOverlay.classList.remove('flex');
+            lightboxActiveImg.src = '';
+            document.body.style.overflow = ''; // Re-enable background scrolling
+        }
+
+        // Event hooks to shut fullscreen modal wrapper component structure down nicely
+        lightboxOverlay.addEventListener('click', closeFullscreenImage);
+        closeLightbox.addEventListener('click', (e) => {
+            e.stopPropagation(); // Avoid event collision execution loops
+            closeFullscreenImage();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === "Escape") closeFullscreenImage();
+        });
 
         if (data) {
             document.getElementById('appName').innerText = data.name;
@@ -186,14 +230,17 @@
                     data.secureScreenshots.forEach((scrambledUrl, index) => {
                         const clearUrl = atob(scrambledUrl);
                         
-                        // Wrapper box with constraints to prevent "giant sized" layout explosions
+                        // Wrapper frame bounds optimized beautifully for both landscape desktop screens and portraits mobile phones
                         const wrapper = document.createElement('div');
-                        wrapper.className = "w-[280px] sm:w-[420px] aspect-[16/10] bg-gray-950 rounded-xl overflow-hidden border border-gray-900 snap-start flex-shrink-0 shadow-md";
+                        wrapper.className = "w-[260px] sm:w-[400px] md:w-[460px] aspect-[16/10] bg-slate-950 rounded-xl overflow-hidden border border-slate-900 snap-start flex-shrink-0 shadow-xl hover:border-cyan-500/30 transition-all duration-300";
                         
                         const img = document.createElement('img');
                         img.src = clearUrl;
                         img.alt = `Application view panel frame ${index + 1}`;
-                        img.className = "w-full h-full object-cover select-none";
+                        img.className = "w-full h-full object-cover select-none active:scale-[0.98] transition-transform";
+                        
+                        // Hook the zoom fullscreen trigger directly to the generated image component
+                        wrapper.addEventListener('click', () => openFullscreenImage(clearUrl));
                         
                         wrapper.appendChild(img);
                         galleryContainer.appendChild(wrapper);
