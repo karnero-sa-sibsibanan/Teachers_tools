@@ -80,18 +80,27 @@
                     const card = document.createElement('div');
                     card.className = "bg-[#070d19]/40 border border-slate-900/60 rounded-2xl p-6 flex flex-col justify-between hover:border-cyan-500/30 hover:bg-[#0b132b]/60 transition-all duration-300 shadow-xl group";
                     
-                    // 1. Decode the secure icon URL
-                    let decodedIconUrl = '';
+                    // 1. SMART DECODER: Handles both standard URLs and Base64 scrambled links seamlessly
+                    let finalIconUrl = '';
                     if (product.secureIconUrl) {
-                        try { encodedIconUrl = atob(product.secureIconUrl); } catch(e) {}
+                        // Check if the string looks like a standard web URL link first
+                        if (product.secureIconUrl.startsWith('http://') || product.secureIconUrl.startsWith('https://') || product.secureIconUrl.startsWith('.')) {
+                            finalIconUrl = product.secureIconUrl;
+                        } else {
+                            // If it is scrambled, decode it safely
+                            try { 
+                                finalIconUrl = atob(product.secureIconUrl); 
+                            } catch(e) { 
+                                console.error("Failed decoding icon string for: " + product.name, e);
+                            }
+                        }
                     }
-
-                    // 2. NEW: Decode the secure FB URL for the reviews link on the card
+            
+                    // 2. Decode the secure FB URL for the reviews link on the card
                     let ratingHTML = `<span>${product.rating || '★ 5.0'}</span>`;
                     if (product.secureFbUrl) {
                         try {
                             const clearFbUrl = atob(product.secureFbUrl);
-                            // Creates a clickable "(Reviews)" link right under the title on the home card
                             ratingHTML = `
                                 <span>${product.rating || '★ 5.0'}</span>
                                 <a href="${clearFbUrl}" target="_blank" class="text-slate-500 hover:text-cyan-400 underline decoration-slate-800 hover:decoration-cyan-500/50 underline-offset-2 transition-colors ml-1 text-[11px]">
@@ -100,7 +109,7 @@
                             `;
                         } catch(e) {}
                     }
-
+            
                     card.innerHTML = `
                         <div>
                             <div class="flex items-center justify-between mb-4">
@@ -112,20 +121,20 @@
                             
                             <!-- Application Identity Header -->
                             <div class="flex items-start gap-4 mb-3">
-                                ${decodedIconUrl ? `
-                                <div class="w-12 h-12 bg-slate-950 border border-slate-800 rounded-xl overflow-hidden flex-shrink-0 p-0.5 shadow-md">
-                                    <img src="${decodedIconUrl}" alt="${product.name} Icon" class="w-full h-full object-cover rounded-lg">
+                                <!-- If an icon URL exists, show it; otherwise display a clean fallback placeholder box -->
+                                <div class="w-12 h-12 bg-slate-950 border border-slate-800 rounded-xl overflow-hidden flex-shrink-0 p-0.5 shadow-md flex items-center justify-center text-xs font-mono text-slate-600">
+                                    ${finalIconUrl ? `
+                                        <img src="${finalIconUrl}" alt="${product.name} Icon" class="w-full h-full object-cover rounded-lg" onerror="this.parentElement.innerHTML='🤖'">
+                                    ` : '🤖'}
                                 </div>
-                                ` : ''}
                                 <div>
                                     <h3 class="font-bold text-white tracking-tight text-lg group-hover:text-cyan-400 transition-colors duration-300">
                                         ${product.name}
                                     </h3>
-                                    <!-- Dynamic rating link injected here -->
                                     <div class="text-yellow-500 text-xs mt-0.5 flex items-center gap-1">${ratingHTML}</div>
                                 </div>
                             </div>
-
+            
                             <p class="text-slate-400 text-sm leading-relaxed mb-6 line-clamp-3">
                                 ${product.shortDescription}
                             </p>
