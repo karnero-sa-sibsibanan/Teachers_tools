@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Software Catalog</title>
+    <title>Karnero Sa Sibsibanan</title>
     <script src="https://cdn.tailwindcss.com/3.4.15"></script>
 </head>
 <body class="bg-[#020617] text-slate-200 min-h-screen font-sans antialiased flex flex-col justify-between selection:bg-cyan-500/30 selection:text-cyan-200">
@@ -14,9 +14,15 @@
     <!-- Main Content Container -->
     <main class="max-w-6xl w-full mx-auto px-4 py-12 md:py-16 flex-grow">
         <header class="mb-12 border-b border-slate-900/80 pb-8 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-            <div>
-                <h1 class="text-3xl font-extrabold text-white tracking-tight sm:text-4xl md:text-5xl bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">Software Catalog</h1>
-                <p class="mt-3 text-sm sm:text-base text-slate-400 max-w-2xl">Discover utility tools, specialized educational computing environments, and pipeline performance engines built for deep space execution.</p>
+            <div class="flex items-center gap-4">
+                <!-- Main Website Logo Placeholder (Scales beautifully on mobile/desktop) -->
+                <div class="w-12 h-12 md:w-14 md:h-14 bg-[#070d19] border border-slate-800 rounded-2xl overflow-hidden flex-shrink-0 p-1 shadow-xl shadow-cyan-950/20">
+                    <img src="logo.png" alt="Karnero Sa Sibsibanan Logo" class="w-full h-full object-cover rounded-xl bg-slate-950" onerror="this.style.display='none'">
+                </div>
+                <div>
+                    <h1 class="text-2xl font-extrabold text-white tracking-tight sm:text-3xl md:text-4xl bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">Karnero Sa Sibsibanan</h1>
+                    <p class="mt-1 text-xs sm:text-sm text-slate-400 max-w-2xl">Discover utility tools, specialized educational computing environments, and pipeline performance engines built for deep space execution.</p>
+                </div>
             </div>
             
             <!-- Dynamic Search Engine Bar -->
@@ -74,6 +80,16 @@
                     const card = document.createElement('div');
                     card.className = "bg-[#070d19]/40 border border-slate-900/60 rounded-2xl p-6 flex flex-col justify-between hover:border-cyan-500/30 hover:bg-[#0b132b]/60 transition-all duration-300 shadow-xl group";
                     
+                    // Safely decode the secure encrypted icon URL string for the cards
+                    let decodedIconUrl = '';
+                    if (product.secureIconUrl) {
+                        try {
+                            decodedIconUrl = atob(product.secureIconUrl);
+                        } catch(e) {
+                            console.error("Failed to decode icon", e);
+                        }
+                    }
+
                     card.innerHTML = `
                         <div>
                             <div class="flex items-center justify-between mb-4">
@@ -82,10 +98,23 @@
                                 </span>
                                 <span class="text-xs text-slate-600 font-mono">${product.version}</span>
                             </div>
-                            <h3 class="font-bold text-white tracking-tight text-xl mb-2 group-hover:text-cyan-400 transition-colors duration-300">
-                                ${product.name}
-                            </h3>
-                            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            
+                            <!-- Application Identity Header (Icon + Name) -->
+                            <div class="flex items-start gap-4 mb-3">
+                                ${decodedIconUrl ? `
+                                <div class="w-12 h-12 bg-slate-950 border border-slate-800 rounded-xl overflow-hidden flex-shrink-0 p-0.5 shadow-md">
+                                    <img src="${decodedIconUrl}" alt="${product.name} Icon" class="w-full h-full object-cover rounded-lg">
+                                </div>
+                                ` : ''}
+                                <div>
+                                    <h3 class="font-bold text-white tracking-tight text-lg group-hover:text-cyan-400 transition-colors duration-300">
+                                        ${product.name}
+                                    </h3>
+                                    <div class="text-yellow-500 text-xs mt-0.5">${product.rating || '★ 5.0'}</div>
+                                </div>
+                            </div>
+
+                            <p class="text-slate-400 text-sm leading-relaxed mb-6 line-clamp-3">
                                 ${product.shortDescription}
                             </p>
                         </div>
