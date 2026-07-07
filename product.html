@@ -139,13 +139,25 @@
     </main>
 
     <!-- NATIVE FULL SCREEN LIGHTBOX CONTAINER -->
-    <div id="lightboxOverlay" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-[100] hidden flex items-center justify-center p-4 md:p-8 animate-fade-in cursor-zoom-out">
-        <!-- Close Button Component Element UI -->
-        <button id="closeLightbox" class="absolute top-4 right-4 md:top-6 md:right-6 bg-slate-900/80 border border-slate-800 text-white rounded-full p-3 hover:bg-slate-800 transition-colors z-[110] text-sm font-bold flex items-center justify-center focus:outline-none">
+    <div id="lightboxOverlay" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-[100] hidden items-center justify-center p-4 md:p-8 animate-fade-in select-none">
+        
+        <!-- Close Button Component -->
+        <button id="closeLightbox" class="absolute top-4 right-4 md:top-6 md:right-6 bg-slate-900/80 border border-slate-800 text-white rounded-full px-4 py-2 hover:bg-slate-800 transition-colors z-[110] text-xs font-bold focus:outline-none">
             ✕ Close
         </button>
-        <!-- Injected Active Clear Scale Image Display Layout -->
-        <img id="lightboxActiveImg" src="" alt="Fullscreen asset presentation panel view" class="max-w-full max-h-[85vh] md:max-h-[90vh] object-contain rounded-xl border border-slate-800 shadow-2xl select-none">
+
+        <!-- Navigation Arrows (Hidden on mobile touch devices, styled beautifully for desktop mouse hovers) -->
+        <button id="prevLightbox" class="absolute left-4 top-1/2 -translate-y-1/2 bg-slate-900/60 border border-slate-800 text-white rounded-xl p-4 hover:bg-slate-800 hover:text-cyan-400 transition-all z-[110] hidden md:block focus:outline-none text-xl font-bold">
+            ‹
+        </button>
+        <button id="nextLightbox" class="absolute right-4 top-1/2 -translate-y-1/2 bg-slate-900/60 border border-slate-800 text-white rounded-xl p-4 hover:bg-slate-800 hover:text-cyan-400 transition-all z-[110] hidden md:block focus:outline-none text-xl font-bold">
+            ›
+        </button>
+
+        <!-- Active Image View Frame Element -->
+        <div class="relative max-w-full max-h-[80vh] md:max-h-[88vh] flex items-center justify-center" id="lightboxImageWrapper">
+            <img id="lightboxActiveImg" src="" alt="Fullscreen asset presentation panel view" class="max-w-full max-h-[80vh] md:max-h-[88vh] object-contain rounded-xl border border-slate-800 shadow-2xl transition-transform duration-200 pointer-events-auto">
+        </div>
     </div>
 
     <!-- Footer Segment Container -->
@@ -171,13 +183,22 @@
         const data = productsDatabase[appId];
 
         // Lightbox element references
+        let activeScreenshotIndex = 0;
+        let cleanScreenshotUrls = [];
+
+        // Lightbox element references
         const lightboxOverlay = document.getElementById('lightboxOverlay');
         const lightboxActiveImg = document.getElementById('lightboxActiveImg');
+        const lightboxImageWrapper = document.getElementById('lightboxImageWrapper');
         const closeLightbox = document.getElementById('closeLightbox');
+        const prevLightbox = document.getElementById('prevLightbox');
+        const nextLightbox = document.getElementById('nextLightbox');
 
-        // Functions to drive fullscreen modes
-        function openFullscreenImage(srcUrl) {
-            lightboxActiveImg.src = srcUrl;
+        // Core State Engine Changers
+        function openFullscreenImage(index) {
+            activeScreenshotIndex = index;
+            lightboxActiveImg.src = cleanScreenshotUrls[activeScreenshotIndex];
+            
             lightboxOverlay.classList.remove('hidden');
             lightboxOverlay.classList.add('flex');
             document.body.style.overflow = 'hidden'; // Stop background scrolling
@@ -188,6 +209,63 @@
             lightboxOverlay.classList.remove('flex');
             lightboxActiveImg.src = '';
             document.body.style.overflow = ''; // Re-enable background scrolling
+        }
+
+        function navigateLightbox(direction) {
+            if (cleanScreenshotUrls.length <= 1) return;
+            
+            if (direction === 'next') {
+                activeScreenshotIndex = (activeScreenshotIndex + 1) % cleanScreenshotUrls.length;
+            } else if (direction === 'prev') {
+                activeScreenshotIndex = (activeScreenshotIndex - 1 + cleanScreenshotUrls.length) % cleanScreenshotUrls.length;
+            }
+            
+            // Subtle slide transition flash animation
+            lightboxActiveImg.style.opacity = '0.3';
+            setTimeout(() => {
+                lightboxActiveImg.src = cleanScreenshotUrls[activeScreenshotIndex];
+                lightboxActiveImg.style.opacity = '1';
+            }, 60);
+        }
+
+        // 1. CLICK EVENT LISTENERS
+        lightboxOverlay.addEventListener('click', closeFullscreenImage);
+        lightboxActiveImg.addEventListener('click', (e) => e.stopPropagation()); // Don't close when clicking the image itself
+        
+        prevLightbox.addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox('prev'); });
+        nextLightbox.addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox('next'); });
+        closeLightbox.addEventListener('click', (e) => { e.stopPropagation(); closeFullscreenImage(); });
+
+        // 2. KEYBOARD NAVIGATION ENGINE HOOKS
+        document.addEventListener('keydown', (e) => {
+            if (lightboxOverlay.classList.contains('hidden')) return;
+            
+            if (e.key === "Escape") closeFullscreenImage();
+            if (e.key === "ArrowRight") navigateLightbox('next');
+            if (e.key === "ArrowLeft") navigateLightbox('prev');
+        });
+
+        // 3. SMART MOBILE TOUCH SWIPE DETECTION ENGINE
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        lightboxImageWrapper.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        lightboxImageWrapper.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipeGesture();
+        }, { passive: true });
+
+        function handleSwipeGesture() {
+            const swipeThreshold = 50; // Minimum distance in pixels to count as a swipe
+            if (touchEndX < touchStartX - swipeThreshold) {
+                navigateLightbox('next'); // Swiped left -> load next image
+            }
+            if (touchEndX > touchStartX + swipeThreshold) {
+                navigateLightbox('prev'); // Swiped right -> load previous image
+            }
         }
 
         // Event hooks to shut fullscreen modal wrapper component structure down nicely
@@ -227,10 +305,10 @@
                 galleryContainer.innerHTML = '';
                 
                 if (data.secureScreenshots && data.secureScreenshots.length > 0) {
-                    data.secureScreenshots.forEach((scrambledUrl, index) => {
-                        const clearUrl = atob(scrambledUrl);
-                        
-                        // Wrapper frame bounds optimized beautifully for both landscape desktop screens and portraits mobile phones
+                    // Reset global URL storage tracking registry arrays safely
+                    cleanScreenshotUrls = data.secureScreenshots.map(url => atob(url));
+
+                    cleanScreenshotUrls.forEach((clearUrl, index) => {
                         const wrapper = document.createElement('div');
                         wrapper.className = "w-[260px] sm:w-[400px] md:w-[460px] aspect-[16/10] bg-slate-950 rounded-xl overflow-hidden border border-slate-900 snap-start flex-shrink-0 shadow-xl hover:border-cyan-500/30 transition-all duration-300";
                         
@@ -239,8 +317,8 @@
                         img.alt = `Application view panel frame ${index + 1}`;
                         img.className = "w-full h-full object-cover select-none active:scale-[0.98] transition-transform";
                         
-                        // Hook the zoom fullscreen trigger directly to the generated image component
-                        wrapper.addEventListener('click', () => openFullscreenImage(clearUrl));
+                        // Pass the exact item index position integer to our new function handler
+                        wrapper.addEventListener('click', () => openFullscreenImage(index));
                         
                         wrapper.appendChild(img);
                         galleryContainer.appendChild(wrapper);
