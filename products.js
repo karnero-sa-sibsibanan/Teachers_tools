@@ -4,7 +4,7 @@ const productsDatabase = {
         name: "e-ECCD Checklist",
         category: "productivity",
         version: "v2.1",
-        rating: "★★★★★ (review feature is not yet implemented)",
+        rating: "★★★★★",
         price: "₱485.00",
         shortDescription: "Streamline early childhood development tracking with a 100% offline desktop application built for Filipino educators.",
         description: `
