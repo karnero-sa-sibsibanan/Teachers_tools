@@ -5,10 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Application Details</title>
     <script src="https://cdn.tailwindcss.com/3.4.15"></script>
+    <style>
+        /* Custom scrollbar utility to keep horizontal screenshot bars flat and elegant */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
 </head>
-<body class="bg-black text-gray-100 min-h-screen font-sans antialiased selection:bg-blue-500/30 selection:text-blue-200">
+<body class="bg-black text-gray-100 min-h-screen font-sans antialiased flex flex-col justify-between selection:bg-blue-500/30 selection:text-blue-200">
 
-    <!-- Top Navigation Bar Anchor link back home -->
+    <!-- Top Navigation Bar -->
     <nav class="border-b border-gray-950 bg-black/60 backdrop-blur-md sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-4 h-14 flex items-center">
             <a href="index.html" class="inline-flex items-center gap-2 text-xs font-semibold text-gray-400 hover:text-white transition-colors">
@@ -17,25 +22,25 @@
         </div>
     </nav>
 
-    <!-- Main Render Template Wrapper Layout Element Containers -->
-    <main class="max-w-6xl mx-auto px-4 py-12">
+    <!-- Main Content Grid Space Area Frame -->
+    <main class="max-w-6xl w-full mx-auto px-4 py-12 flex-grow">
         
         <!-- Target Product Data Layout Block -->
         <div id="productContent" class="hidden space-y-12">
             <!-- Header Identity Section Box -->
-            <div class="flex flex-col md:flex-row items-start gap-6 pb-8 border-b border-gray-950">
-                <div class="w-20 h-20 bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden flex-shrink-0 shadow-inner p-1">
+            <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6 pb-8 border-b border-gray-950">
+                <div class="w-24 h-24 bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden flex-shrink-0 shadow-inner p-1">
                     <img id="appIcon" src="" alt="Application interface logo graphics" class="w-full h-full object-cover rounded-xl bg-black">
                 </div>
                 <div class="space-y-2 flex-grow">
-                    <div class="flex flex-wrap items-center gap-2">
+                    <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2">
                         <span id="appCategoryBadge" class="text-[10px] font-bold uppercase tracking-wider bg-blue-950/40 text-blue-400 px-2.5 py-0.5 rounded-md border border-blue-900/30"></span>
                         <span id="appVersion" class="text-xs font-mono text-gray-500"></span>
                     </div>
                     <h1 id="appName" class="text-3xl font-extrabold text-white tracking-tight sm:text-4xl"></h1>
-                    <div class="flex items-center gap-4 text-xs">
+                    <div class="flex items-center justify-center sm:justify-start gap-4 text-xs">
                         <span id="appRating" class="text-yellow-500 font-medium"></span>
-                        <span class="text-gray-700">|</span>
+                        <span class="text-gray-800">|</span>
                         <div class="flex items-center gap-1.5">
                             <span class="text-gray-500">Cost:</span>
                             <span id="appPrice" class="text-white font-bold"></span>
@@ -44,31 +49,31 @@
                 </div>
             </div>
 
-            <!-- Content Split Screen Grid Column Settings Layout -->
+            <!-- Content Split Screen Grid -->
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
                 
-                <!-- Left Running Column Block Context: Description Details Area Panels -->
+                <!-- Left Running Column Block Content: Description & Media Elements -->
                 <div class="lg:col-span-2 space-y-10">
                     <section class="space-y-4">
                         <h2 class="text-xs uppercase tracking-wider font-extrabold text-gray-500">Overview Profile</h2>
                         <div id="appDescription" class="text-sm text-gray-400 leading-relaxed space-y-4">
-                            <!-- Injected content parses cleanly with custom HTML structures inside -->
+                            <!-- Content parses via innerHTML safely -->
+                        </div>
+                    </section>
+
+                    <!-- Image Carousel Display Gallery (FIXED SIZE CONTAINER) -->
+                    <section id="gallerySection" class="space-y-4 hidden">
+                        <h2 class="text-xs uppercase tracking-wider font-extrabold text-gray-500">Interface Panel Previews</h2>
+                        <div id="screenshotGallery" class="flex gap-4 overflow-x-auto pb-4 pt-1 snap-x no-scrollbar w-full">
+                            <!-- Screenshots populate dynamically with fixed structural sizing -->
                         </div>
                     </section>
 
                     <!-- Embedded Video Module Engine Frame View -->
-                    <section class="space-y-4 hidden">
+                    <section id="videoSection" class="space-y-4 hidden">
                         <h2 class="text-xs uppercase tracking-wider font-extrabold text-gray-500">Video Walkthrough Demonstration</h2>
                         <div class="aspect-video w-full bg-gray-950 rounded-2xl overflow-hidden border border-gray-900 shadow-md">
                             <iframe id="appYoutubeVideo" class="w-full h-full" src="" title="Video Guide Frame Overview" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                        </div>
-                    </section>
-
-                    <!-- Image Carousel Display Gallery -->
-                    <section class="space-y-4 hidden">
-                        <h2 class="text-xs uppercase tracking-wider font-extrabold text-gray-500">Interface Panel Previews</h2>
-                        <div id="screenshotGallery" class="flex gap-4 overflow-x-auto pb-4 pt-1 snap-x no-scrollbar">
-                            <!-- Screenshots populate asynchronously here -->
                         </div>
                     </section>
                 </div>
@@ -115,7 +120,7 @@
             </div>
         </div>
 
-        <!-- System Error Exception Display Screen Fallback Layout -->
+        <!-- System Error Exception Fallback Layout -->
         <div id="errorContent" class="hidden py-24 text-center max-w-md mx-auto space-y-4">
             <div class="text-red-500 text-4xl font-mono">⚠️</div>
             <h2 class="text-xl font-bold text-white tracking-tight">Application Record Not Located</h2>
@@ -129,7 +134,21 @@
 
     </main>
 
-    <!-- Connect your shared central database code asset -->
+    <!-- Footer Segment Container -->
+    <footer class="border-t border-gray-950 bg-black/40 py-8">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-600">
+            <div>
+                &copy; 2026 karnero-sa-sibsibanan. All rights reserved.
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="privacy.html" class="hover:text-gray-400 transition-colors underline decoration-gray-800 underline-offset-4">Privacy Policy</a>
+                <span>•</span>
+                <span class="font-mono">v1.0.0</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Connect shared central database code asset -->
     <script src="products.js"></script>
 
     <script>
@@ -143,8 +162,6 @@
             document.getElementById('appVersion').innerText = data.version;
             document.getElementById('appRating').innerText = data.rating;
             document.getElementById('appPrice').innerText = data.price;
-            
-            // CRITICAL FIX: Injects text with correct layout parameters safely parsing inner elements tags
             document.getElementById('appDescription').innerHTML = data.description;
             
             document.getElementById('reqOS').textContent = data.minOS || "Any Modern OS";
@@ -154,7 +171,7 @@
 
             if (data.youtubeId) {
                 document.getElementById('appYoutubeVideo').src = `https://www.youtube.com/embed/${data.youtubeId}?rel=0`; 
-                document.getElementById('appYoutubeVideo').parentElement.classList.remove('hidden');
+                document.getElementById('videoSection').classList.remove('hidden');
             }
 
             try {
@@ -168,18 +185,20 @@
                 if (data.secureScreenshots && data.secureScreenshots.length > 0) {
                     data.secureScreenshots.forEach((scrambledUrl, index) => {
                         const clearUrl = atob(scrambledUrl);
+                        
+                        // Wrapper box with constraints to prevent "giant sized" layout explosions
                         const wrapper = document.createElement('div');
-                        wrapper.className = "min-w-[85%] sm:min-w-[70%] aspect-video bg-gray-950 rounded-xl overflow-hidden border border-gray-900 snap-start flex-shrink-0 shadow-md";
+                        wrapper.className = "w-[280px] sm:w-[420px] aspect-[16/10] bg-gray-950 rounded-xl overflow-hidden border border-gray-900 snap-start flex-shrink-0 shadow-md";
                         
                         const img = document.createElement('img');
                         img.src = clearUrl;
                         img.alt = `Application view panel frame ${index + 1}`;
-                        img.className = "w-full h-full object-cover";
+                        img.className = "w-full h-full object-cover select-none";
                         
                         wrapper.appendChild(img);
                         galleryContainer.appendChild(wrapper);
                     });
-                    galleryContainer.parentElement.classList.remove('hidden');
+                    document.getElementById('gallerySection').classList.remove('hidden');
                 }
             } catch (err) {
                 console.error("Secure asset stream compilation breakdown:", err);
