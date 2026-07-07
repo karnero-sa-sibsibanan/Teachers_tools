@@ -80,14 +80,25 @@
                     const card = document.createElement('div');
                     card.className = "bg-[#070d19]/40 border border-slate-900/60 rounded-2xl p-6 flex flex-col justify-between hover:border-cyan-500/30 hover:bg-[#0b132b]/60 transition-all duration-300 shadow-xl group";
                     
-                    // Safely decode the secure encrypted icon URL string for the cards
+                    // 1. Decode the secure icon URL
                     let decodedIconUrl = '';
                     if (product.secureIconUrl) {
+                        try { encodedIconUrl = atob(product.secureIconUrl); } catch(e) {}
+                    }
+
+                    // 2. NEW: Decode the secure FB URL for the reviews link on the card
+                    let ratingHTML = `<span>${product.rating || '★ 5.0'}</span>`;
+                    if (product.secureFbUrl) {
                         try {
-                            decodedIconUrl = atob(product.secureIconUrl);
-                        } catch(e) {
-                            console.error("Failed to decode icon", e);
-                        }
+                            const clearFbUrl = atob(product.secureFbUrl);
+                            // Creates a clickable "(Reviews)" link right under the title on the home card
+                            ratingHTML = `
+                                <span>${product.rating || '★ 5.0'}</span>
+                                <a href="${clearFbUrl}" target="_blank" class="text-slate-500 hover:text-cyan-400 underline decoration-slate-800 hover:decoration-cyan-500/50 underline-offset-2 transition-colors ml-1 text-[11px]">
+                                    (Reviews)
+                                </a>
+                            `;
+                        } catch(e) {}
                     }
 
                     card.innerHTML = `
@@ -99,7 +110,7 @@
                                 <span class="text-xs text-slate-600 font-mono">${product.version}</span>
                             </div>
                             
-                            <!-- Application Identity Header (Icon + Name) -->
+                            <!-- Application Identity Header -->
                             <div class="flex items-start gap-4 mb-3">
                                 ${decodedIconUrl ? `
                                 <div class="w-12 h-12 bg-slate-950 border border-slate-800 rounded-xl overflow-hidden flex-shrink-0 p-0.5 shadow-md">
@@ -110,7 +121,8 @@
                                     <h3 class="font-bold text-white tracking-tight text-lg group-hover:text-cyan-400 transition-colors duration-300">
                                         ${product.name}
                                     </h3>
-                                    <div class="text-yellow-500 text-xs mt-0.5">${product.rating || '★ 5.0'}</div>
+                                    <!-- Dynamic rating link injected here -->
+                                    <div class="text-yellow-500 text-xs mt-0.5 flex items-center gap-1">${ratingHTML}</div>
                                 </div>
                             </div>
 
@@ -138,7 +150,6 @@
                 emptyState.classList.add('hidden');
             }
         }
-
         searchInput.addEventListener('input', (e) => renderCatalog(e.target.value));
         renderCatalog();
     </script>
