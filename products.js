@@ -1,7 +1,7 @@
 // products.js
 const productsDatabase = {
     "e-ECD Checklist": {
-        name: "e-ECCD Checklist",
+        name: "e-ECD & ECCD Checklist",
         category: "productivity",
         version: "v2.1",
         rating: "★★★★★",
