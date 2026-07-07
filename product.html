@@ -3,273 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Application Details Profile</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Application Details</title>
+    <script src="https://cdn.tailwindcss.com/4.0.0"></script>
 </head>
-<body class="bg-gray-950 text-gray-100 font-sans antialiased min-h-screen flex flex-col justify-between">
+<body class="bg-black text-gray-100 min-h-screen font-sans antialiased selection:bg-blue-500/30 selection:text-blue-200">
 
-    <nav class="border-b border-gray-900 bg-gray-950/80 backdrop-blur sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="flex items-center space-x-3 group">
-                <img src="logo.png" alt="Karnero Sa Sibsibanan Logo" class="h-9 w-auto rounded-lg">
-                <span class="text-xl font-black tracking-tight text-white">Karnero Sa Sibsibanan</span>
+    <!-- Top Navigation Bar Anchor link back home -->
+    <nav class="border-b border-gray-950 bg-black/60 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 h-14 flex items-center">
+            <a href="index.html" class="inline-flex items-center gap-2 text-xs font-semibold text-gray-400 hover:text-white transition-colors">
+                <span>←</span> Back to Catalog Database
             </a>
-            <div class="flex items-center space-x-6 text-sm font-medium text-gray-400">
-                <a href="index.html" class="hover:text-white transition">Catalog</a>
-                <a href="privacy.html" class="hover:text-white transition">Privacy</a>
-            </div>
         </div>
     </nav>
 
-    <main class="max-w-4xl mx-auto px-6 py-16 flex-grow w-full">
-        <a href="index.html" class="text-xs font-semibold text-blue-500 hover:text-blue-400 transition flex items-center mb-8">← Return to Application List</a>
+    <!-- Main Render Template Wrapper Layout Element Containers -->
+    <main class="max-w-6xl mx-auto px-4 py-12">
         
-        <div id="productContent" class="hidden">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-gray-900 pb-8 mb-8 gap-4">
-                <div class="flex items-center gap-4">
-                    <img id="appIcon" src="" alt="App Icon" class="w-16 h-16 rounded-2xl bg-gray-900 border border-gray-800 object-cover">
-                    <div>
-                        <div class="flex items-center gap-2 mb-1">
-                            <h1 id="appName" class="text-2xl md:text-4xl font-black text-white tracking-tight">App Name</h1>
-                            <span id="appCategoryBadge" class="text-[9px] uppercase font-bold tracking-wider bg-blue-950 border border-blue-900 text-blue-400 px-2 py-0.5 rounded-md h-fit mt-1">Category</span>
-                        </div>
-                        <div class="flex items-center space-x-4">
-                            <span id="appVersion" class="text-xs font-mono bg-gray-900 border border-gray-800 text-gray-400 px-2.5 py-1 rounded">v1.0.0</span>
-                            <span id="appRating" class="text-xs text-yellow-500 font-medium">⭐⭐⭐⭐⭐</span>
+        <!-- Target Product Data Layout Block -->
+        <div id="productContent" class="hidden space-y-12">
+            <!-- Header Identity Section Box -->
+            <div class="flex flex-col md:flex-row items-start gap-6 pb-8 border-b border-gray-950">
+                <div class="w-20 h-20 bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden flex-shrink-0 shadow-inner p-1">
+                    <img id="appIcon" src="" alt="Application interface logo graphics" class="w-full h-full object-cover rounded-xl bg-black">
+                </div>
+                <div class="space-y-2 flex-grow">
+                    <div class="flex flex-wrap items-center gap-2">
+                        <span id="appCategoryBadge" class="text-[10px] font-bold uppercase tracking-wider bg-blue-950/40 text-blue-400 px-2.5 py-0.5 rounded-md border border-blue-900/30"></span>
+                        <span id="appVersion" class="text-xs font-mono text-gray-500"></span>
+                    </div>
+                    <h1 id="appName" class="text-3xl font-extrabold text-white tracking-tight sm:text-4xl"></h1>
+                    <div class="flex items-center gap-4 text-xs">
+                        <span id="appRating" class="text-yellow-500 font-medium"></span>
+                        <span class="text-gray-700">|</span>
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-gray-500">Cost:</span>
+                            <span id="appPrice" class="text-white font-bold"></span>
                         </div>
                     </div>
                 </div>
-                <div id="appPrice" class="text-3xl font-black text-white">$0.00</div>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="md:col-span-2 space-y-8">
-                    
-                    <div class="space-y-6">
-                        <div class="aspect-video bg-gray-900 rounded-2xl overflow-hidden border border-gray-800 shadow-2xl">
-                            <iframe id="appYoutubeVideo" class="w-full h-full" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <!-- Content Split Screen Grid Column Settings Layout -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
+                
+                <!-- Left Running Column Block Context: Description Details Area Panels -->
+                <div class="lg:col-span-2 space-y-10">
+                    <section class="space-y-4">
+                        <h2 class="text-xs uppercase tracking-wider font-extrabold text-gray-500">Overview Profile</h2>
+                        <div id="appDescription" class="text-sm text-gray-400 leading-relaxed space-y-4">
+                            <!-- Injected content parses cleanly with custom HTML structures inside -->
                         </div>
+                    </section>
 
-                        <div class="space-y-2">
-                            <span class="text-[11px] font-bold text-gray-500 uppercase tracking-wider px-1">Product Screenshots (Swipe to view)</span>
-                            <div id="screenshotGallery" class="flex gap-4 overflow-x-auto pb-3 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-gray-800 scrollbar-track-transparent">
-                                <!-- Horizontal images load here directly -->
-                            </div>
+                    <!-- Embedded Video Module Engine Frame View -->
+                    <section class="space-y-4 hidden">
+                        <h2 class="text-xs uppercase tracking-wider font-extrabold text-gray-500">Video Walkthrough Demonstration</h2>
+                        <div class="aspect-video w-full bg-gray-950 rounded-2xl overflow-hidden border border-gray-900 shadow-md">
+                            <iframe id="appYoutubeVideo" class="w-full h-full" src="" title="Video Guide Frame Overview" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                         </div>
-                    </div>
+                    </section>
 
-                    <div class="space-y-4">
-                        <h2 class="text-lg font-bold text-white tracking-tight">Product Overview</h2>
-                        <p id="appDescription" class="text-gray-400 leading-relaxed text-sm">Detailed overview container.</p>
-                    </div>
-
-                    <!-- System Requirements Section (Moved out of grid column to span completely underneath) -->
-                    <div class="mt-8 border-t border-gray-900 pt-6">
-                        <h3 class="text-sm font-semibold tracking-wider text-gray-400 uppercase">System Requirements</h3>
-                        
-                        <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 bg-gray-900/40 rounded-xl p-4 border border-gray-900">
-                            <!-- OS Requirement -->
-                            <div class="flex flex-col">
-                                <span class="text-xs text-gray-500 font-medium">Operating System</span>
-                                <span id="reqOS" class="text-sm text-gray-200 mt-1 font-semibold">-</span>
-                            </div>
-                            
-                            <!-- RAM Requirement -->
-                            <div class="flex flex-col">
-                                <span class="text-xs text-gray-500 font-medium">System Memory</span>
-                                <span id="reqRAM" class="text-sm text-gray-200 mt-1 font-semibold">-</span>
-                            </div>
-                            
-                            <!-- Storage Requirement -->
-                            <div class="flex flex-col">
-                                <span class="text-xs text-gray-500 font-medium">Disk Space</span>
-                                <span id="reqStorage" class="text-sm text-gray-200 mt-1 font-semibold">-</span>
-                            </div>
-                        
-                            <!-- Verification / Network Requirement -->
-                            <div class="flex flex-col">
-                                <span class="text-xs text-gray-500 font-medium">Operation Mode</span>
-                                <span id="reqMode" class="text-sm text-gray-200 mt-1 font-semibold">-</span>
-                            </div>
+                    <!-- Image Carousel Display Gallery -->
+                    <section class="space-y-4 hidden">
+                        <h2 class="text-xs uppercase tracking-wider font-extrabold text-gray-500">Interface Panel Previews</h2>
+                        <div id="screenshotGallery" class="flex gap-4 overflow-x-auto pb-4 pt-1 snap-x no-scrollbar">
+                            <!-- Screenshots populate asynchronously here -->
                         </div>
-                    </div>
+                    </section>
                 </div>
 
-                <div class="bg-gray-900/20 border border-gray-900 p-6 rounded-2xl h-fit space-y-4 shadow-xl">
-                    <h3 class="text-sm font-bold text-white tracking-wider uppercase">Acquire Software</h3>
-                    
-                    <a id="secureBuyBtn" href="#" target="_blank" class="w-full text-center bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-4 rounded-xl text-sm transition block shadow-lg shadow-blue-600/10">
-                        Purchase Premium License
-                    </a>
-
-                    <a id="secureDemoBtn" href="#" target="_blank" class="w-full text-center bg-gray-900 hover:bg-gray-800 border border-gray-800 text-gray-300 font-semibold py-3 px-4 rounded-xl text-sm transition block mb-6">
-                        Download Trial_Version.exe (.zip)
-                    </a>
-
-                    <div class="border-t border-gray-900 pt-4 mt-4">
-                        <h4 class="text-xs font-bold text-gray-400 tracking-wider uppercase mb-2">User Community</h4>
-                        <p class="text-xs text-gray-500 mb-3">Loved the app? Read user community experiences or leave your official rating on our Facebook page.</p>
+                <!-- Right Running Column Sidebar Utility Panel Configuration Layouts Block -->
+                <div class="space-y-6 lg:sticky lg:top-20">
+                    <div class="bg-gray-950/40 border border-gray-900 rounded-2xl p-6 space-y-6 shadow-sm">
+                        <h3 class="text-xs uppercase tracking-wider font-extrabold text-gray-500">Execution Hub</h3>
                         
-                        <a id="secureFbReviewBtn" href="#" target="_blank" class="w-full text-center bg-[#1877F2]/10 hover:bg-[#1877F2]/20 border border-[#1877F2]/30 text-[#1877F2] font-bold py-2.5 px-4 rounded-xl text-xs transition flex items-center justify-center gap-2">
-                            <span>👍</span> Review on Facebook
-                        </a>
+                        <div class="space-y-3">
+                            <a id="secureBuyBtn" href="#" target="_blank" class="w-full text-center block text-xs font-bold bg-white text-black hover:bg-gray-200 py-3.5 px-4 rounded-xl transition-colors shadow-md">
+                                Order Full System License
+                            </a>
+                            <a id="secureDemoBtn" href="#" target="_blank" class="w-full text-center block text-xs font-semibold bg-gray-900 text-gray-200 border border-gray-800 hover:border-gray-700 py-3.5 px-4 rounded-xl transition-colors shadow-inner">
+                                Download Evaluator Demo Tool
+                            </a>
+                            <a id="secureFbReviewBtn" href="#" target="_blank" class="w-full text-center block text-[11px] font-medium text-gray-500 hover:text-gray-300 transition-colors pt-2">
+                                Query User Reviews & Feedback Community
+                            </a>
+                        </div>
+
+                        <!-- Technical Specification Blueprint Data Matrix Layout Info -->
+                        <div class="border-t border-gray-950 pt-4 space-y-3.5">
+                            <h4 class="text-[11px] font-bold text-gray-400 uppercase tracking-wide mb-1">System Profile Benchmarks</h4>
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="text-gray-500">Host OS Environment</span>
+                                <span id="reqOS" class="text-gray-300 font-medium"></span>
+                            </div>
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="text-gray-500">System RAM Allocation</span>
+                                <span id="reqRAM" class="text-gray-300 font-medium"></span>
+                            </div>
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="text-gray-500">Disk Footprint</span>
+                                <span id="reqStorage" class="text-gray-300 font-medium"></span>
+                            </div>
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="text-gray-500">Network Condition</span>
+                                <span id="reqMode" class="text-gray-300 font-medium"></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div id="errorContent" class="text-center py-12 hidden">
-            <p class="text-gray-500 text-sm">The specific software package requested could not be located in our catalog node.</p>
+        <!-- System Error Exception Display Screen Fallback Layout -->
+        <div id="errorContent" class="hidden py-24 text-center max-w-md mx-auto space-y-4">
+            <div class="text-red-500 text-4xl font-mono">⚠️</div>
+            <h2 class="text-xl font-bold text-white tracking-tight">Application Record Not Located</h2>
+            <p class="text-gray-500 text-sm leading-relaxed">The target registry key parameters supplied in the URL query payload cannot be identified by the engine directory index profile listings.</p>
+            <div class="pt-4">
+                <a href="index.html" class="inline-flex text-xs font-semibold bg-gray-900 text-gray-300 border border-gray-800 px-4 py-2 rounded-xl hover:border-gray-700 transition-colors">
+                    Return to Catalog List
+                </a>
+            </div>
         </div>
+
     </main>
 
-    <footer class="border-t border-gray-900 bg-gray-950 text-xs text-gray-500 py-8">
-        <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p>&copy; 2026 Karnero Sa Sibsibanan. Verified software node. All downloads secure.</p>
-        </div>
-    </footer>
+    <!-- Connect your shared central database code asset -->
+    <script src="products.js"></script>
 
-<script>
-    const productsDatabase = {
-        "e-ECD Checklist": {
-            name: "e-ECCD Checklist",
-            category: "productivity",
-            version: "v2.1",
-            rating: "★★★★★ (review feature is not yet implemented)",
-            price: "₱485.00",
-            description: `
-                <div class="space-y-4">
-                    <p class="text-gray-300 font-medium">Streamline early childhood development tracking with the powerful, <strong>100% offline</strong> desktop application built specifically for Filipino educators.</p>
-                    <p class="text-gray-400">Say goodbye to manual calculations and endless paperwork. This tool simplifies your entire workflow, letting you focus on what matters most—your students.</p>
-                    <div class="mt-6 space-y-2">
-                        <h4 class="text-xs uppercase font-bold tracking-wider text-blue-400">Free Version Features</h4>
-                        <ul class="list-disc list-inside text-gray-400 space-y-1 pl-1">
-                            <li><strong>Effortless Auto-Computation:</strong> Input raw data and see scores calculated instantly with 100% accuracy.</li>
-                            <li><strong>Smart Date-Result Simulation:</strong> Track progress over time, run simulations, and create reliable reference points.</li>
-                            <li><strong>Seamless Format Switching:</strong> Toggle interface views directly between DepEd and ECCD Council formats.</li>
-                            <li><strong>100% Offline & Private:</strong> No internet required. All student data stays safely on your local device.</li>
-                        </ul>
-                    </div>
-                    <div class="mt-6 space-y-2 border-t border-gray-900 pt-4">
-                        <h4 class="text-xs uppercase font-bold tracking-wider text-yellow-500">Premium Version Features (Requires Upgrade)</h4>
-                        <p class="text-xs text-gray-500 italic">The free version computes and simulates records. Unlock Premium to export and compile official documents:</p>
-                        <ul class="list-disc list-inside text-gray-400 space-y-1 pl-1">
-                            <li><strong>Complete Document Generation:</strong> Export professional reports to DOCX files (with or without templates).</li>
-                            <li><strong>Official Visual Graphs:</strong> Render stunning, easy-to-read charts matching DepEd and ECCD Council layouts.</li>
-                            <li><strong>Class-Wide Consolidation:</strong> Compile comprehensive summaries for your entire section instantly with zero manual tallying.</li>
-                            <li><strong>Fully Modifiable Templates:</strong> Easily customize document templates to adapt to local school division guidelines.</li>
-                            <li><strong>Batch PDF & Booklet Conversion:</strong> Convert multiple DOCX files to PDF simultaneously using normal or paper-saving booklet layouts.</li>
-                        </ul>
-                    </div>
-                    <div class="mt-6 p-3 bg-gray-900/40 border border-gray-900 rounded-xl text-[11px] text-gray-500 leading-relaxed">
-                        <strong>⚠️ Important Disclaimer:</strong> This is an independent, unofficial application. It is not developed, endorsed, or officially distributed by the Department of Education (DepEd) or the ECCD Council.
-                    </div>
-                </div>
-            `,
-            minOS: "Windows 10 ",
-            minRAM: "4 GB Memory Baseline",
-            storage: "850 MB available space",
-            mode: "100% Offline Engine",
-            youtubeId: "dQw4w9WgXcQ", 
-            secureIconUrl: "aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2QvMWJlWW1Jc0tnVjJzV0ZoeGFzTkFIMlNUNUNITWxZdDQ2",
-            secureScreenshots: [
-                "aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2QvMUxVdXEwNTY1bENzaEJmMUlpSFQyX2twZC1nZGhIaVhv",
-                "aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2QvMVFtZzhzajZBRTQ3UVRCSENqa1RLRHFLOElEaXVaZVFF"
-            ],
-            secureBuyUrl: "YUhSMGNITTZMeTluYjI5bmFXVXVaMnhsTDJGemQzSmxZMmhoYm5SdmNuUnZjbVV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw==",
-            secureDemoId: "bXktZ29vZ2xlLWRyaWZlLWZpbGUtaWQtcGxhY2Vob2xkZXI=", 
-            secureFbUrl: "YUhSMGNITTZMeTkzZDNjdVptRmphMkZ2YjIzdUkyTnZiUzkxY21zdmFHRjNaVzU2YVdVeU1UWTBOalV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw=="
-        },
-        "file-compressor": {
-            name: "FileCompressor Ultra",
-            category: "utilities",
-            version: "v2.0.0",
-            rating: "★★★★★",
-            price: "Free / Open Source",
-            description: `<p class="text-gray-300">High performance archiving suite using advanced dictionary encoding patterns.</p>`,
-            minOS: "Cross-platform",
-            minRAM: "512 MB Allocation",
-            storage: "15 MB",
-            mode: "Local Engine",
-            youtubeId: "",
-            secureIconUrl: "YUhSMGNITTZMeTluYjI5bmFXVXVaMnhsTDJGemQzSmxZMmhoYm5SdmNuUnZjbVV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw==",
-            secureScreenshots: []
-        }
-    };
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const appId = params.get('app');
+        const data = productsDatabase[appId];
 
-    const params = new URLSearchParams(window.location.search);
-    const appId = params.get('app');
-    const data = productsDatabase[appId];
-
-    if (data) {
-        document.getElementById('appName').innerText = data.name;
-        document.getElementById('appCategoryBadge').innerText = data.category;
-        document.getElementById('appVersion').innerText = data.version;
-        document.getElementById('appRating').innerText = data.rating;
-        document.getElementById('appPrice').innerText = data.price;
-        
-        // FIX: Changed from .innerText to .innerHTML to parse custom HTML formatting chunks safely
-        document.getElementById('appDescription').innerHTML = data.description;
-        
-        document.getElementById('reqOS').textContent = data.minOS || "Any Modern OS";
-        document.getElementById('reqRAM').textContent = data.minRAM || "Standard Baseline";
-        document.getElementById('reqStorage').textContent = data.storage || "Lightweight Installation";
-        document.getElementById('reqMode').textContent = data.mode || "Client-Side Engine";
-
-        if (data.youtubeId) {
-            document.getElementById('appYoutubeVideo').src = `https://www.youtube.com/embed/${data.youtubeId}?rel=0`; 
-            document.getElementById('appYoutubeVideo').parentElement.classList.remove('hidden');
-        } else {
-            // Optional: Hide the video container cleanly if no YouTube link is available
-            document.getElementById('appYoutubeVideo').parentElement.classList.add('hidden');
-        }
-
-        try {
-            if (data.secureIconUrl) {
-                document.getElementById('appIcon').src = atob(data.secureIconUrl);
-            }
-
-            const galleryContainer = document.getElementById('screenshotGallery');
-            galleryContainer.innerHTML = ''; // Clear older layouts elements safely
+        if (data) {
+            document.getElementById('appName').innerText = data.name;
+            document.getElementById('appCategoryBadge').innerText = data.category;
+            document.getElementById('appVersion').innerText = data.version;
+            document.getElementById('appRating').innerText = data.rating;
+            document.getElementById('appPrice').innerText = data.price;
             
-            if (data.secureScreenshots && data.secureScreenshots.length > 0) {
-                data.secureScreenshots.forEach((scrambledUrl, index) => {
-                    const clearUrl = atob(scrambledUrl);
-                    const wrapper = document.createElement('div');
-                    wrapper.className = "min-w-[85%] sm:min-w-[70%] aspect-video bg-gray-950 rounded-xl overflow-hidden border border-gray-900 snap-start flex-shrink-0 shadow-md";
-                    
-                    const img = document.createElement('img');
-                    img.src = clearUrl;
-                    img.alt = `Application view panel frame ${index + 1}`;
-                    img.className = "w-full h-full object-cover";
-                    
-                    wrapper.appendChild(img);
-                    galleryContainer.appendChild(wrapper);
-                });
-                galleryContainer.parentElement.classList.remove('hidden');
-            } else {
-                galleryContainer.parentElement.classList.add('hidden');
+            // CRITICAL FIX: Injects text with correct layout parameters safely parsing inner elements tags
+            document.getElementById('appDescription').innerHTML = data.description;
+            
+            document.getElementById('reqOS').textContent = data.minOS || "Any Modern OS";
+            document.getElementById('reqRAM').textContent = data.minRAM || "Standard Baseline";
+            document.getElementById('reqStorage').textContent = data.storage || "Lightweight Installation";
+            document.getElementById('reqMode').textContent = data.mode || "Client-Side Engine";
+
+            if (data.youtubeId) {
+                document.getElementById('appYoutubeVideo').src = `https://www.youtube.com/embed/${data.youtubeId}?rel=0`; 
+                document.getElementById('appYoutubeVideo').parentElement.classList.remove('hidden');
             }
-        } catch (err) {
-            console.error("Secure asset stream compilation breakdown:", err);
+
+            try {
+                if (data.secureIconUrl) {
+                    document.getElementById('appIcon').src = atob(data.secureIconUrl);
+                }
+
+                const galleryContainer = document.getElementById('screenshotGallery');
+                galleryContainer.innerHTML = '';
+                
+                if (data.secureScreenshots && data.secureScreenshots.length > 0) {
+                    data.secureScreenshots.forEach((scrambledUrl, index) => {
+                        const clearUrl = atob(scrambledUrl);
+                        const wrapper = document.createElement('div');
+                        wrapper.className = "min-w-[85%] sm:min-w-[70%] aspect-video bg-gray-950 rounded-xl overflow-hidden border border-gray-900 snap-start flex-shrink-0 shadow-md";
+                        
+                        const img = document.createElement('img');
+                        img.src = clearUrl;
+                        img.alt = `Application view panel frame ${index + 1}`;
+                        img.className = "w-full h-full object-cover";
+                        
+                        wrapper.appendChild(img);
+                        galleryContainer.appendChild(wrapper);
+                    });
+                    galleryContainer.parentElement.classList.remove('hidden');
+                }
+            } catch (err) {
+                console.error("Secure asset stream compilation breakdown:", err);
+            }
+            
+            document.getElementById('secureBuyBtn').addEventListener('pointerdown', function() {
+                if(data.secureBuyUrl) this.href = atob(data.secureBuyUrl);
+            });
+
+            document.getElementById('secureDemoBtn').addEventListener('pointerdown', function() {
+                if(data.secureDemoId) this.href = `https://drive.google.com/uc?export=download&id=${atob(data.secureDemoId)}`;
+            });
+
+            document.getElementById('secureFbReviewBtn').addEventListener('pointerdown', function() {
+                if(data.secureFbUrl) this.href = atob(data.secureFbUrl);
+            });
+
+            document.getElementById('productContent').classList.remove('hidden');
+        } else {
+            document.getElementById('errorContent').classList.remove('hidden');
         }
-        
-        document.getElementById('secureBuyBtn').addEventListener('pointerdown', function() {
-            if(data.secureBuyUrl) this.href = atob(data.secureBuyUrl);
-        });
-
-        document.getElementById('secureDemoBtn').addEventListener('pointerdown', function() {
-            if(data.secureDemoId) this.href = `https://drive.google.com/uc?export=download&id=${atob(data.secureDemoId)}`;
-        });
-
-        document.getElementById('secureFbReviewBtn').addEventListener('pointerdown', function() {
-            if(data.secureFbUrl) this.href = atob(data.secureFbUrl);
-        });
-
-        document.getElementById('productContent').classList.remove('hidden');
-    } else {
-        document.getElementById('errorContent').classList.remove('hidden');
-    }
-</script>
+    </script>
 </body>
 </html>
