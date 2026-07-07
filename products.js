@@ -44,31 +44,30 @@ const productsDatabase = {
         secureIconUrl: "aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2QvMWJlWW1Jc0tnVjJzV0ZoeGFzTkFIMlNUNUNITWxZdDQ2",
         secureScreenshots: [
             "aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2QvMUxVdXEwNTY1bENzaEJmMUlpSFQyX2twZC1nZGhIaVhv",
-            "aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2QvMVFtZzhzajZBRTQ3UVRCSENqa1RLRHFLOElEaXVaZVFF"
+            "aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2QvMVFtZzhzajZBRTQ3UVRCSENqa1RLRHFLOElEaXVaZVFF",
+            "aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2QvMXB5d01xZ2sxUDFmRzgtdmpkMjdYcnRuZWgteXhZWllo",
+            "aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2QvMWJFeDhlUVdvMnMyY1RGdm9USFlWbk1ydWFJUnZjWnVL",
+            "aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2QvMWozOUFwOEgwemhtcF91VEN2YnRTWXJzcTViUzZGZExj",
+            "aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2QvMUpUREZQQkJ3M1g1TFVFeUV1U2lic1lPWFJTcGh4VDA1",
+            "aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2QvMWRRYUMtbFdnaDFZVnp1aFdvSUtDNnNxY2YyV1AtZU9R",
+            "aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2QvMTVGZEJOeFlZYlVnMjRvS2c3TVM5ODRPYUNpbElxU01I",
+            "aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2QvMVhxNEVZWjhURUJSX3NPdmNVVGVSemE3X21Zb3Z6SXhV",
+            "aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2QvMUJWeW1NZVZWNjJMUXZiWHNTMjItMzdQSm9Ib3htc01l",
+            "aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2QvMXVQdXdwMnFCSjdJU05sU3JYOG1CUl9GNHZ1aVFhbGFB",
+            "aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2QvMWtUOFh3YTJFTFFrWW55YmJQa1ZleFdwaWJUVGEyTlV2",
+            "aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2QvMTR3UjhEdlA2c2Vja185NDRCclFub3MzOE1BckxhUmdh",
+            "aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2QvMXQ3MHpzYWwzMDhmS21yYmZxX3FLeG1yUVBpUzlPVnkx",
+            "aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2QvMWFfU0Mya0g3YWttNVdlN0xzTkxaaHJpNUNZa0pDbjV3",
+            "aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2QvMTJ5ZmNJenM4WGNrSldnY1hqR2FKUWJESU13cXNKSmho",
+            "aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2QvMVlMSjFqd3FsU3NqV3lfMmMxSzVLemNFRGIxMWl1X1kw",
+            "aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2QvMWUza1hpODRFMUp5d25HeTB3WDAyZmI2cWk3MjZrNExw",
+            "aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2QvMXdCLWFqQS1XemhsNURmaWhFREtDU2hBUEF4V2p5ZmR3",
+            "aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2QvMU9fUExhdDcxeldyZnUwYmxlMHlFQ3pGMF85WVNHbWli"
         ],
         secureBuyUrl: "YUhSMGNITTZMeTluYjI5bmFXVXVaMnhsTDJGemQzSmxZMmhoYm5SdmNuUnZjbVV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw==",
         secureDemoId: "bXktZ29vZ2xlLWRyaWZlLWZpbGUtaWQtcGxhY2Vob2xkZXI=", 
         secureFbUrl: "YUhSMGNITTZMeTkzZDNjdVptRmphMkZ2YjIzdUkyTnZiUzkxY21zdmFHRjNaVzU2YVdVeU1UWTBOalV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw=="
-    },
-    "file-compressor": {
-        name: "FileCompressor Ultra",
-        category: "utilities",
-        version: "v2.0.0",
-        rating: "★★★★★",
-        price: "Free / Open Source",
-        shortDescription: "High performance archiving suite using advanced dictionary encoding patterns to compress local files down instantly.",
-        description: `
-            <div class="space-y-4">
-                <p class="text-gray-300">High performance archiving suite using advanced dictionary encoding patterns.</p>
-                <p class="text-gray-400">Lightweight, fast, and optimized for client-side processing without remote server delays.</p>
-            </div>
-        `,
-        minOS: "Cross-platform",
-        minRAM: "512 MB Allocation",
-        storage: "15 MB",
-        mode: "Local Engine",
-        youtubeId: "",
-        secureIconUrl: "aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2QvMWJlWW1Jc0tnVjJzV0ZoeGFzTkFIMlNUNUNITWxZdDQ2", // Using your icon placeholder
-        secureScreenshots: []
     }
+    //add a comma before adding another product
+    
 };
