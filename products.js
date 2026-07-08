@@ -65,7 +65,7 @@ const productsDatabase = {
             "aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2QvMU9fUExhdDcxeldyZnUwYmxlMHlFQ3pGMF85WVNHbWli"
         ],
         secureBuyUrl: "YUhSMGNITTZMeTluYjI5bmFXVXVaMnhsTDJGemQzSmxZMmhoYm5SdmNuUnZjbVV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw==",
-        secureDemoId: "MW1idFNuemNETS1iRmhfNGZwSHo1bHdTV2kxd0hqZVZf", 
+        secureDemoId: "aHR0cHM6Ly9naXRodWIuY29tL2thcm5lcm8tc2Etc2lic2liYW5hbi9UZWFjaGVyc190b29scy9yZWxlYXNlcy9kb3dubG9hZC9lLUVDRF9WLjIuMS9EZW1vLnppcA==", 
         secureFbUrl: "aHR0cHM6Ly93ZWIuZmFjZWJvb2suY29tL3NoYXJlL3YvMTdzNEppa1NUdy8="
     }
     //add a comma before adding another product
