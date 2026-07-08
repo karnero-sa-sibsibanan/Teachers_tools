@@ -64,7 +64,7 @@ const productsDatabase = {
             "aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2QvMXdCLWFqQS1XemhsNURmaWhFREtDU2hBUEF4V2p5ZmR3",
             "aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2QvMU9fUExhdDcxeldyZnUwYmxlMHlFQ3pGMF85WVNHbWli"
         ],
-        secureBuyUrl: "YUhSMGNITTZMeTluYjI5bmFXVXVaMnhsTDJGemQzSmxZMmhoYm5SdmNuUnZjbVV1YUhSMGNEb3ZMMnhwYm10bFpIUnZjbVV1YUhSMGNEb3ZMdw==",
+        secureBuyUrl: "aHR0cHM6Ly9mb3Jtcy5nbGUvZm51N2NremVlN21TQktWajc=",
         secureDemoId: "aHR0cHM6Ly9naXRodWIuY29tL2thcm5lcm8tc2Etc2lic2liYW5hbi9UZWFjaGVyc190b29scy9yZWxlYXNlcy9kb3dubG9hZC9lLUVDRF9WLjIuMS9EZW1vLnppcA==", 
         secureFbUrl: "aHR0cHM6Ly93ZWIuZmFjZWJvb2suY29tL3NoYXJlL3YvMTdzNEppa1NUdy8="
     }
