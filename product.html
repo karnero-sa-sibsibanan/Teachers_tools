@@ -349,7 +349,10 @@
             }
             
             document.getElementById('secureBuyBtn').addEventListener('pointerdown', function() {
-                if(data.secureBuyUrl) this.href = atob(data.secureBuyUrl);
+                if(data.secureBuyUrl) {
+                    // Opens your scrambled Google Form URL cleanly in a separate secure tab
+                    window.open(atob(data.secureBuyUrl), '_blank'); 
+                }
             });
 
             document.getElementById('secureDemoBtn').addEventListener('pointerdown', function() {
