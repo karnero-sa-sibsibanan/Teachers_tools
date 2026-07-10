@@ -6,28 +6,28 @@
     <title>Karnero Sa Sibsibanan</title>
     <script src="https://cdn.tailwindcss.com/3.4.15"></script>
 </head>
-<body class="bg-[#020617] text-slate-200 min-h-screen font-sans antialiased flex flex-col justify-between selection:bg-cyan-500/30 selection:text-cyan-200">
+<body class="bg-[#f8fafc] text-slate-700 min-h-screen font-sans antialiased flex flex-col justify-between selection:bg-emerald-100 selection:text-emerald-900">
 
-    <!-- Top Accent Glow Line -->
-    <div class="h-1 bg-gradient-to-r from-cyan-500 via-indigo-500 to-purple-600"></div>
+    <!-- Top Accent Pastel Gradient Line -->
+    <div class="h-1 bg-gradient-to-r from-emerald-200 via-teal-200 to-rose-200"></div>
 
     <!-- Main Content Container -->
     <main class="max-w-6xl w-full mx-auto px-4 py-12 md:py-16 flex-grow">
-        <header class="mb-12 border-b border-slate-900/80 pb-8 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+        <header class="mb-12 border-b border-slate-200 pb-8 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <div class="flex items-center gap-4">
-                <!-- Main Website Logo Placeholder (Scales beautifully on mobile/desktop) -->
-                <div class="w-12 h-12 md:w-14 md:h-14 bg-[#070d19] border border-slate-800 rounded-2xl overflow-hidden flex-shrink-0 p-1 shadow-xl shadow-cyan-950/20">
-                    <img src="logo.png" alt="Karnero Sa Sibsibanan Logo" class="w-full h-full object-cover rounded-xl bg-slate-950" onerror="this.style.display='none'">
+                <!-- Main Website Logo Placeholder -->
+                <div class="w-12 h-12 md:w-14 md:h-14 bg-white border border-slate-200/80 rounded-2xl overflow-hidden flex-shrink-0 p-1 shadow-sm">
+                    <img src="logo.png" alt="Karnero Sa Sibsibanan Logo" class="w-full h-full object-cover rounded-xl bg-slate-50" onerror="this.style.display='none'">
                 </div>
                 <div>
-                    <h1 class="text-2xl font-extrabold text-white tracking-tight sm:text-3xl md:text-4xl bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">Karnero Sa Sibsibanan</h1>
-                    <p class="mt-1 text-xs sm:text-sm text-slate-400 max-w-2xl">Discover utility tools, specialized educational computing environments, and pipeline performance engines built for deep space execution.</p>
+                    <h1 class="text-2xl font-bold text-slate-800 tracking-tight sm:text-3xl md:text-4xl">Karnero Sa Sibsibanan</h1>
+                    <p class="mt-1 text-xs sm:text-sm text-slate-500 max-w-2xl">Discover utility tools, specialized educational computing environments, and pipeline performance engines built for deep space execution.</p>
                 </div>
             </div>
             
             <!-- Dynamic Search Engine Bar -->
             <div class="w-full md:w-80 relative">
-                <input type="text" id="catalogSearch" placeholder="Search applications..." class="w-full bg-[#0b1329] text-slate-200 placeholder-slate-500 text-sm border border-slate-800 rounded-xl px-4 py-3 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/30 transition-all">
+                <input type="text" id="catalogSearch" placeholder="Search applications..." class="w-full bg-white text-slate-800 placeholder-slate-400 text-sm border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:border-emerald-300 focus:ring-4 focus:ring-emerald-500/10 transition-all shadow-sm">
             </div>
         </header>
 
@@ -37,21 +37,21 @@
         </div>
         
         <!-- Empty State View -->
-        <div id="emptyState" class="hidden text-center py-12 text-slate-500 text-sm">
-            No matching tools found in the abyss registry base.
+        <div id="emptyState" class="hidden text-center py-12 text-slate-400 text-sm">
+            No matching tools found in the registry base.
         </div>
     </main>
 
     <!-- Footer Segment Container -->
-    <footer class="border-t border-slate-900 bg-[#010409]/60 py-8 mt-12">
-        <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+    <footer class="border-t border-slate-200 bg-white/80 backdrop-blur-sm py-8 mt-12">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
             <div>
                 &copy; 2026 karnero-sa-sibsibanan. All rights reserved.
             </div>
             <div class="flex items-center gap-4">
-                <a href="privacy.html" class="hover:text-cyan-400 transition-colors underline decoration-slate-800 underline-offset-4">Privacy Policy</a>
+                <a href="privacy.html" class="hover:text-emerald-600 transition-colors underline decoration-slate-200 hover:decoration-emerald-300 underline-offset-4">Privacy Policy</a>
                 <span>•</span>
-                <span class="font-mono text-[10px] bg-slate-900 px-2 py-0.5 rounded text-slate-400">v1.0.0</span>
+                <span class="font-mono text-[10px] bg-slate-50 border border-slate-100 px-2 py-0.5 rounded text-slate-500">v1.0.0</span>
             </div>
         </div>
     </footer>
@@ -78,16 +78,16 @@
                     
                     matchCount++;
                     const card = document.createElement('div');
-                    card.className = "bg-[#070d19]/40 border border-slate-900/60 rounded-2xl p-6 flex flex-col justify-between hover:border-cyan-500/30 hover:bg-[#0b132b]/60 transition-all duration-300 shadow-xl group";
+                    
+                    // Card color theme: Clean white background with subtle border, shifting to a soft emerald-pastel border on hover
+                    card.className = "bg-white border border-slate-200 rounded-2xl p-6 flex flex-col justify-between hover:border-emerald-200 hover:shadow-md transition-all duration-300 group";
                     
                     // 1. SMART DECODER: Handles both standard URLs and Base64 scrambled links seamlessly
                     let finalIconUrl = '';
                     if (product.secureIconUrl) {
-                        // Check if the string looks like a standard web URL link first
                         if (product.secureIconUrl.startsWith('http://') || product.secureIconUrl.startsWith('https://') || product.secureIconUrl.startsWith('.')) {
                             finalIconUrl = product.secureIconUrl;
                         } else {
-                            // If it is scrambled, decode it safely
                             try { 
                                 finalIconUrl = atob(product.secureIconUrl); 
                             } catch(e) { 
@@ -97,13 +97,13 @@
                     }
             
                     // 2. Decode the secure FB URL for the reviews link on the card
-                    let ratingHTML = `<span>${product.rating || '★ 5.0'}</span>`;
+                    let ratingHTML = `<span class="text-amber-500 font-medium">${product.rating || '★ 5.0'}</span>`;
                     if (product.secureFbUrl) {
                         try {
                             const clearFbUrl = atob(product.secureFbUrl);
                             ratingHTML = `
-                                <span>${product.rating || '★ 5.0'}</span>
-                                <a href="${clearFbUrl}" target="_blank" class="text-slate-500 hover:text-cyan-400 underline decoration-slate-800 hover:decoration-cyan-500/50 underline-offset-2 transition-colors ml-1 text-[11px]">
+                                <span class="text-amber-500 font-medium">${product.rating || '★ 5.0'}</span>
+                                <a href="${clearFbUrl}" target="_blank" class="text-slate-400 hover:text-emerald-600 underline decoration-slate-200 hover:decoration-emerald-300 underline-offset-2 transition-colors ml-1 text-[11px]">
                                     (Reviews)
                                 </a>
                             `;
@@ -113,38 +113,38 @@
                     card.innerHTML = `
                         <div>
                             <div class="flex items-center justify-between mb-4">
-                                <span class="text-[10px] font-bold uppercase tracking-wider bg-slate-950 text-slate-400 px-2.5 py-1 rounded-md border border-slate-800 group-hover:border-cyan-900/50 group-hover:text-cyan-400 transition-colors duration-300">
+                                <span class="text-[10px] font-bold uppercase tracking-wider bg-slate-50 text-slate-500 px-2.5 py-1 rounded-md border border-slate-200 group-hover:border-emerald-100 group-hover:text-emerald-700 group-hover:bg-emerald-50 transition-colors duration-300">
                                     ${product.category}
                                 </span>
-                                <span class="text-xs text-slate-600 font-mono">${product.version}</span>
+                                <span class="text-xs text-slate-400 font-mono">${product.version}</span>
                             </div>
                             
                             <!-- Application Identity Header -->
                             <div class="flex items-start gap-4 mb-3">
-                                <!-- If an icon URL exists, show it; otherwise display a clean fallback placeholder box -->
-                                <div class="w-12 h-12 bg-slate-950 border border-slate-800 rounded-xl overflow-hidden flex-shrink-0 p-0.5 shadow-md flex items-center justify-center text-xs font-mono text-slate-600">
+                                <div class="w-12 h-12 bg-slate-50 border border-slate-100 rounded-xl overflow-hidden flex-shrink-0 p-0.5 shadow-sm flex items-center justify-center text-xs font-mono text-slate-400">
                                     ${finalIconUrl ? `
                                         <img src="${finalIconUrl}" alt="${product.name} Icon" class="w-full h-full object-cover rounded-lg" onerror="this.parentElement.innerHTML='🤖'">
                                     ` : '🤖'}
                                 </div>
                                 <div>
-                                    <h3 class="font-bold text-white tracking-tight text-lg group-hover:text-cyan-400 transition-colors duration-300">
+                                    <h3 class="font-bold text-slate-800 tracking-tight text-lg group-hover:text-emerald-700 transition-colors duration-300">
                                         ${product.name}
                                     </h3>
-                                    <div class="text-yellow-500 text-xs mt-0.5 flex items-center gap-1">${ratingHTML}</div>
+                                    <div class="text-xs mt-0.5 flex items-center gap-1">${ratingHTML}</div>
                                 </div>
                             </div>
             
-                            <p class="text-slate-400 text-sm leading-relaxed mb-6 line-clamp-3">
+                            <p class="text-slate-500 text-sm leading-relaxed mb-6 line-clamp-3">
                                 ${product.shortDescription}
                             </p>
                         </div>
-                        <div class="flex items-center justify-between pt-4 border-t border-slate-900">
+                        <div class="flex items-center justify-between pt-4 border-t border-slate-100">
                             <div class="flex flex-col">
-                                <span class="text-[10px] uppercase font-bold text-slate-500 tracking-wider">License Rate</span>
-                                <span class="text-white font-semibold text-sm">${product.price}</span>
+                                <span class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">License Rate</span>
+                                <span class="text-slate-700 font-semibold text-sm">${product.price}</span>
                             </div>
-                            <a href="product.html?app=${encodeURIComponent(key)}" class="inline-flex items-center text-xs font-semibold bg-[#0b1329] text-slate-200 border border-slate-800 hover:border-cyan-500 hover:bg-cyan-500 hover:text-black px-4 py-2.5 rounded-xl transition-all duration-200 shadow-lg">
+                            <!-- Button color theme: Soft pastel slate turning into a gentle solid pastel mint block on hover -->
+                            <a href="product.html?app=${encodeURIComponent(key)}" class="inline-flex items-center text-xs font-semibold bg-slate-50 text-slate-600 border border-slate-200 hover:border-emerald-200 hover:bg-emerald-50 hover:text-emerald-800 px-4 py-2.5 rounded-xl transition-all duration-200 shadow-sm">
                                 Download Free Version
                             </a>
                         </div>
