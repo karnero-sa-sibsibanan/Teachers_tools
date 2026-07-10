@@ -9,7 +9,6 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
-        /* Custom Keyframe Animations for Smooth Popups */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -22,16 +21,16 @@
         .animate-scale-up { animation: scaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
     </style>
 </head>
-<body class="bg-[#020617] text-slate-200 min-h-screen font-sans antialiased flex flex-col justify-between selection:bg-cyan-500/30 selection:text-cyan-200">
+<body class="bg-slate-50 text-slate-700 min-h-screen font-sans antialiased flex flex-col justify-between selection:bg-indigo-100 selection:text-indigo-900">
 
-    <!-- Top Accent Glow Line -->
-    <div class="h-1 bg-gradient-to-r from-cyan-500 via-indigo-500 to-purple-600"></div>
+    <!-- Premium Pastel Accent Glow Line -->
+    <div class="h-1.5 bg-gradient-to-r from-sky-300 via-indigo-300 to-purple-300"></div>
 
     <!-- Top Navigation Bar -->
-    <nav class="border-b border-slate-900 bg-[#020617]/80 backdrop-blur-md sticky top-0 z-50">
+    <nav class="border-b border-slate-200 bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
         <div class="max-w-6xl mx-auto px-4 h-14 flex items-center">
-            <a href="index.html" class="inline-flex items-center gap-2 text-xs font-semibold text-slate-400 hover:text-cyan-400 transition-colors">
-                <span>←</span> Back to Catalog Database
+            <a href="index.html" class="inline-flex items-center gap-2 text-xs font-bold text-slate-500 hover:text-indigo-600 transition-colors">
+                <span>←</span> Back to Premium Catalog
             </a>
         </div>
     </nav>
@@ -40,22 +39,22 @@
         
         <div id="productContent" class="hidden space-y-10 md:space-y-12">
             <!-- Header Identity Block -->
-            <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6 pb-8 border-b border-slate-900">
-                <div class="w-24 h-24 bg-[#070d19] border border-slate-800 rounded-2xl overflow-hidden flex-shrink-0 shadow-inner p-1">
-                    <img id="appIcon" src="" alt="Application logo" class="w-full h-full object-cover rounded-xl bg-slate-950">
+            <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6 pb-8 border-b border-slate-200">
+                <div class="w-24 h-24 bg-white border border-slate-100 rounded-2xl overflow-hidden flex-shrink-0 shadow-md p-1">
+                    <img id="appIcon" src="" alt="Application logo" class="w-full h-full object-cover rounded-xl bg-slate-50">
                 </div>
                 <div class="space-y-2 flex-grow">
                     <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2">
-                        <span id="appCategoryBadge" class="text-[10px] font-bold uppercase tracking-wider bg-cyan-950/50 text-cyan-400 px-2.5 py-0.5 rounded-md border border-cyan-900/30"></span>
-                        <span id="appVersion" class="text-xs font-mono text-slate-500"></span>
+                        <span id="appCategoryBadge" class="text-[10px] font-bold uppercase tracking-wider bg-slate-100 text-slate-600 px-2.5 py-1 rounded-md border border-slate-200/60"></span>
+                        <span id="appVersion" class="text-xs font-mono font-medium text-slate-400 bg-slate-100 px-1.5 py-0.5 rounded"></span>
                     </div>
-                    <h1 id="appName" class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight md:text-4xl"></h1>
+                    <h1 id="appName" class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight md:text-4xl"></h1>
                     <div class="flex items-center justify-center sm:justify-start gap-4 text-xs">
-                        <div id="appRating" class="text-yellow-500 font-medium flex items-center gap-1.5"></div>
-                        <span class="text-slate-800">|</span>
+                        <div id="appRating" class="text-amber-500 font-bold flex items-center gap-1.5"></div>
+                        <span class="text-slate-300">|</span>
                         <div class="flex items-center gap-1.5">
-                            <span class="text-slate-500">Cost:</span>
-                            <span id="appPrice" class="text-white font-bold"></span>
+                            <span class="text-slate-400 font-medium">License Rate:</span>
+                            <span id="appPrice" class="text-slate-900 font-extrabold"></span>
                         </div>
                     </div>
                 </div>
@@ -63,20 +62,14 @@
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10 items-start">
                 
-                <!-- Left Details Area -->
+                <!-- Left Details Area (Media First, Followed by Description) -->
                 <div class="lg:col-span-2 space-y-10 order-2 lg:order-1">
-                    <section class="space-y-4">
-                        <h2 class="text-xs uppercase tracking-wider font-extrabold text-slate-500">Overview Profile</h2>
-                        <div id="appDescription" class="text-sm text-slate-300 leading-relaxed space-y-4 prose-invert">
-                            <!-- Injected HTML -->
-                        </div>
-                    </section>
-
+                    
                     <!-- Image Carousel Display Gallery -->
                     <section id="gallerySection" class="space-y-4 hidden">
                         <div class="flex items-center justify-between">
-                            <h2 class="text-xs uppercase tracking-wider font-extrabold text-slate-500">Interface Panel Previews</h2>
-                            <span class="text-[10px] text-slate-500 hidden sm:inline">💡 Click any view frame to launch full screen modes</span>
+                            <h2 class="text-xs uppercase tracking-wider font-extrabold text-slate-400">Interface Panel Previews</h2>
+                            <span class="text-[10px] text-slate-400 font-medium hidden sm:inline">💡 Click any frame to launch full screen view</span>
                         </div>
                         <div id="screenshotGallery" class="flex gap-4 overflow-x-auto pb-4 pt-1 snap-x no-scrollbar w-full cursor-zoom-in">
                             <!-- Screenshots populate dynamically -->
@@ -85,48 +78,56 @@
 
                     <!-- Embedded Video Module -->
                     <section id="videoSection" class="space-y-4 hidden">
-                        <h2 class="text-xs uppercase tracking-wider font-extrabold text-slate-500">Video Walkthrough Demonstration</h2>
-                        <div class="aspect-video w-full bg-slate-950 rounded-2xl overflow-hidden border border-slate-900 shadow-md">
+                        <h2 class="text-xs uppercase tracking-wider font-extrabold text-slate-400">Video Walkthrough Demonstration</h2>
+                        <div class="aspect-video w-full bg-slate-100 rounded-2xl overflow-hidden border border-slate-200 shadow-md">
                             <iframe id="appYoutubeVideo" class="w-full h-full" src="" title="Video Guide Frame Overview" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                    </section>
+
+                    <!-- Overview Profile Block -->
+                    <section class="space-y-4 bg-white border border-slate-100 rounded-2xl p-6 shadow-sm">
+                        <h2 class="text-xs uppercase tracking-wider font-extrabold text-slate-400">Overview Profile</h2>
+                        <div id="appDescription" class="text-sm text-slate-600 leading-relaxed space-y-4">
+                            <!-- Injected HTML content renders cleanly here -->
                         </div>
                     </section>
                 </div>
 
+                <!-- Right Execution Hub Sidebar -->
                 <div class="space-y-6 lg:sticky lg:top-20 order-1 lg:order-2">
-                    <div class="bg-[#070d19]/40 border border-slate-900 rounded-2xl p-6 space-y-6 shadow-xl">
-                        <h3 class="text-xs uppercase tracking-wider font-extrabold text-slate-500">Execution Hub</h3>
+                    <div class="bg-white border border-slate-100 rounded-2xl p-6 space-y-6 shadow-md shadow-slate-200/50">
+                        <h3 class="text-xs uppercase tracking-wider font-extrabold text-slate-400">Execution Hub</h3>
                         
                         <div class="space-y-3">
-                            <!-- Button targets are securely intercepted by JavaScript logic -->
-                            <button id="secureBuyBtn" class="w-full text-center block text-xs font-bold bg-cyan-500 text-slate-950 hover:bg-cyan-400 py-3.5 px-4 rounded-xl transition-all shadow-lg shadow-cyan-900/20 cursor-pointer">
+                            <button id="secureBuyBtn" class="w-full text-center block text-xs font-bold bg-indigo-600 text-white hover:bg-indigo-700 py-3.5 px-4 rounded-xl transition-all shadow-md shadow-indigo-200 cursor-pointer active:scale-98">
                                 Order Full System License
                             </button>
-                            <a id="secureDemoBtn" href="#" target="_blank" class="w-full text-center block text-xs font-semibold bg-[#0b1329] text-slate-200 border border-slate-800 hover:border-slate-700 py-3.5 px-4 rounded-xl transition-colors">
-                                Download Free Vesion
+                            <a id="secureDemoBtn" href="#" target="_blank" class="w-full text-center block text-xs font-bold bg-slate-50 text-indigo-600 border border-slate-200 hover:border-indigo-400 py-3.5 px-4 rounded-xl transition-colors">
+                                Download Free Version
                             </a>
-                            <a id="secureFbReviewBtn" href="#" target="_blank" class="w-full text-center block text-[11px] font-medium text-slate-500 hover:text-cyan-400 transition-colors pt-2">
+                            <a id="secureFbReviewBtn" href="#" target="_blank" class="w-full text-center block text-[11px] font-semibold text-slate-400 hover:text-indigo-600 transition-colors pt-2 underline decoration-slate-200 hover:decoration-indigo-400 underline-offset-4">
                                 Query User Reviews & Feedback Community
                             </a>
                         </div>
 
-                        <!-- Technical Specification Blueprint Layout Info -->
-                        <div class="border-t border-slate-900 pt-4 space-y-3.5">
+                        <!-- Technical Specification Benchmarks -->
+                        <div class="border-t border-slate-100 pt-4 space-y-3.5">
                             <h4 class="text-[11px] font-bold text-slate-400 uppercase tracking-wide mb-1">System Profile Benchmarks</h4>
                             <div class="flex items-center justify-between text-xs">
-                                <span class="text-slate-500">Host OS Environment</span>
-                                <span id="reqOS" class="text-slate-300 font-medium"></span>
+                                <span class="text-slate-400 font-medium">Host OS Environment</span>
+                                <span id="reqOS" class="text-slate-700 font-bold"></span>
                             </div>
                             <div class="flex items-center justify-between text-xs">
-                                <span class="text-slate-500">System RAM Allocation</span>
-                                <span id="reqRAM" class="text-slate-300 font-medium"></span>
+                                <span class="text-slate-400 font-medium">System RAM Allocation</span>
+                                <span id="reqRAM" class="text-slate-700 font-bold"></span>
                             </div>
                             <div class="flex items-center justify-between text-xs">
-                                <span class="text-slate-500">Disk Footprint</span>
-                                <span id="reqStorage" class="text-slate-300 font-medium"></span>
+                                <span class="text-slate-400 font-medium">Disk Footprint</span>
+                                <span id="reqStorage" class="text-slate-700 font-bold"></span>
                             </div>
                             <div class="flex items-center justify-between text-xs">
-                                <span class="text-slate-500">Network Condition</span>
-                                <span id="reqMode" class="text-slate-300 font-medium"></span>
+                                <span class="text-slate-400 font-medium">Network Condition</span>
+                                <span id="reqMode" class="text-slate-700 font-bold"></span>
                             </div>
                         </div>
                     </div>
@@ -136,85 +137,78 @@
 
         <!-- System Error Layout -->
         <div id="errorContent" class="hidden py-24 text-center max-w-md mx-auto space-y-4">
-            <div class="text-red-500 text-4xl font-mono">⚠️</div>
-            <h2 class="text-xl font-bold text-white tracking-tight">Application Record Not Located</h2>
-            <p class="text-slate-500 text-sm leading-relaxed">The target registry key parameters supplied in the URL query payload cannot be identified by the engine directory.</p>
+            <div class="text-rose-500 text-4xl">⚠️</div>
+            <h2 class="text-xl font-extrabold text-slate-900 tracking-tight">Application Record Not Located</h2>
+            <p class="text-slate-500 text-sm leading-relaxed">The requested asset parameter index supplied in the secure link could not be matched with our directory databases.</p>
             <div class="pt-4">
-                <a href="index.html" class="inline-flex text-xs font-semibold bg-[#0b1329] text-slate-300 border border-slate-800 px-4 py-2 rounded-xl hover:border-slate-700 transition-colors">
+                <a href="index.html" class="inline-flex text-xs font-bold bg-white text-slate-700 border border-slate-200 px-5 py-3 rounded-xl hover:border-indigo-400 shadow-sm transition-colors">
                     Return to Catalog List
                 </a>
             </div>
         </div>
     </main>
 
-    <!-- NATIVE FULL SCREEN LIGHTBOX CONTAINER -->
-    <div id="lightboxOverlay" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-[100] hidden items-center justify-center p-4 md:p-8 animate-fade-in select-none">
-        
-        <!-- Close Button Component -->
-        <button id="closeLightbox" class="absolute top-4 right-4 md:top-6 md:right-6 bg-slate-900/80 border border-slate-800 text-white rounded-full px-4 py-2 hover:bg-slate-800 transition-colors z-[110] text-xs font-bold focus:outline-none">
+    <!-- Lightbox Modal Overlays -->
+    <div id="lightboxOverlay" class="fixed inset-0 bg-slate-900/90 backdrop-blur-xl z-[100] hidden items-center justify-center p-4 md:p-8 animate-fade-in select-none">
+        <button id="closeLightbox" class="absolute top-4 right-4 md:top-6 md:right-6 bg-white border border-slate-200 text-slate-800 rounded-full px-4 py-2 hover:bg-slate-50 transition-colors z-[110] text-xs font-bold shadow-md focus:outline-none">
             ✕ Close
         </button>
 
-        <!-- Navigation Arrows -->
-        <button id="prevLightbox" class="absolute left-4 top-1/2 -translate-y-1/2 bg-slate-900/60 border border-slate-800 text-white rounded-xl p-4 hover:bg-slate-800 hover:text-cyan-400 transition-all z-[110] hidden md:block focus:outline-none text-xl font-bold">
-            ‹
+        <button id="prevLightbox" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 backdrop-blur border border-slate-200 text-slate-800 rounded-xl p-4 hover:bg-white hover:text-indigo-600 transition-all z-[110] hidden md:block focus:outline-none text-xl font-bold shadow-md">
+            &lsaquo;
         </button>
-        <button id="nextLightbox" class="absolute right-4 top-1/2 -translate-y-1/2 bg-slate-900/60 border border-slate-800 text-white rounded-xl p-4 hover:bg-slate-800 hover:text-cyan-400 transition-all z-[110] hidden md:block focus:outline-none text-xl font-bold">
-            ›
+        <button id="nextLightbox" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 backdrop-blur border border-slate-200 text-slate-800 rounded-xl p-4 hover:bg-white hover:text-indigo-600 transition-all z-[110] hidden md:block focus:outline-none text-xl font-bold shadow-md">
+            &rsaquo;
         </button>
 
-        <!-- Active Image View Frame Element -->
         <div class="relative max-w-full max-h-[80vh] md:max-h-[88vh] flex items-center justify-center" id="lightboxImageWrapper">
-            <img id="lightboxActiveImg" src="" alt="Fullscreen asset presentation panel view" class="max-w-full max-h-[80vh] md:max-h-[88vh] object-contain rounded-xl border border-slate-800 shadow-2xl transition-transform duration-200 pointer-events-auto">
+            <img id="lightboxActiveImg" src="" alt="Fullscreen view" class="max-w-full max-h-[80vh] md:max-h-[88vh] object-contain rounded-xl border border-white/20 shadow-2xl transition-transform duration-200 pointer-events-auto">
         </div>
     </div>
 
     <!-- PREVENTATIVE TERMS OF AGREEMENT MODAL DIALOG -->
-    <div id="termsModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-[150] hidden items-center justify-center p-4 animate-fade-in">
-        <div class="bg-[#070d19] border border-slate-850 rounded-2xl max-w-lg w-full p-6 space-y-5 shadow-2xl animate-scale-up relative">
+    <div id="termsModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-md z-[150] hidden items-center justify-center p-4 animate-fade-in">
+        <div class="bg-white border border-slate-100 rounded-2xl max-w-lg w-full p-6 space-y-5 shadow-2xl animate-scale-up relative">
             
-            <!-- Modal Header -->
-            <div class="flex items-center gap-3 border-b border-slate-900 pb-3">
-                <div class="w-8 h-8 rounded-lg bg-cyan-950/50 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
+            <div class="flex items-center gap-3 border-b border-slate-100 pb-3">
+                <div class="w-9 h-9 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
                 </div>
                 <div>
-                    <h3 class="text-sm font-bold text-white tracking-wide">License Terms & Protocols</h3>
-                    <p class="text-[10px] text-slate-500 uppercase tracking-wider">Please read and accept to proceed</p>
+                    <h3 class="text-sm font-bold text-slate-800 tracking-wide">License Terms & Protocols</h3>
+                    <p class="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Please review details to proceed</p>
                 </div>
             </div>
 
-            <!-- Scrollable Terms Box -->
-            <div class="bg-[#020617] border border-slate-900 rounded-xl p-4 max-h-60 overflow-y-auto text-xs text-slate-300 leading-relaxed space-y-4 no-scrollbar">
+            <div class="bg-slate-50 border border-slate-200/60 rounded-xl p-4 max-h-60 overflow-y-auto text-xs text-slate-600 leading-relaxed space-y-4 no-scrollbar">
                 <div class="space-y-1">
-                    <h4 class="font-bold text-cyan-400">1. Single-User Allocation</h4>
-                    <p class="text-slate-400">This premium configuration license is assigned strictly to a single classroom station or educator. Redistribution, sharing of files, modification, or commercial resale of this program is strictly prohibited.</p>
+                    <h4 class="font-bold text-indigo-600">1. Single-User Allocation</h4>
+                    <p class="text-slate-500">This premium configuration license is assigned strictly to a single classroom station or educator. Redistribution, sharing of files, modification, or commercial resale of this program is strictly prohibited.</p>
                 </div>
                 
                 <div class="space-y-1">
-                    <h4 class="font-bold text-cyan-400">2. Processing & Manual Provisioning</h4>
-                    <p class="text-slate-400">Because keys and schools are configured manually by our team, please allow up to 24 hours for our backend to review and deliver your premium activation code.</p>
+                    <h4 class="font-bold text-indigo-600">2. Processing & Manual Provisioning</h4>
+                    <p class="text-slate-500">Because keys and schools are configured manually by our team, please allow up to 24 hours for our backend to review and deliver your premium activation code.</p>
                 </div>
 
                 <div class="space-y-1">
-                    <h4 class="font-bold text-cyan-400">3. Technical Support Channel</h4>
-                    <p class="text-slate-400">By clicking "Accept", you acknowledge that your primary point of contact for setup, onboarding, and ongoing technical questions is our official Facebook page.</p>
+                    <h4 class="font-bold text-indigo-600">3. Technical Support Channel</h4>
+                    <p class="text-slate-500">By clicking "Accept", you acknowledge that your primary point of contact for setup, onboarding, and ongoing technical questions is our official Facebook page.</p>
                 </div>
 
                 <div class="space-y-1">
-                    <h4 class="font-bold text-cyan-400">4. Data Safety</h4>
-                    <p class="text-slate-400">Any details or validation files uploaded to the subsequent Google Form are processed directly inside Google's encrypted secure cloud storage and are purely used for authentication.</p>
+                    <h4 class="font-bold text-indigo-600">4. Data Safety</h4>
+                    <p class="text-slate-500">Any details or validation files uploaded to the subsequent Google Form are processed directly inside Google's encrypted secure cloud storage and are purely used for authentication.</p>
                 </div>
             </div>
 
-            <!-- Modal Actions -->
-            <div class="flex items-center gap-3 border-t border-slate-900 pt-4">
-                <button id="declineTermsBtn" class="flex-1 text-center text-xs font-semibold bg-[#0b1329] text-slate-400 hover:text-slate-200 border border-slate-800 hover:border-slate-700 py-3 rounded-xl transition-colors cursor-pointer">
+            <div class="flex items-center gap-3 border-t border-slate-100 pt-4">
+                <button id="declineTermsBtn" class="flex-1 text-center text-xs font-bold bg-slate-50 text-slate-500 hover:text-slate-700 border border-slate-200 py-3 rounded-xl transition-colors cursor-pointer">
                     Decline
                 </button>
-                <button id="acceptTermsBtn" class="flex-1 text-center text-xs font-bold bg-cyan-500 text-slate-950 hover:bg-cyan-400 py-3 rounded-xl transition-all shadow-lg shadow-cyan-950/20 cursor-pointer">
+                <button id="acceptTermsBtn" class="flex-1 text-center text-xs font-bold bg-indigo-600 text-white hover:bg-indigo-700 py-3 rounded-xl transition-all shadow-md shadow-indigo-100 cursor-pointer">
                     Accept & Continue
                 </button>
             </div>
@@ -222,20 +216,19 @@
     </div>
 
     <!-- Footer Segment Container -->
-    <footer class="border-t border-slate-900 bg-[#010409]/60 py-8">
-        <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+    <footer class="border-t border-slate-200 bg-white py-8">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
             <div>
                 &copy; 2026 karnero-sa-sibsibanan. All rights reserved.
             </div>
             <div class="flex items-center gap-4">
-                <a href="privacy.html" class="hover:text-cyan-400 transition-colors underline decoration-slate-800 underline-offset-4">Privacy Policy</a>
+                <a href="privacy.html" class="hover:text-indigo-600 transition-colors underline decoration-slate-200 hover:decoration-indigo-500 underline-offset-4">Privacy Policy</a>
                 <span>•</span>
-                <span class="font-mono text-[10px] bg-slate-900 px-2 py-0.5 rounded text-slate-400">v1.0.0</span>
+                <span class="font-mono text-[10px] bg-slate-100 px-2 py-0.5 rounded text-slate-500 font-semibold border border-slate-200/50">v1.0.0</span>
             </div>
         </div>
     </footer>
 
-    <!-- Connect shared central database code asset -->
     <script src="products.js"></script>
 
     <script>
@@ -243,11 +236,9 @@
         const appId = params.get('app');
         const data = productsDatabase[appId];
 
-        // Lightbox element references
         let activeScreenshotIndex = 0;
         let cleanScreenshotUrls = [];
 
-        // Lightbox element references
         const lightboxOverlay = document.getElementById('lightboxOverlay');
         const lightboxActiveImg = document.getElementById('lightboxActiveImg');
         const lightboxImageWrapper = document.getElementById('lightboxImageWrapper');
@@ -255,39 +246,33 @@
         const prevLightbox = document.getElementById('prevLightbox');
         const nextLightbox = document.getElementById('nextLightbox');
 
-        // Terms of Agreement Modal references
         const termsModal = document.getElementById('termsModal');
         const secureBuyBtn = document.getElementById('secureBuyBtn');
         const declineTermsBtn = document.getElementById('declineTermsBtn');
         const acceptTermsBtn = document.getElementById('acceptTermsBtn');
 
-        // Core State Engine Changers
         function openFullscreenImage(index) {
             activeScreenshotIndex = index;
             lightboxActiveImg.src = cleanScreenshotUrls[activeScreenshotIndex];
-            
             lightboxOverlay.classList.remove('hidden');
             lightboxOverlay.classList.add('flex');
-            document.body.style.overflow = 'hidden'; // Stop background scrolling
+            document.body.style.overflow = 'hidden';
         }
 
         function closeFullscreenImage() {
             lightboxOverlay.classList.add('hidden');
             lightboxOverlay.classList.remove('flex');
             lightboxActiveImg.src = '';
-            document.body.style.overflow = ''; // Re-enable background scrolling
+            document.body.style.overflow = '';
         }
 
         function navigateLightbox(direction) {
             if (cleanScreenshotUrls.length <= 1) return;
-            
             if (direction === 'next') {
                 activeScreenshotIndex = (activeScreenshotIndex + 1) % cleanScreenshotUrls.length;
             } else if (direction === 'prev') {
                 activeScreenshotIndex = (activeScreenshotIndex - 1 + cleanScreenshotUrls.length) % cleanScreenshotUrls.length;
             }
-            
-            // Subtle slide transition flash animation
             lightboxActiveImg.style.opacity = '0.3';
             setTimeout(() => {
                 lightboxActiveImg.src = cleanScreenshotUrls[activeScreenshotIndex];
@@ -295,79 +280,56 @@
             }, 60);
         }
 
-        // 1. CLICK EVENT LISTENERS
         lightboxOverlay.addEventListener('click', closeFullscreenImage);
-        lightboxActiveImg.addEventListener('click', (e) => e.stopPropagation()); // Don't close when clicking the image itself
+        lightboxActiveImg.addEventListener('click', (e) => e.stopPropagation());
         
         prevLightbox.addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox('prev'); });
         nextLightbox.addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox('next'); });
         closeLightbox.addEventListener('click', (e) => { e.stopPropagation(); closeFullscreenImage(); });
 
-        // 2. KEYBOARD NAVIGATION ENGINE HOOKS
         document.addEventListener('keydown', (e) => {
             if (lightboxOverlay.classList.contains('hidden')) return;
-            
             if (e.key === "Escape") closeFullscreenImage();
             if (e.key === "ArrowRight") navigateLightbox('next');
             if (e.key === "ArrowLeft") navigateLightbox('prev');
         });
 
-        // 3. SMART MOBILE TOUCH SWIPE DETECTION ENGINE
         let touchStartX = 0;
         let touchEndX = 0;
-
         lightboxImageWrapper.addEventListener('touchstart', (e) => {
             touchStartX = e.changedTouches[0].screenX;
         }, { passive: true });
-
         lightboxImageWrapper.addEventListener('touchend', (e) => {
             touchEndX = e.changedTouches[0].screenX;
             handleSwipeGesture();
         }, { passive: true });
 
         function handleSwipeGesture() {
-            const swipeThreshold = 50; // Minimum distance in pixels to count as a swipe
-            if (touchEndX < touchStartX - swipeThreshold) {
-                navigateLightbox('next'); // Swiped left -> load next image
-            }
-            if (touchEndX > touchStartX + swipeThreshold) {
-                navigateLightbox('prev'); // Swiped right -> load previous image
-            }
+            const swipeThreshold = 50;
+            if (touchEndX < touchStartX - swipeThreshold) navigateLightbox('next');
+            if (touchEndX > touchStartX + swipeThreshold) navigateLightbox('prev');
         }
 
-        // Terms of Agreement Interaction Controls
         secureBuyBtn.addEventListener('click', function(e) {
             e.preventDefault();
             termsModal.classList.remove('hidden');
             termsModal.classList.add('flex');
-            document.body.style.overflow = 'hidden'; // Lock scrolling
+            document.body.style.overflow = 'hidden';
         });
 
         declineTermsBtn.addEventListener('click', function() {
             termsModal.classList.add('hidden');
             termsModal.classList.remove('flex');
-            document.body.style.overflow = ''; // Release scroll
+            document.body.style.overflow = '';
         });
 
         acceptTermsBtn.addEventListener('click', function() {
             if (data && data.secureBuyUrl) {
-                // Instantly opens your Base64 Google Form in a clean new tab
                 window.open(atob(data.secureBuyUrl), '_blank');
-                // Auto-close modal after user continues to the form
                 termsModal.classList.add('hidden');
                 termsModal.classList.remove('flex');
                 document.body.style.overflow = '';
             }
-        });
-
-        // Event hooks to shut fullscreen modal wrapper component structure down nicely
-        lightboxOverlay.addEventListener('click', closeFullscreenImage);
-        closeLightbox.addEventListener('click', (e) => {
-            e.stopPropagation(); // Avoid event collision execution loops
-            closeFullscreenImage();
-        });
-        document.addEventListener('keydown', (e) => {
-            if (e.key === "Escape") closeFullscreenImage();
         });
 
         if (data) {
@@ -377,20 +339,15 @@
             
             if (data.rating) {
                 const ratingContainer = document.getElementById('appRating');
-                
-                // Check if a secure FB link exists in your products.js entry
                 if (data.secureFbUrl) {
-                    // Decode the link securely on the fly
                     const clearFbUrl = atob(data.secureFbUrl);
-                    
                     ratingContainer.innerHTML = `
-                        <span>★★★★★</span> 
-                        <a href="${clearFbUrl}" target="_blank" class="text-slate-400 hover:text-cyan-400 underline decoration-slate-800 hover:decoration-cyan-500/50 underline-offset-2 transition-colors ml-1 font-sans">
+                        <span class="text-amber-500">★★★★★</span> 
+                        <a href="${clearFbUrl}" target="_blank" class="text-slate-400 hover:text-indigo-600 underline decoration-slate-200 hover:decoration-indigo-400 underline-offset-2 transition-colors ml-1 font-normal">
                             (View Reviews)
                         </a>
                     `;
                 } else {
-                    // Fallback layout if no link is embedded in the object array
                     ratingContainer.innerText = data.rating;
                 }
             }
@@ -416,28 +373,24 @@
                 galleryContainer.innerHTML = '';
                 
                 if (data.secureScreenshots && data.secureScreenshots.length > 0) {
-                    // Reset global URL storage tracking registry arrays safely
                     cleanScreenshotUrls = data.secureScreenshots.map(url => atob(url));
-
                     cleanScreenshotUrls.forEach((clearUrl, index) => {
                         const wrapper = document.createElement('div');
-                        wrapper.className = "w-[260px] sm:w-[400px] md:w-[460px] aspect-[16/10] bg-slate-950 rounded-xl overflow-hidden border border-slate-900 snap-start flex-shrink-0 shadow-xl hover:border-cyan-500/30 transition-all duration-300";
+                        wrapper.className = "w-[260px] sm:w-[400px] md:w-[460px] aspect-[16/10] bg-slate-100 rounded-xl overflow-hidden border border-slate-200/80 snap-start flex-shrink-0 shadow-sm hover:border-indigo-300 transition-all duration-300";
                         
                         const img = document.createElement('img');
                         img.src = clearUrl;
                         img.alt = `Application view panel frame ${index + 1}`;
                         img.className = "w-full h-full object-cover select-none active:scale-[0.98] transition-transform";
                         
-                        // Pass the exact item index position integer to our new function handler
-                        wrapper.addEventListener('click', () => openFullscreenImage(index));
-                        
                         wrapper.appendChild(img);
+                        wrapper.addEventListener('click', () => openFullscreenImage(index));
                         galleryContainer.appendChild(wrapper);
                     });
                     document.getElementById('gallerySection').classList.remove('hidden');
                 }
             } catch (err) {
-                console.error("Secure asset stream compilation breakdown:", err);
+                console.error("Asset stream layout execution anomaly:", err);
             }
 
             document.getElementById('secureDemoBtn').addEventListener('pointerdown', function() {
