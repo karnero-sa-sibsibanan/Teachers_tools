@@ -19,19 +19,62 @@
         }
         .animate-fade-in { animation: fadeIn 0.2s ease-out forwards; }
         .animate-scale-up { animation: scaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+        /* Universal Theme Engine Layer */
+        :root, html[data-theme="light"] {
+            --bg-canvas: #f8fafc;        /* slate-50 */
+            --bg-surface: #ffffff;       /* white */
+            --bg-surface-alt: #f1f5f9;   /* slate-100 */
+            --border-primary: #e2e8f0;   /* slate-200 */
+            --text-main: #334155;        /* slate-700 */
+            --text-title: #0f172a;       /* slate-900 */
+            --text-muted: #94a3b8;       /* slate-400 */
+        }
+        html[data-theme="dark"] {
+            --bg-canvas: #0f172a;        /* slate-900 */
+            --bg-surface: #1e293b;       /* slate-800 */
+            --bg-surface-alt: #334155;   /* slate-700 */
+            --border-primary: #334155;   /* slate-700 */
+            --text-main: #cbd5e1;        /* slate-300 */
+            --text-title: #f8fafc;       /* slate-50 */
+            --text-muted: #64748b;       /* slate-500 */
+        }
+
+        /* Bind CSS Theme Tokens onto DOM architecture */
+        body { background-color: var(--bg-canvas) !important; color: var(--text-main) !important; transition: background-color 0.2s ease, color 0.2s ease; }
+        nav, footer, .theme-card { background-color: var(--bg-surface) !important; border-color: var(--border-primary) !important; }
+        h1, h2, h3, h4, .theme-title, .text-slate-900 { color: var(--text-title) !important; }
+        p, .theme-desc, .text-slate-700 { color: var(--text-main) !important; }
+        .text-slate-500, .text-slate-600 { color: var(--text-main); }
+        .theme-muted, .text-slate-400 { color: var(--text-muted) !important; }
+        .theme-border { border-color: var(--border-primary) !important; }
+        .theme-badge { background-color: var(--bg-surface-alt) !important; border-color: var(--border-primary) !important; }
     </style>
+
+    <script>
+        // Critical Render Blocker: Instantly applies theme preferences to prevent structural visual flashing
+        (function() {
+            const savedTheme = localStorage.getItem('global-app-theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
 </head>
-<body class="bg-slate-50 text-slate-700 min-h-screen font-sans antialiased flex flex-col justify-between selection:bg-indigo-100 selection:text-indigo-900">
+<body class="min-h-screen font-sans antialiased flex flex-col justify-between selection:bg-indigo-100 selection:text-indigo-900">
 
     <!-- Premium Pastel Accent Glow Line -->
     <div class="h-1.5 bg-gradient-to-r from-sky-300 via-indigo-300 to-purple-300"></div>
 
     <!-- Top Navigation Bar -->
-    <nav class="border-b border-slate-200 bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
-        <div class="max-w-6xl mx-auto px-4 h-14 flex items-center">
-            <a href="index.html" class="inline-flex items-center gap-2 text-xs font-bold text-slate-500 hover:text-indigo-600 transition-colors">
+    <nav class="border-b border-slate-200 bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm theme-border">
+        <div class="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
+            <a href="index.html" class="inline-flex items-center gap-2 text-xs font-bold text-slate-500 hover:text-indigo-600 transition-colors theme-muted">
                 <span>←</span> Back to Premium Catalog
             </a>
+            
+            <!-- Quick Theme Switcher for Convenience -->
+            <button id="themeToggleBtn" class="text-sm border border-slate-200 rounded-xl w-8 h-8 flex items-center justify-center hover:border-indigo-400 transition-all theme-card" title="Switch Theme Viewport">
+                <span id="themeToggleIcon">🌓</span>
+            </button>
         </div>
     </nav>
 
@@ -39,22 +82,22 @@
         
         <div id="productContent" class="hidden space-y-10 md:space-y-12">
             <!-- Header Identity Block -->
-            <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6 pb-8 border-b border-slate-200">
-                <div class="w-24 h-24 bg-white border border-slate-100 rounded-2xl overflow-hidden flex-shrink-0 shadow-md p-1">
+            <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6 pb-8 border-b border-slate-200 theme-border">
+                <div class="w-24 h-24 bg-white border border-slate-100 rounded-2xl overflow-hidden flex-shrink-0 shadow-md p-1 theme-badge">
                     <img id="appIcon" src="" alt="Application logo" class="w-full h-full object-cover rounded-xl bg-slate-50">
                 </div>
                 <div class="space-y-2 flex-grow">
                     <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2">
-                        <span id="appCategoryBadge" class="text-[10px] font-bold uppercase tracking-wider bg-slate-100 text-slate-600 px-2.5 py-1 rounded-md border border-slate-200/60"></span>
-                        <span id="appVersion" class="text-xs font-mono font-medium text-slate-400 bg-slate-100 px-1.5 py-0.5 rounded"></span>
+                        <span id="appCategoryBadge" class="text-[10px] font-bold uppercase tracking-wider bg-slate-100 text-slate-600 px-2.5 py-1 rounded-md border border-slate-200/60 theme-badge"></span>
+                        <span id="appVersion" class="text-xs font-mono font-medium text-slate-400 bg-slate-100 px-1.5 py-0.5 rounded theme-badge"></span>
                     </div>
-                    <h1 id="appName" class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight md:text-4xl"></h1>
+                    <h1 id="appName" class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight md:text-4xl theme-title"></h1>
                     <div class="flex items-center justify-center sm:justify-start gap-4 text-xs">
                         <div id="appRating" class="text-amber-500 font-bold flex items-center gap-1.5"></div>
-                        <span class="text-slate-300">|</span>
+                        <span class="text-slate-300 theme-muted">|</span>
                         <div class="flex items-center gap-1.5">
-                            <span class="text-slate-400 font-medium">License Rate:</span>
-                            <span id="appPrice" class="text-slate-900 font-extrabold"></span>
+                            <span class="text-slate-400 font-medium theme-muted">License Rate:</span>
+                            <span id="appPrice" class="text-slate-900 font-extrabold theme-title"></span>
                         </div>
                     </div>
                 </div>
@@ -68,8 +111,8 @@
                     <!-- Image Carousel Display Gallery -->
                     <section id="gallerySection" class="space-y-4 hidden">
                         <div class="flex items-center justify-between">
-                            <h2 class="text-xs uppercase tracking-wider font-extrabold text-slate-400">Interface Panel Previews</h2>
-                            <span class="text-[10px] text-slate-400 font-medium hidden sm:inline">💡 Click any frame to launch full screen view</span>
+                            <h2 class="text-xs uppercase tracking-wider font-extrabold text-slate-400 theme-muted">Interface Panel Previews</h2>
+                            <span class="text-[10px] text-slate-400 font-medium hidden sm:inline theme-muted">💡 Click any frame to launch full screen view</span>
                         </div>
                         <div id="screenshotGallery" class="flex gap-4 overflow-x-auto pb-4 pt-1 snap-x no-scrollbar w-full cursor-zoom-in">
                             <!-- Screenshots populate dynamically -->
@@ -78,16 +121,16 @@
 
                     <!-- Embedded Video Module -->
                     <section id="videoSection" class="space-y-4 hidden">
-                        <h2 class="text-xs uppercase tracking-wider font-extrabold text-slate-400">Video Walkthrough Demonstration</h2>
-                        <div class="aspect-video w-full bg-slate-100 rounded-2xl overflow-hidden border border-slate-200 shadow-md">
+                        <h2 class="text-xs uppercase tracking-wider font-extrabold text-slate-400 theme-muted">Video Walkthrough Demonstration</h2>
+                        <div class="aspect-video w-full bg-slate-100 rounded-2xl overflow-hidden border border-slate-200 shadow-md theme-border">
                             <iframe id="appYoutubeVideo" class="w-full h-full" src="" title="Video Guide Frame Overview" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                         </div>
                     </section>
 
                     <!-- Overview Profile Block -->
-                    <section class="space-y-4 bg-white border border-slate-100 rounded-2xl p-6 shadow-sm">
-                        <h2 class="text-xs uppercase tracking-wider font-extrabold text-slate-400">Overview Profile</h2>
-                        <div id="appDescription" class="text-sm text-slate-600 leading-relaxed space-y-4">
+                    <section class="space-y-4 bg-white border border-slate-100 rounded-2xl p-6 shadow-sm theme-card">
+                        <h2 class="text-xs uppercase tracking-wider font-extrabold text-slate-400 theme-muted">Overview Profile</h2>
+                        <div id="appDescription" class="text-sm text-slate-600 leading-relaxed space-y-4 theme-desc">
                             <!-- Injected HTML content renders cleanly here -->
                         </div>
                     </section>
@@ -95,39 +138,39 @@
 
                 <!-- Right Execution Hub Sidebar -->
                 <div class="space-y-6 lg:sticky lg:top-20 order-1 lg:order-2">
-                    <div class="bg-white border border-slate-100 rounded-2xl p-6 space-y-6 shadow-md shadow-slate-200/50">
-                        <h3 class="text-xs uppercase tracking-wider font-extrabold text-slate-400">Execution Hub</h3>
+                    <div class="bg-white border border-slate-100 rounded-2xl p-6 space-y-6 shadow-md shadow-slate-200/50 theme-card">
+                        <h3 class="text-xs uppercase tracking-wider font-extrabold text-slate-400 theme-muted">Execution Hub</h3>
                         
                         <div class="space-y-3">
                             <button id="secureBuyBtn" class="w-full text-center block text-xs font-bold bg-indigo-600 text-white hover:bg-indigo-700 py-3.5 px-4 rounded-xl transition-all shadow-md shadow-indigo-200 cursor-pointer active:scale-98">
                                 Order Full System License
                             </button>
-                            <a id="secureDemoBtn" href="#" target="_blank" class="w-full text-center block text-xs font-bold bg-slate-50 text-indigo-600 border border-slate-200 hover:border-indigo-400 py-3.5 px-4 rounded-xl transition-colors">
+                            <a id="secureDemoBtn" href="#" target="_blank" class="w-full text-center block text-xs font-bold bg-slate-50 text-indigo-600 border border-slate-200 hover:border-indigo-400 py-3.5 px-4 rounded-xl transition-colors theme-badge dark:text-indigo-300 dark:hover:border-indigo-500">
                                 Download Free Version
                             </a>
-                            <a id="secureFbReviewBtn" href="#" target="_blank" class="w-full text-center block text-[11px] font-semibold text-slate-400 hover:text-indigo-600 transition-colors pt-2 underline decoration-slate-200 hover:decoration-indigo-400 underline-offset-4">
+                            <a id="secureFbReviewBtn" href="#" target="_blank" class="w-full text-center block text-[11px] font-semibold text-slate-400 hover:text-indigo-600 transition-colors pt-2 underline decoration-slate-200 hover:decoration-indigo-400 underline-offset-4 theme-muted">
                                 Query User Reviews & Feedback Community
                             </a>
                         </div>
 
                         <!-- Technical Specification Benchmarks -->
-                        <div class="border-t border-slate-100 pt-4 space-y-3.5">
-                            <h4 class="text-[11px] font-bold text-slate-400 uppercase tracking-wide mb-1">System Profile Benchmarks</h4>
+                        <div class="border-t border-slate-100 pt-4 space-y-3.5 theme-border">
+                            <h4 class="text-[11px] font-bold text-slate-400 uppercase tracking-wide mb-1 theme-muted">System Profile Benchmarks</h4>
                             <div class="flex items-center justify-between text-xs">
-                                <span class="text-slate-400 font-medium">Host OS Environment</span>
-                                <span id="reqOS" class="text-slate-700 font-bold"></span>
+                                <span class="text-slate-400 font-medium theme-muted">Host OS Environment</span>
+                                <span id="reqOS" class="text-slate-700 font-bold theme-title"></span>
                             </div>
                             <div class="flex items-center justify-between text-xs">
-                                <span class="text-slate-400 font-medium">System RAM Allocation</span>
-                                <span id="reqRAM" class="text-slate-700 font-bold"></span>
+                                <span class="text-slate-400 font-medium theme-muted">System RAM Allocation</span>
+                                <span id="reqRAM" class="text-slate-700 font-bold theme-title"></span>
                             </div>
                             <div class="flex items-center justify-between text-xs">
-                                <span class="text-slate-400 font-medium">Disk Footprint</span>
-                                <span id="reqStorage" class="text-slate-700 font-bold"></span>
+                                <span class="text-slate-400 font-medium theme-muted">Disk Footprint</span>
+                                <span id="reqStorage" class="text-slate-700 font-bold theme-title"></span>
                             </div>
                             <div class="flex items-center justify-between text-xs">
-                                <span class="text-slate-400 font-medium">Network Condition</span>
-                                <span id="reqMode" class="text-slate-700 font-bold"></span>
+                                <span class="text-slate-400 font-medium theme-muted">Network Condition</span>
+                                <span id="reqMode" class="text-slate-700 font-bold theme-title"></span>
                             </div>
                         </div>
                     </div>
@@ -138,10 +181,10 @@
         <!-- System Error Layout -->
         <div id="errorContent" class="hidden py-24 text-center max-w-md mx-auto space-y-4">
             <div class="text-rose-500 text-4xl">⚠️</div>
-            <h2 class="text-xl font-extrabold text-slate-900 tracking-tight">Application Record Not Located</h2>
-            <p class="text-slate-500 text-sm leading-relaxed">The requested asset parameter index supplied in the secure link could not be matched with our directory databases.</p>
+            <h2 class="text-xl font-extrabold text-slate-900 tracking-tight theme-title">Application Record Not Located</h2>
+            <p class="text-slate-500 text-sm leading-relaxed theme-desc">The requested asset parameter index supplied in the secure link could not be matched with our directory databases.</p>
             <div class="pt-4">
-                <a href="index.html" class="inline-flex text-xs font-bold bg-white text-slate-700 border border-slate-200 px-5 py-3 rounded-xl hover:border-indigo-400 shadow-sm transition-colors">
+                <a href="index.html" class="inline-flex text-xs font-bold bg-white text-slate-700 border border-slate-200 px-5 py-3 rounded-xl hover:border-indigo-400 shadow-sm transition-colors theme-card">
                     Return to Catalog List
                 </a>
             </div>
@@ -150,14 +193,14 @@
 
     <!-- Lightbox Modal Overlays -->
     <div id="lightboxOverlay" class="fixed inset-0 bg-slate-900/90 backdrop-blur-xl z-[100] hidden items-center justify-center p-4 md:p-8 animate-fade-in select-none">
-        <button id="closeLightbox" class="absolute top-4 right-4 md:top-6 md:right-6 bg-white border border-slate-200 text-slate-800 rounded-full px-4 py-2 hover:bg-slate-50 transition-colors z-[110] text-xs font-bold shadow-md focus:outline-none">
+        <button id="closeLightbox" class="absolute top-4 right-4 md:top-6 md:right-6 bg-white border border-slate-200 text-slate-800 rounded-full px-4 py-2 hover:bg-slate-50 transition-colors z-[110] text-xs font-bold shadow-md focus:outline-none theme-card">
             ✕ Close
         </button>
 
-        <button id="prevLightbox" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 backdrop-blur border border-slate-200 text-slate-800 rounded-xl p-4 hover:bg-white hover:text-indigo-600 transition-all z-[110] hidden md:block focus:outline-none text-xl font-bold shadow-md">
+        <button id="prevLightbox" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 backdrop-blur border border-slate-200 text-slate-800 rounded-xl p-4 hover:bg-white hover:text-indigo-600 transition-all z-[110] hidden md:block focus:outline-none text-xl font-bold shadow-md theme-card">
             &lsaquo;
         </button>
-        <button id="nextLightbox" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 backdrop-blur border border-slate-200 text-slate-800 rounded-xl p-4 hover:bg-white hover:text-indigo-600 transition-all z-[110] hidden md:block focus:outline-none text-xl font-bold shadow-md">
+        <button id="nextLightbox" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 backdrop-blur border border-slate-200 text-slate-800 rounded-xl p-4 hover:bg-white hover:text-indigo-600 transition-all z-[110] hidden md:block focus:outline-none text-xl font-bold shadow-md theme-card">
             &rsaquo;
         </button>
 
@@ -168,44 +211,44 @@
 
     <!-- PREVENTATIVE TERMS OF AGREEMENT MODAL DIALOG -->
     <div id="termsModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-md z-[150] hidden items-center justify-center p-4 animate-fade-in">
-        <div class="bg-white border border-slate-100 rounded-2xl max-w-lg w-full p-6 space-y-5 shadow-2xl animate-scale-up relative">
+        <div class="bg-white border border-slate-100 rounded-2xl max-w-lg w-full p-6 space-y-5 shadow-2xl animate-scale-up relative theme-card">
             
-            <div class="flex items-center gap-3 border-b border-slate-100 pb-3">
-                <div class="w-9 h-9 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600">
+            <div class="flex items-center gap-3 border-b border-slate-100 pb-3 theme-border">
+                <div class="w-9 h-9 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600 theme-badge dark:text-indigo-300">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
                 </div>
                 <div>
-                    <h3 class="text-sm font-bold text-slate-800 tracking-wide">License Terms & Protocols</h3>
-                    <p class="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Please review details to proceed</p>
+                    <h3 class="text-sm font-bold text-slate-800 tracking-wide theme-title">License Terms & Protocols</h3>
+                    <p class="text-[10px] text-slate-400 uppercase tracking-wider font-semibold theme-muted">Please review details to proceed</p>
                 </div>
             </div>
 
-            <div class="bg-slate-50 border border-slate-200/60 rounded-xl p-4 max-h-60 overflow-y-auto text-xs text-slate-600 leading-relaxed space-y-4 no-scrollbar">
+            <div class="bg-slate-50 border border-slate-200/60 rounded-xl p-4 max-h-60 overflow-y-auto text-xs text-slate-600 leading-relaxed space-y-4 no-scrollbar theme-badge">
                 <div class="space-y-1">
-                    <h4 class="font-bold text-indigo-600">1. Single-User Allocation</h4>
-                    <p class="text-slate-500">This premium configuration license is assigned strictly to a single classroom station or educator. Redistribution, sharing of files, modification, or commercial resale of this program is strictly prohibited.</p>
+                    <h4 class="font-bold text-indigo-600 dark:text-indigo-400">1. Single-User Allocation</h4>
+                    <p class="text-slate-500 theme-desc">This premium configuration license is assigned strictly to a single classroom station or educator. Redistribution, sharing of files, modification, or commercial resale of this program is strictly prohibited.</p>
                 </div>
                 
                 <div class="space-y-1">
-                    <h4 class="font-bold text-indigo-600">2. Processing & Manual Provisioning</h4>
-                    <p class="text-slate-500">Because keys and schools are configured manually by our team, please allow up to 24 hours for our backend to review and deliver your premium activation code.</p>
+                    <h4 class="font-bold text-indigo-600 dark:text-indigo-400">2. Processing & Manual Provisioning</h4>
+                    <p class="text-slate-500 theme-desc">Because keys and schools are configured manually by our team, please allow up to 24 hours for our backend to review and deliver your premium activation code.</p>
                 </div>
 
                 <div class="space-y-1">
-                    <h4 class="font-bold text-indigo-600">3. Technical Support Channel</h4>
-                    <p class="text-slate-500">By clicking "Accept", you acknowledge that your primary point of contact for setup, onboarding, and ongoing technical questions is our official Facebook page.</p>
+                    <h4 class="font-bold text-indigo-600 dark:text-indigo-400">3. Technical Support Channel</h4>
+                    <p class="text-slate-500 theme-desc">By clicking "Accept", you acknowledge that your primary point of contact for setup, onboarding, and ongoing technical questions is our official Facebook page.</p>
                 </div>
 
                 <div class="space-y-1">
-                    <h4 class="font-bold text-indigo-600">4. Data Safety</h4>
-                    <p class="text-slate-500">Any details or validation files uploaded to the subsequent Google Form are processed directly inside Google's encrypted secure cloud storage and are purely used for authentication.</p>
+                    <h4 class="font-bold text-indigo-600 dark:text-indigo-400">4. Data Safety</h4>
+                    <p class="text-slate-500 theme-desc">Any details or validation files uploaded to the subsequent Google Form are processed directly inside Google's encrypted secure cloud storage and are purely used for authentication.</p>
                 </div>
             </div>
 
-            <div class="flex items-center gap-3 border-t border-slate-100 pt-4">
-                <button id="declineTermsBtn" class="flex-1 text-center text-xs font-bold bg-slate-50 text-slate-500 hover:text-slate-700 border border-slate-200 py-3 rounded-xl transition-colors cursor-pointer">
+            <div class="flex items-center gap-3 border-t border-slate-100 pt-4 theme-border">
+                <button id="declineTermsBtn" class="flex-1 text-center text-xs font-bold bg-slate-50 text-slate-500 hover:text-slate-700 border border-slate-200 py-3 rounded-xl transition-colors cursor-pointer theme-badge dark:hover:text-slate-200">
                     Decline
                 </button>
                 <button id="acceptTermsBtn" class="flex-1 text-center text-xs font-bold bg-indigo-600 text-white hover:bg-indigo-700 py-3 rounded-xl transition-all shadow-md shadow-indigo-100 cursor-pointer">
@@ -216,15 +259,15 @@
     </div>
 
     <!-- Footer Segment Container -->
-    <footer class="border-t border-slate-200 bg-white py-8">
-        <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+    <footer class="border-t border-slate-200 bg-white py-8 theme-border">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400 theme-muted">
             <div>
                 &copy; 2026 karnero-sa-sibsibanan. All rights reserved.
             </div>
             <div class="flex items-center gap-4">
                 <a href="privacy.html" class="hover:text-indigo-600 transition-colors underline decoration-slate-200 hover:decoration-indigo-500 underline-offset-4">Privacy Policy</a>
                 <span>•</span>
-                <span class="font-mono text-[10px] bg-slate-100 px-2 py-0.5 rounded text-slate-500 font-semibold border border-slate-200/50">v1.0.0</span>
+                <span class="font-mono text-[10px] bg-slate-100 px-2 py-0.5 rounded text-slate-500 font-semibold border border-slate-200/50 theme-badge">v1.0.0</span>
             </div>
         </div>
     </footer>
@@ -251,6 +294,26 @@
         const declineTermsBtn = document.getElementById('declineTermsBtn');
         const acceptTermsBtn = document.getElementById('acceptTermsBtn');
 
+        const toggleBtn = document.getElementById('themeToggleBtn');
+        const toggleIcon = document.getElementById('themeToggleIcon');
+
+        // --- GLOBAL THEME COORDINATION SYNC ---
+        const updateToggleIcon = (theme) => {
+            toggleIcon.innerText = theme === 'dark' ? '☀️' : '🌙';
+        };
+
+        // Initialize state configuration layout
+        const activeTheme = document.documentElement.getAttribute('data-theme') || 'light';
+        updateToggleIcon(activeTheme);
+
+        toggleBtn.addEventListener('click', () => {
+            const targets = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', targets);
+            localStorage.setItem('global-app-theme', targets);
+            updateToggleIcon(targets);
+        });
+
+        // --- CORE APPLICATION VIEWS ENGINE ---
         function openFullscreenImage(index) {
             activeScreenshotIndex = index;
             lightboxActiveImg.src = cleanScreenshotUrls[activeScreenshotIndex];
@@ -343,7 +406,7 @@
                     const clearFbUrl = atob(data.secureFbUrl);
                     ratingContainer.innerHTML = `
                         <span class="text-amber-500">★★★★★</span> 
-                        <a href="${clearFbUrl}" target="_blank" class="text-slate-400 hover:text-indigo-600 underline decoration-slate-200 hover:decoration-indigo-400 underline-offset-2 transition-colors ml-1 font-normal">
+                        <a href="${clearFbUrl}" target="_blank" class="text-slate-400 hover:text-indigo-600 underline decoration-slate-200 hover:decoration-indigo-400 underline-offset-2 transition-colors ml-1 font-normal theme-muted">
                             (View Reviews)
                         </a>
                     `;
@@ -376,7 +439,7 @@
                     cleanScreenshotUrls = data.secureScreenshots.map(url => atob(url));
                     cleanScreenshotUrls.forEach((clearUrl, index) => {
                         const wrapper = document.createElement('div');
-                        wrapper.className = "w-[260px] sm:w-[400px] md:w-[460px] aspect-[16/10] bg-slate-100 rounded-xl overflow-hidden border border-slate-200/80 snap-start flex-shrink-0 shadow-sm hover:border-indigo-300 transition-all duration-300";
+                        wrapper.className = "w-[260px] sm:w-[400px] md:w-[460px] aspect-[16/10] bg-slate-100 rounded-xl overflow-hidden border border-slate-200/80 snap-start flex-shrink-0 shadow-sm hover:border-indigo-300 transition-all duration-300 theme-badge dark:bg-slate-700 dark:border-slate-600";
                         
                         const img = document.createElement('img');
                         img.src = clearUrl;
