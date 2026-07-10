@@ -6,28 +6,30 @@
     <title>Karnero Sa Sibsibanan</title>
     <script src="https://cdn.tailwindcss.com/3.4.15"></script>
 </head>
-<body class="bg-[#f8fafc] text-slate-700 min-h-screen font-sans antialiased flex flex-col justify-between selection:bg-emerald-100 selection:text-emerald-900">
+<body class="bg-slate-50 text-slate-700 min-h-screen font-sans antialiased flex flex-col justify-between selection:bg-indigo-100 selection:text-indigo-900">
 
-    <!-- Top Accent Pastel Gradient Line -->
-    <div class="h-1 bg-gradient-to-r from-emerald-200 via-teal-200 to-rose-200"></div>
+    <!-- Premium Pastel Accent Glow Line -->
+    <div class="h-1.5 bg-gradient-to-r from-sky-300 via-indigo-300 to-purple-300"></div>
 
     <!-- Main Content Container -->
     <main class="max-w-6xl w-full mx-auto px-4 py-12 md:py-16 flex-grow">
-        <header class="mb-12 border-b border-slate-200 pb-8 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+        <header class="mb-12 border-b border-slate-200/80 pb-8 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <div class="flex items-center gap-4">
-                <!-- Main Website Logo Placeholder -->
-                <div class="w-12 h-12 md:w-14 md:h-14 bg-white border border-slate-200/80 rounded-2xl overflow-hidden flex-shrink-0 p-1 shadow-sm">
+                <!-- Premium White Logo Container with Soft Shadow -->
+                <div class="w-12 h-12 md:w-14 md:h-14 bg-white border border-slate-100 rounded-2xl overflow-hidden flex-shrink-0 p-1 shadow-md shadow-slate-200/50">
                     <img src="logo.png" alt="Karnero Sa Sibsibanan Logo" class="w-full h-full object-cover rounded-xl bg-slate-50" onerror="this.style.display='none'">
                 </div>
                 <div>
-                    <h1 class="text-2xl font-bold text-slate-800 tracking-tight sm:text-3xl md:text-4xl">Karnero Sa Sibsibanan</h1>
-                    <p class="mt-1 text-xs sm:text-sm text-slate-500 max-w-2xl">Discover utility tools, specialized educational computing environments, and pipeline performance engines built for deep space execution.</p>
+                    <h1 class="text-2xl font-extrabold text-slate-900 tracking-tight sm:text-3xl md:text-4xl">
+                        Karnero Sa <span class="bg-gradient-to-r from-indigo-600 to-sky-500 bg-clip-text text-transparent">Sibsibanan</span>
+                    </h1>
+                    <p class="mt-1 text-xs sm:text-sm text-slate-500 max-w-2xl">Discover secure utility tools, specialized educational computing environments, and premium performance engines built to streamline your professional workflow.</p>
                 </div>
             </div>
             
-            <!-- Dynamic Search Engine Bar -->
+            <!-- Trustworthy Search Bar -->
             <div class="w-full md:w-80 relative">
-                <input type="text" id="catalogSearch" placeholder="Search applications..." class="w-full bg-white text-slate-800 placeholder-slate-400 text-sm border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:border-emerald-300 focus:ring-4 focus:ring-emerald-500/10 transition-all shadow-sm">
+                <input type="text" id="catalogSearch" placeholder="Search premium applications..." class="w-full bg-white text-slate-800 placeholder-slate-400 text-sm border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:border-indigo-400 focus:ring-4 focus:ring-indigo-500/10 transition-all shadow-sm">
             </div>
         </header>
 
@@ -37,21 +39,21 @@
         </div>
         
         <!-- Empty State View -->
-        <div id="emptyState" class="hidden text-center py-12 text-slate-400 text-sm">
-            No matching tools found in the registry base.
+        <div id="emptyState" class="hidden text-center py-12 text-slate-400 text-sm font-medium">
+            No matching applications found in the ecosystem index.
         </div>
     </main>
 
     <!-- Footer Segment Container -->
-    <footer class="border-t border-slate-200 bg-white/80 backdrop-blur-sm py-8 mt-12">
+    <footer class="border-t border-slate-200 bg-white py-8 mt-12 shadow-inner">
         <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
             <div>
                 &copy; 2026 karnero-sa-sibsibanan. All rights reserved.
             </div>
             <div class="flex items-center gap-4">
-                <a href="privacy.html" class="hover:text-emerald-600 transition-colors underline decoration-slate-200 hover:decoration-emerald-300 underline-offset-4">Privacy Policy</a>
+                <a href="privacy.html" class="hover:text-indigo-600 transition-colors underline decoration-slate-200 hover:decoration-indigo-500 underline-offset-4">Privacy Policy</a>
                 <span>•</span>
-                <span class="font-mono text-[10px] bg-slate-50 border border-slate-100 px-2 py-0.5 rounded text-slate-500">v1.0.0</span>
+                <span class="font-mono text-[10px] bg-slate-100 px-2 py-0.5 rounded text-slate-500 font-semibold border border-slate-200/50">v1.0.0</span>
             </div>
         </div>
     </footer>
@@ -79,8 +81,8 @@
                     matchCount++;
                     const card = document.createElement('div');
                     
-                    // Card color theme: Clean white background with subtle border, shifting to a soft emerald-pastel border on hover
-                    card.className = "bg-white border border-slate-200 rounded-2xl p-6 flex flex-col justify-between hover:border-emerald-200 hover:shadow-md transition-all duration-300 group";
+                    // Pastel UI Card: Crisp white background, soft slate borders, smooth hover-elevation with subtle pastel branding accents
+                    card.className = "bg-white border border-slate-100 rounded-2xl p-6 flex flex-col justify-between hover:border-indigo-200 hover:shadow-xl hover:shadow-indigo-500/5 transition-all duration-300 shadow-md shadow-slate-100 group";
                     
                     // 1. SMART DECODER: Handles both standard URLs and Base64 scrambled links seamlessly
                     let finalIconUrl = '';
@@ -97,14 +99,14 @@
                     }
             
                     // 2. Decode the secure FB URL for the reviews link on the card
-                    let ratingHTML = `<span class="text-amber-500 font-medium">${product.rating || '★ 5.0'}</span>`;
+                    let ratingHTML = `<span class="font-semibold text-amber-600">${product.rating || '★ 5.0'}</span>`;
                     if (product.secureFbUrl) {
                         try {
                             const clearFbUrl = atob(product.secureFbUrl);
                             ratingHTML = `
-                                <span class="text-amber-500 font-medium">${product.rating || '★ 5.0'}</span>
-                                <a href="${clearFbUrl}" target="_blank" class="text-slate-400 hover:text-emerald-600 underline decoration-slate-200 hover:decoration-emerald-300 underline-offset-2 transition-colors ml-1 text-[11px]">
-                                    (Reviews)
+                                <span class="font-semibold text-amber-600">${product.rating || '★ 5.0'}</span>
+                                <a href="${clearFbUrl}" target="_blank" class="text-slate-400 hover:text-indigo-600 underline decoration-slate-200 hover:decoration-indigo-400 underline-offset-2 transition-colors ml-1 text-[11px] font-normal">
+                                    (Verified Reviews)
                                 </a>
                             `;
                         } catch(e) {}
@@ -113,24 +115,25 @@
                     card.innerHTML = `
                         <div>
                             <div class="flex items-center justify-between mb-4">
-                                <span class="text-[10px] font-bold uppercase tracking-wider bg-slate-50 text-slate-500 px-2.5 py-1 rounded-md border border-slate-200 group-hover:border-emerald-100 group-hover:text-emerald-700 group-hover:bg-emerald-50 transition-colors duration-300">
+                                <span class="text-[10px] font-bold uppercase tracking-wider bg-slate-50 text-slate-500 px-2.5 py-1 rounded-md border border-slate-100 group-hover:border-indigo-100 group-hover:bg-indigo-50 group-hover:text-indigo-600 transition-colors duration-300">
                                     ${product.category}
                                 </span>
-                                <span class="text-xs text-slate-400 font-mono">${product.version}</span>
+                                <span class="text-xs text-slate-400 font-mono font-medium bg-slate-50/50 px-2 py-0.5 rounded border border-slate-100">${product.version}</span>
                             </div>
                             
                             <!-- Application Identity Header -->
                             <div class="flex items-start gap-4 mb-3">
-                                <div class="w-12 h-12 bg-slate-50 border border-slate-100 rounded-xl overflow-hidden flex-shrink-0 p-0.5 shadow-sm flex items-center justify-center text-xs font-mono text-slate-400">
+                                <!-- Modern Icon Frame -->
+                                <div class="w-12 h-12 bg-slate-50 border border-slate-100 rounded-xl overflow-hidden flex-shrink-0 p-0.5 shadow-sm flex items-center justify-center text-base">
                                     ${finalIconUrl ? `
-                                        <img src="${finalIconUrl}" alt="${product.name} Icon" class="w-full h-full object-cover rounded-lg" onerror="this.parentElement.innerHTML='🤖'">
-                                    ` : '🤖'}
+                                        <img src="${finalIconUrl}" alt="${product.name} Icon" class="w-full h-full object-cover rounded-lg" onerror="this.parentElement.innerHTML='💼'">
+                                    ` : '💼'}
                                 </div>
                                 <div>
-                                    <h3 class="font-bold text-slate-800 tracking-tight text-lg group-hover:text-emerald-700 transition-colors duration-300">
+                                    <h3 class="font-bold text-slate-800 tracking-tight text-lg group-hover:text-indigo-600 transition-colors duration-300">
                                         ${product.name}
                                     </h3>
-                                    <div class="text-xs mt-0.5 flex items-center gap-1">${ratingHTML}</div>
+                                    <div class="text-amber-500 text-xs mt-0.5 flex items-center gap-1 font-medium">${ratingHTML}</div>
                                 </div>
                             </div>
             
@@ -141,11 +144,11 @@
                         <div class="flex items-center justify-between pt-4 border-t border-slate-100">
                             <div class="flex flex-col">
                                 <span class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">License Rate</span>
-                                <span class="text-slate-700 font-semibold text-sm">${product.price}</span>
+                                <span class="text-slate-900 font-bold text-base tracking-tight">${product.price}</span>
                             </div>
-                            <!-- Button color theme: Soft pastel slate turning into a gentle solid pastel mint block on hover -->
-                            <a href="product.html?app=${encodeURIComponent(key)}" class="inline-flex items-center text-xs font-semibold bg-slate-50 text-slate-600 border border-slate-200 hover:border-emerald-200 hover:bg-emerald-50 hover:text-emerald-800 px-4 py-2.5 rounded-xl transition-all duration-200 shadow-sm">
-                                Download Free Version
+                            <!-- Highly Converting Interactive Action Button -->
+                            <a href="product.html?app=${encodeURIComponent(key)}" class="inline-flex items-center text-xs font-bold bg-indigo-50 text-indigo-600 border border-indigo-100 hover:border-indigo-600 hover:bg-indigo-600 hover:text-white px-4 py-2.5 rounded-xl transition-all duration-200 shadow-sm active:scale-98">
+                                Access Application
                             </a>
                         </div>
                     `;
