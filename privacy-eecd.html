@@ -3,47 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - e-ECD Checklist Tool</title>
+    <title>Privacy Policy - e-ECD Checklist Assessment Tool</title>
     <style>
-        body { font-family: sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 40px auto; padding: 0 20px; }
-        h1 { color: #2c3e50; border-bottom: 2px solid #ecf0f1; padding-bottom: 10px; }
-        h2 { color: #d35400; margin-top: 30px; }
-        h3 { color: #2c3e50; }
-        hr { border: 0; height: 1px; background: #eee; margin: 20px 0; }
-        ul { padding-left: 20px; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+            line-height: 1.6; 
+            color: #333; 
+            max-width: 800px; 
+            margin: 40px auto; 
+            padding: 0 20px; 
+        }
+        h1 { color: #1a365d; border-bottom: 2px solid #e2e8f0; padding-bottom: 12px; font-size: 2em; }
+        h2 { color: #2b6cb0; margin-top: 35px; border-bottom: 1px solid #edf2f7; padding-bottom: 6px; }
+        h3 { color: #2d3748; margin-top: 20px; }
+        hr { border: 0; height: 1px; background: #e2e8f0; margin: 30px 0; }
+        ul { padding-left: 24px; }
+        li { margin-bottom: 8px; }
+        strong { color: #1a202c; }
+        .meta-info { background: #f7fafc; padding: 15px; border-left: 4px solid #4299e1; margin-bottom: 25px; border-radius: 0 4px 4px 0; }
+        .meta-info p { margin: 4px 0; }
+        .footer-note { font-style: italic; color: #4a5568; margin-top: 40px; text-align: center; background: #f7fafc; padding: 15px; border-radius: 4px; }
     </style>
 </head>
 <body>
 
-    <h1>e-ECD V2 Checklist Assessment Tool</h1>
-    <p><strong>Data Privacy Statement & User Agreement</strong></p>
-    <p><strong>Version:</strong> 2.1.0 (Evaluation & Demo)<br>
-    <strong>Developer:</strong> KARNERO SA SIBSIBANAN.JRP_LPT</p>
+    <h1>e-ECD V2 Checklist Assessment Tool - Data Privacy Statement & User Agreement</h1>
+    
+    <div class="meta-info">
+        <p><strong>Version:</strong> 2.1.0 (Evaluation & Demo)</p>
+        <p><strong>Developer:</strong> KARNERO SA SIBSIBANAN.JRP_LPT</p>
+        <p><strong>Official Website:</strong> <a href="https://karnero-sa-sibsibanan.github.io/Teachers_tools/" target="_blank">Karnero Sa Sibsibanan</a></p>
+        <p><strong>Support Contact:</strong> <a href="https://web.facebook.com/profile.php?id=61584588994202" target="_blank">Facebook Support Page</a></p>
+    </div>
 
     <hr>
 
     <h2>1. Evaluation & Demo Version Limitations</h2>
-    <p>This is a FREE, feature-limited evaluation version designed strictly for demonstration, preview, and trial purposes. Premium features require an optional paid license. No license activation keys or hardware IDs are collected or requested by this free trial executable.</p>
-
-    <h2>2. Philippine Data Privacy Act (RA 10173) Compliance</h2>
-    <p>This application locally processes Protected and Sensitive Personal Information under Philippine Law, including learner identification (Names, LRN, sex, birth dates), family profiles, and socio-environmental metrics.</p>
-    
-    <h3>Local Storage Data Isolation</h3>
-    <p>All database parameters remain isolated <strong>LOCALLY AND EXCLUSIVELY</strong> on your host machine via an offline SQLite database. The developer <strong>CANNOT</strong> view, intercept, modify, or recover any datasets you input.</p>
-
-    <h3>User Custodian Responsibility</h3>
-    <p>As the primary technical custodian of this child data, the installing user holds exclusive liability for managing access permissions and local hardware physical protections.</p>
-
-    <h2>3. Intellectual Property Notice</h2>
+    <p>This is a FREE, feature-limited evaluation version of the ECD Checklist Assessment Tool designed strictly for demonstration, preview, and trial purposes.</p>
     <ul>
-        <li><strong>Content Ownership:</strong> The Revised Philippine ECD Checklist criteria, test items, and scoring domains are the intellectual property of the <strong>Department of Education (DepEd)</strong> and the <strong>ECCD Council</strong>. This application is an independent digital tool.</li>
-        <li><strong>Application Tool Ownership:</strong> The underlying codebase, software design, and automation script frameworks are the exclusive property of the developer.</li>
-        <li><strong>Service Limitation:</strong> Use of this application constitutes a payment solely for the data automation service, not a sale of government-owned material.</li>
-        <li><strong>Demo Evaluation Limitation:</strong> Advanced document generation (templated/non-templated DOCX, class consolidations, booklet PDFs) requires a paid license, which unlocks the features for all user profiles on that specific device.</li>
+        <li>Premium features (such as automated batch reporting, specific data exports, and advanced management tools) are disabled or restricted.</li>
+        <li>To unlock the full, unrestricted automation capabilities for your DepEd or ECCD Council classes, you may download the Premium version from our official website or reach out to the developer via Facebook.</li>
+        <li>No license activation keys or hardware IDs are collected or requested by this free trial executable.</li>
     </ul>
 
-    <h2>4. Disclaimer & Open Source Notice</h2>
-    <p>This application is <strong>NOT</strong> officially endorsed by DepEd or the ECCD Council. Delivered on an "AS IS" basis. This software uses PySide6 (Qt) under the LGPL v3 license.</p>
+    <hr>
+
+    <h2>2. Philippine Data Privacy Act (RA 10173) Compliance</h2>
+    <p>The developer explicitly recognizes that this application locally processes Protected and Sensitive Personal Information under Philippine Law, including:</p>
+    <ul>
+        <li><strong>Learner Identification:</strong> Names, LRN, Sex, Birth Dates, Birth Order, and Handedness.</li>
+        <li><strong>Demographics:</strong> Barangay, Municipality/City, Province, and Region.</li>
+        <li><strong>Family Profiles:</strong> Parents'/Guardians' names, ages, occupations, and educational attainment data.</li>
+        <li><strong>Socio-environmental Data:</strong> Number of siblings and school enrollment status.</li>
+        <li><strong>Timestamps:</strong> Record creation and update dates (<code>created_at</code>/<code>updated_at</code>).</li>
+    </ul>
+
+    <h3>Local Storage Data Isolation</h3>
+    <p>All database parameters remain isolated <strong>LOCALLY AND EXCLUSIVELY</strong> on your host machine via an offline SQLite database. Because this is a free offline demo tool, the developer <strong>CANNOT</strong> view, intercept, modify, or recover any datasets or metrics you input. No information fields are quietly pushed to cloud targets or external entities.</p>
+
+    <h3>User Custodian Responsibility</h3>
+    <p>As the primary technical custodian of this child data, the installing user holds exclusive liability for managing access permissions, local hardware physical protections, and data export vulnerabilities.</p>
+
+    <hr>
+
+    <h2>3. Your Rights as the Data Controller</h2>
+    <p>Under the Data Privacy Act framework, you maintain total ownership over the data. You exercise exclusive rights to:</p>
+    <ul>
+        <li><strong>Access & Correct:</strong> Update student forms or family backgrounds instantly.</li>
+        <li><strong>Erasure:</strong> Permanently delete your local trial SQLite database data securely when it is no longer needed.</li>
+    </ul>
+
+    <hr>
+
+    <h2>4. Intellectual Property Notice</h2>
+    <ul>
+        <li><strong>Content Ownership (DepEd & ECCD Council):</strong> The Revised Philippine Early Childhood Development (ECD) Checklist criteria, test score metrics, domain fields, and instruction materials are the exclusive intellectual property of the Department of Education (DepEd) and the ECCD Council of the Philippines. This software is merely an independent digital tool.</li>
+        <li><strong>Application Tool Ownership:</strong> The underlying codebase structures, PySide6 (Qt) user interface layout configurations, automation script frameworks, operational UX, and database configurations are the exclusive property of the developer. This free version may not be repackaged or modified without prior consent.</li>
+        <li><strong>Service Limitation:</strong> The purchase or use of this application constitutes a payment solely for the automation service and data management features provided. It does not constitute a sale, distribution, or licensing of the official checklist content itself, which remains public domain and government-owned material.</li>
+        <li><strong>Demo Evaluation Limitation:</strong> This version is distributed as a free evaluation tool. Premium features—including custom and templated DOCX document generation, class score consolidation, and advanced PDF rendering (booklet and standard layouts)—require an optional paid license. Activating a premium license unlocks these features for all user profiles on that specific device.</li>
+    </ul>
+
+    <hr>
+
+    <h2>5. Disclaimer of Liability & Open Source Notice</h2>
+    <ul>
+        <li>This application is <strong>NOT</strong> officially endorsed by DepEd or the ECCD Council.</li>
+        <li>The software tool is delivered on an "AS IS" operational basis. The developer assumes no liabilities for accidental data loss or hardware errors.</li>
+        <li>Users are strongly encouraged to routinely verify digital data calculations against official paper technical manuals for formal government filing.</li>
+        <li><strong>Open Source Components:</strong> This software uses <strong>PySide6 (Qt)</strong> under the terms of the <strong>LGPL v3</strong> license.</li>
+    </ul>
+
+    <div class="footer-note">
+        <p>By installing the application or selecting "I accept the agreement" during setup, you affirm your consensus to these terms.</p>
+    </div>
 
 </body>
 </html>
