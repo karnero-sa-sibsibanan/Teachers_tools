@@ -5,7 +5,7 @@ const productsDatabase = {
         category: "productivity",
         version: "v2.1",
         rating: "★★★★★",
-        price: "₱485.00",
+        price: "₱0.00",
         shortDescription: "Streamline early childhood development tracking with a 100% offline desktop application built for Filipino educators.",
         description: `
             <div class="space-y-4">
